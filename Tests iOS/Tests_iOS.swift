@@ -21,13 +21,71 @@ class Tests_iOS: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+//MARK: Counter Components
+    func testGetCounterComponents() throws {
+        var counter = Counter(name: "", date: Date(), color: .blue, symbolName: "")
+        
+        
+        //MARK: 1 Week -
+        counter.date = Date() + 60 * 60 * 24 * 7
+        
+        //Testing showOnlyDays
+        var components = counter.getCounterComponents(type: .showOnlyDays)
+        XCTAssert(
+            components == (days: 7, weeks: 0, months: 0, years: 0)
+        )
+        //Testing showWeeks
+        components = counter.getCounterComponents(type: .showWeeks)
+        XCTAssert(
+            components == (days: 0, weeks: 1, months: 0, years: 0)
+        )
+        //Testing showYears
+        components = counter.getCounterComponents(type: .showYears)
+        XCTAssert(
+            components == (days: 7, weeks: 0, months: 0, years: 0)
+        )
+        
+        
+        //MARK: 4 Weeks -
+        counter.date = Date() + 60 * 60 * 24 * 7 * 4
+        
+        //Testing showOnlyDays
+        components = counter.getCounterComponents(type: .showOnlyDays)
+        XCTAssert(
+            components == (days: 28, weeks: 0, months: 0, years: 0)
+        )
+        //Testing showWeeks
+        components = counter.getCounterComponents(type: .showWeeks)
+        XCTAssert(
+            components == (days: 0, weeks: 4, months: 0, years: 0)
+        )
+        //Testing showYears
+        components = counter.getCounterComponents(type: .showYears)
+        XCTAssert(
+            components == (days: 28, weeks: 0, months: 0, years: 0)
+        )
+        
+        //MARK: 1 Month -
+        counter.date = Date() + 60 * 60 * 24 * 31
+        
+        //Testing showOnlyDays
+        components = counter.getCounterComponents(type: .showOnlyDays)
+        XCTAssert(
+            components == (days: 31, weeks: 0, months: 0, years: 0)
+        )
+        //Testing showWeeks
+        components = counter.getCounterComponents(type: .showWeeks)
+        XCTAssert(
+            components == (days: 0, weeks: 0, months: 1, years: 0)
+        )
+        //Testing showYears
+        components = counter.getCounterComponents(type: .showYears)
+        XCTAssert(
+            components == (days: 0, weeks: 0, months: 1, years: 0)
+        )
+        
+        
+        
     }
 
     func testLaunchPerformance() throws {

@@ -21,6 +21,10 @@
 		9BFC820428377E8100219B51 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D628377E7F00219B51 /* Persistence.swift */; };
 		9BFC820528377E8100219B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
 		9BFC820628377E8100219B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
+		9BFC82182837809400219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82172837809400219B51 /* Counter.swift */; };
+		9BFC82192837809400219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82172837809400219B51 /* Counter.swift */; };
+		9BFC821A2837847000219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82172837809400219B51 /* Counter.swift */; };
+		9BFC821B2837847100219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82172837809400219B51 /* Counter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,7 @@
 		9BFC81F528377E8100219B51 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFC81F928377E8100219B51 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		9BFC81FB28377E8100219B51 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		9BFC82172837809400219B51 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				9BFC81D428377E7F00219B51 /* Chronos_CountdownApp.swift */,
-				9BFC81D528377E7F00219B51 /* ContentView.swift */,
-				9BFC81D628377E7F00219B51 /* Persistence.swift */,
+				9BFC821528377EFF00219B51 /* Views */,
+				9BFC821628377F2100219B51 /* Model */,
 				9BFC81D728377E8100219B51 /* Assets.xcassets */,
 				9BFC81D228377E7F00219B51 /* Chronos_Countdown.xcdatamodeld */,
 			);
@@ -147,6 +152,23 @@
 				9BFC81FB28377E8100219B51 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		9BFC821528377EFF00219B51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9BFC81D528377E7F00219B51 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9BFC821628377F2100219B51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BFC81D628377E7F00219B51 /* Persistence.swift */,
+				9BFC82172837809400219B51 /* Counter.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BFC82182837809400219B51 /* Counter.swift in Sources */,
 				9BFC81FF28377E8100219B51 /* Chronos_CountdownApp.swift in Sources */,
 				9BFC820328377E8100219B51 /* Persistence.swift in Sources */,
 				9BFC81FD28377E8100219B51 /* Chronos_Countdown.xcdatamodeld in Sources */,
@@ -318,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BFC82192837809400219B51 /* Counter.swift in Sources */,
 				9BFC820028377E8100219B51 /* Chronos_CountdownApp.swift in Sources */,
 				9BFC820428377E8100219B51 /* Persistence.swift in Sources */,
 				9BFC81FE28377E8100219B51 /* Chronos_Countdown.xcdatamodeld in Sources */,
@@ -331,6 +355,7 @@
 			files = (
 				9BFC81F028377E8100219B51 /* Tests_iOSLaunchTests.swift in Sources */,
 				9BFC81EE28377E8100219B51 /* Tests_iOS.swift in Sources */,
+				9BFC821A2837847000219B51 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +365,7 @@
 			files = (
 				9BFC81FC28377E8100219B51 /* Tests_macOSLaunchTests.swift in Sources */,
 				9BFC81FA28377E8100219B51 /* Tests_macOS.swift in Sources */,
+				9BFC821B2837847100219B51 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
