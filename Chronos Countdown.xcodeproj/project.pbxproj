@@ -17,14 +17,12 @@
 		9BFC820028377E8100219B51 /* Chronos_CountdownApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* Chronos_CountdownApp.swift */; };
 		9BFC820128377E8100219B51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* ContentView.swift */; };
 		9BFC820228377E8100219B51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* ContentView.swift */; };
-		9BFC820328377E8100219B51 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D628377E7F00219B51 /* Persistence.swift */; };
-		9BFC820428377E8100219B51 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D628377E7F00219B51 /* Persistence.swift */; };
 		9BFC820528377E8100219B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
 		9BFC820628377E8100219B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
-		9BFC82182837809400219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82172837809400219B51 /* Counter.swift */; };
-		9BFC82192837809400219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82172837809400219B51 /* Counter.swift */; };
-		9BFC821A2837847000219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82172837809400219B51 /* Counter.swift */; };
-		9BFC821B2837847100219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82172837809400219B51 /* Counter.swift */; };
+		9BFC824A2839554200219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82482839554200219B51 /* Counter.swift */; };
+		9BFC824C2839557400219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82482839554200219B51 /* Counter.swift */; };
+		9BFC824D2839571A00219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82482839554200219B51 /* Counter.swift */; };
+		9BFC824E2839571E00219B51 /* Chronos_Countdown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos_Countdown.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +46,6 @@
 		9BFC81D328377E7F00219B51 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		9BFC81D428377E7F00219B51 /* Chronos_CountdownApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chronos_CountdownApp.swift; sourceTree = "<group>"; };
 		9BFC81D528377E7F00219B51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9BFC81D628377E7F00219B51 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9BFC81D728377E8100219B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BFC81DC28377E8100219B51 /* Chronos Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chronos Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFC81E228377E8100219B51 /* Chronos Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chronos Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +56,7 @@
 		9BFC81F528377E8100219B51 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFC81F928377E8100219B51 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		9BFC81FB28377E8100219B51 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
-		9BFC82172837809400219B51 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		9BFC82482839554200219B51 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,8 +162,7 @@
 		9BFC821628377F2100219B51 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9BFC81D628377E7F00219B51 /* Persistence.swift */,
-				9BFC82172837809400219B51 /* Counter.swift */,
+				9BFC82482839554200219B51 /* Counter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,10 +325,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BFC82182837809400219B51 /* Counter.swift in Sources */,
 				9BFC81FF28377E8100219B51 /* Chronos_CountdownApp.swift in Sources */,
-				9BFC820328377E8100219B51 /* Persistence.swift in Sources */,
 				9BFC81FD28377E8100219B51 /* Chronos_Countdown.xcdatamodeld in Sources */,
+				9BFC824A2839554200219B51 /* Counter.swift in Sources */,
 				9BFC820128377E8100219B51 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,11 +336,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BFC82192837809400219B51 /* Counter.swift in Sources */,
 				9BFC820028377E8100219B51 /* Chronos_CountdownApp.swift in Sources */,
-				9BFC820428377E8100219B51 /* Persistence.swift in Sources */,
 				9BFC81FE28377E8100219B51 /* Chronos_Countdown.xcdatamodeld in Sources */,
 				9BFC820228377E8100219B51 /* ContentView.swift in Sources */,
+				9BFC824C2839557400219B51 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +349,8 @@
 			files = (
 				9BFC81F028377E8100219B51 /* Tests_iOSLaunchTests.swift in Sources */,
 				9BFC81EE28377E8100219B51 /* Tests_iOS.swift in Sources */,
-				9BFC821A2837847000219B51 /* Counter.swift in Sources */,
+				9BFC824E2839571E00219B51 /* Chronos_Countdown.xcdatamodeld in Sources */,
+				9BFC824D2839571A00219B51 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +360,6 @@
 			files = (
 				9BFC81FC28377E8100219B51 /* Tests_macOSLaunchTests.swift in Sources */,
 				9BFC81FA28377E8100219B51 /* Tests_macOS.swift in Sources */,
-				9BFC821B2837847100219B51 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

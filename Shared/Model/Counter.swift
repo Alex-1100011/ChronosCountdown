@@ -1,18 +1,27 @@
 //
 //  Counter.swift
-//  Chronos Countdown
+//  Chronos Countdown (iOS)
 //
-//  Created by Alessandro Alberti on 20/05/22.
+//  Created by Alessandro Alberti on 21/05/22.
+//
 //
 
 import Foundation
-import SwiftUI
+import CoreData
 
-struct Counter: Identifiable{
-    var name: String
-    var date: Date
-    var color: Color
-    var symbolName: String
+@objc(Counter)
+public class Counter: NSManagedObject {
+    
+    convenience init(context: NSManagedObjectContext, name: String, date: Date, color: String, symbolName: String){
+        
+        self.init(context: context)
+        
+        self.name = name
+        self.date = date
+        self.color = color
+        self.symbolName = symbolName
+        self.id = UUID()
+    }
     
     /// This function returns the components of the countdown from ``date``
     /// - Parameter type: the type of components to be included
@@ -26,12 +35,12 @@ struct Counter: Identifiable{
         todayDate = calendar.date(from: todayComponents)!
         
         ///Difference between `todayDate` and `date`
-        let components = calendar.dateComponents([.day, .month, .year], from: todayDate, to: date)
+        let components = calendar.dateComponents([.day, .month, .year], from: todayDate, to: date ?? Date())
         
         switch type {
         //Days
         case .showOnlyDays:
-            let days = calendar.dateComponents([.day], from: todayDate, to: date).day!
+            let days = calendar.dateComponents([.day], from: todayDate, to: date ?? Date()).day!
             return (days: days, weeks: 0, months: 0, years: 0)
         //Weeks
         case .showWeeks:
@@ -54,6 +63,4 @@ struct Counter: Identifiable{
         ///Shows days, months and years components
         case showYears
     }
-    
-    var id = UUID()
 }
