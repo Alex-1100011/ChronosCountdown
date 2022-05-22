@@ -9,17 +9,17 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var managedObject
-    @FetchRequest(sortDescriptors: []) var counters: FetchedResults<Counter>
+    @EnvironmentObject var dataController: DataController
+    
     
     var body: some View {
         List{
-            ForEach(counters){ counter in
-                Text(counter.name ?? "")
+            ForEach(dataController.counters){ counter in
+                Text(counter.name)
             }
             Button("Add"){
-                let _ = Counter(context: managedObject, name: "test", date: Date(), color: "", symbolName: "")
-                try? managedObject.save()
+                let counter = Counter(name: "Test", date: Date(), color: .blue, symbolName: "")
+                dataController.add(counter)
             }
         }
         

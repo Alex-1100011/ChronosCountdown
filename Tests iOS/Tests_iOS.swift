@@ -8,7 +8,7 @@
 import XCTest
 
 class Tests_iOS: XCTestCase {
-    var dataController = DataController()
+    var counter = Counter(name: "", date: Date(), color: .blue, symbolName: "")
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,11 +22,9 @@ class Tests_iOS: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
     //MARK: Counter Components
     func testGetCounterComponents() throws {
-        let context = dataController.container.viewContext
-        var counter = Counter(context: context, name: "", date: Date(), color: "", symbolName: "")
-        
         
         //MARK: 1 Week -
         counter.date = Date() + 60 * 60 * 24 * 7
@@ -46,7 +44,6 @@ class Tests_iOS: XCTestCase {
         XCTAssert(
             components == (days: 7, weeks: 0, months: 0, years: 0)
         )
-        
         
         //MARK: 4 Weeks -
         counter.date = Date() + 60 * 60 * 24 * 7 * 4
@@ -85,8 +82,6 @@ class Tests_iOS: XCTestCase {
         XCTAssert(
             components == (days: 0, weeks: 0, months: 1, years: 0)
         )
-        
-        
         
     }
 
