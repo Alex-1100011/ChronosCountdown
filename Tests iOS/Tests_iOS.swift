@@ -8,22 +8,24 @@
 import XCTest
 
 class Tests_iOS: XCTestCase {
-
+    var dataController = DataController()
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
+        
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
+        
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-//MARK: Counter Components
+    //MARK: Counter Components
     func testGetCounterComponents() throws {
-        var counter = Counter(name: "", date: Date(), color: .blue, symbolName: "")
+        let context = dataController.container.viewContext
+        var counter = Counter(context: context, name: "", date: Date(), color: "", symbolName: "")
         
         
         //MARK: 1 Week -

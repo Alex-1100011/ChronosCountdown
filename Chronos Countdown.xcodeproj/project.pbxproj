@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B87C974283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
+		9B87C975283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
+		9B87C976283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
 		9BFC81EE28377E8100219B51 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81ED28377E8100219B51 /* Tests_iOS.swift */; };
 		9BFC81F028377E8100219B51 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81EF28377E8100219B51 /* Tests_iOSLaunchTests.swift */; };
 		9BFC81FA28377E8100219B51 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81F928377E8100219B51 /* Tests_macOS.swift */; };
 		9BFC81FC28377E8100219B51 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81FB28377E8100219B51 /* Tests_macOSLaunchTests.swift */; };
-		9BFC81FD28377E8100219B51 /* Chronos_Countdown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos_Countdown.xcdatamodeld */; };
-		9BFC81FE28377E8100219B51 /* Chronos_Countdown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos_Countdown.xcdatamodeld */; };
+		9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
+		9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
 		9BFC81FF28377E8100219B51 /* Chronos_CountdownApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* Chronos_CountdownApp.swift */; };
 		9BFC820028377E8100219B51 /* Chronos_CountdownApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* Chronos_CountdownApp.swift */; };
 		9BFC820128377E8100219B51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* ContentView.swift */; };
@@ -22,7 +25,7 @@
 		9BFC824A2839554200219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82482839554200219B51 /* Counter.swift */; };
 		9BFC824C2839557400219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82482839554200219B51 /* Counter.swift */; };
 		9BFC824D2839571A00219B51 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC82482839554200219B51 /* Counter.swift */; };
-		9BFC824E2839571E00219B51 /* Chronos_Countdown.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos_Countdown.xcdatamodeld */; };
+		9BFC824E2839571E00219B51 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B87C973283A88B40019395E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9BFC81D328377E7F00219B51 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		9BFC81D428377E7F00219B51 /* Chronos_CountdownApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chronos_CountdownApp.swift; sourceTree = "<group>"; };
 		9BFC81D528377E7F00219B51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,7 +113,7 @@
 				9BFC821528377EFF00219B51 /* Views */,
 				9BFC821628377F2100219B51 /* Model */,
 				9BFC81D728377E8100219B51 /* Assets.xcassets */,
-				9BFC81D228377E7F00219B51 /* Chronos_Countdown.xcdatamodeld */,
+				9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				9BFC82482839554200219B51 /* Counter.swift */,
+				9B87C973283A88B40019395E /* DataController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,8 +330,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B87C974283A88B40019395E /* DataController.swift in Sources */,
 				9BFC81FF28377E8100219B51 /* Chronos_CountdownApp.swift in Sources */,
-				9BFC81FD28377E8100219B51 /* Chronos_Countdown.xcdatamodeld in Sources */,
+				9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BFC824A2839554200219B51 /* Counter.swift in Sources */,
 				9BFC820128377E8100219B51 /* ContentView.swift in Sources */,
 			);
@@ -336,8 +342,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B87C975283A88B40019395E /* DataController.swift in Sources */,
 				9BFC820028377E8100219B51 /* Chronos_CountdownApp.swift in Sources */,
-				9BFC81FE28377E8100219B51 /* Chronos_Countdown.xcdatamodeld in Sources */,
+				9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BFC820228377E8100219B51 /* ContentView.swift in Sources */,
 				9BFC824C2839557400219B51 /* Counter.swift in Sources */,
 			);
@@ -347,9 +354,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B87C976283A88B40019395E /* DataController.swift in Sources */,
 				9BFC81F028377E8100219B51 /* Tests_iOSLaunchTests.swift in Sources */,
 				9BFC81EE28377E8100219B51 /* Tests_iOS.swift in Sources */,
-				9BFC824E2839571E00219B51 /* Chronos_Countdown.xcdatamodeld in Sources */,
+				9BFC824E2839571E00219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BFC824D2839571A00219B51 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,13 +743,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9BFC81D228377E7F00219B51 /* Chronos_Countdown.xcdatamodeld */ = {
+		9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				9BFC81D328377E7F00219B51 /* Shared.xcdatamodel */,
 			);
 			currentVersion = 9BFC81D328377E7F00219B51 /* Shared.xcdatamodel */;
-			path = Chronos_Countdown.xcdatamodeld;
+			path = Chronos.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
