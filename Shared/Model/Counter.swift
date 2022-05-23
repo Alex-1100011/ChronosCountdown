@@ -16,10 +16,15 @@ struct Counter: Identifiable{
     var symbolName: String
     var id = UUID()
     
+    ///Returns true if the event is on the current day
+    var isToday: Bool{
+        getCounterComponents(type: .showOnlyDays).days == 0
+    }
+    
     /// This function returns the components of the countdown from ``date``
     /// - Parameter type: the type of components to be included
     /// - Returns: A tuple with all the components as `Integers`
-    func getCounterComponents(type: Types) -> (days: Int, weeks: Int, months: Int, years: Int){
+    func getCounterComponents(type: Types) -> counterComponents{
         let calendar = Calendar.current
         var todayDate = Date()
         
@@ -73,3 +78,6 @@ struct Counter: Identifiable{
     }
 
 }
+
+///A tuple containing all the components of the ``Counter``
+typealias counterComponents = (days: Int, weeks: Int, months: Int, years: Int)

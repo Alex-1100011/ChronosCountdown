@@ -13,12 +13,21 @@ struct ContentView: View {
     
     
     var body: some View {
-        List{
+        ScrollView {
             ForEach(dataController.counters){ counter in
-                Text(counter.name)
+                CounterTopView(counter: counter, type: .showWeeks)
+                    .padding()
+                    .background{
+                        RoundedRectangle(cornerRadius: 30)
+                            .foregroundColor(.blue)
+                    }
             }
             Button("Add"){
-                let counter = Counter(name: "Test", date: Date(), color: .blue, symbolName: "")
+                let counter = Counter(
+                    name: "Test",
+                    date: Date() + 60 * 60 * 24 * Double(Int.random(in: 1...60)),
+                    color: .blue,
+                    symbolName: "")
                 dataController.add(counter)
             }
         }
@@ -31,5 +40,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(DataController())
     }
 }

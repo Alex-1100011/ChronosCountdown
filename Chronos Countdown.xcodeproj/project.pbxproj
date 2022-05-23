@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B73E10F283C076D009178A2 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E10E283C076D009178A2 /* LabelView.swift */; };
+		9B73E110283C076D009178A2 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E10E283C076D009178A2 /* LabelView.swift */; };
+		9B73E112283C0849009178A2 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E111283C0849009178A2 /* DaysView.swift */; };
+		9B73E113283C0849009178A2 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E111283C0849009178A2 /* DaysView.swift */; };
+		9B73E115283C09BE009178A2 /* CounterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E114283C09BE009178A2 /* CounterTopView.swift */; };
+		9B73E116283C09BE009178A2 /* CounterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E114283C09BE009178A2 /* CounterTopView.swift */; };
 		9B87C974283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
 		9B87C975283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
 		9B87C976283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
@@ -46,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B73E10E283C076D009178A2 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		9B73E111283C0849009178A2 /* DaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
+		9B73E114283C09BE009178A2 /* CounterTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTopView.swift; sourceTree = "<group>"; };
 		9B87C973283A88B40019395E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9B87C977283A93E40019395E /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		9BFC81D328377E7F00219B51 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -159,6 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				9BFC81D528377E7F00219B51 /* ContentView.swift */,
+				9B73E10E283C076D009178A2 /* LabelView.swift */,
+				9B73E111283C0849009178A2 /* DaysView.swift */,
+				9B73E114283C09BE009178A2 /* CounterTopView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,8 +345,11 @@
 				9B87C978283A93E40019395E /* Counter.swift in Sources */,
 				9B87C974283A88B40019395E /* DataController.swift in Sources */,
 				9BFC81FF28377E8100219B51 /* Chronos_CountdownApp.swift in Sources */,
+				9B73E112283C0849009178A2 /* DaysView.swift in Sources */,
 				9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
+				9B73E115283C09BE009178A2 /* CounterTopView.swift in Sources */,
 				9BFC820128377E8100219B51 /* ContentView.swift in Sources */,
+				9B73E10F283C076D009178A2 /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,8 +360,11 @@
 				9B87C979283A93E40019395E /* Counter.swift in Sources */,
 				9B87C975283A88B40019395E /* DataController.swift in Sources */,
 				9BFC820028377E8100219B51 /* Chronos_CountdownApp.swift in Sources */,
+				9B73E113283C0849009178A2 /* DaysView.swift in Sources */,
 				9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
+				9B73E116283C09BE009178A2 /* CounterTopView.swift in Sources */,
 				9BFC820228377E8100219B51 /* ContentView.swift in Sources */,
+				9B73E110283C076D009178A2 /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
