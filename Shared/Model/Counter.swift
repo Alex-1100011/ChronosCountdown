@@ -64,6 +64,7 @@ struct Counter: Identifiable{
         self.symbolName = symbolName
     }
     
+    ///instantiate a new ``Counter`` from a CoreData's ``CounterDataEntity``
     init(from entity: CounterDataEntity){
         name = entity.name ?? ""
         date = entity.date ?? Date()

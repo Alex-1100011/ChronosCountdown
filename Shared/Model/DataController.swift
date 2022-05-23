@@ -9,7 +9,9 @@ import Foundation
 import CoreData
 
 class DataController: ObservableObject{
+    ///The CoreData `Persistent Container`
     let container = NSPersistentContainer(name: "Chronos")
+    ///The list of counters
     @Published var counters: [Counter] = []
     
     init(){
@@ -37,6 +39,7 @@ class DataController: ObservableObject{
         }
     }
     
+    ///This function adds a new ``Counter`` to the ``counters``
     func add(_ counter: Counter){
         let counterEntity = CounterDataEntity(context: container.viewContext)
         counterEntity.name = counter.name
@@ -44,6 +47,11 @@ class DataController: ObservableObject{
         counterEntity.color = String(describing: counter.color)
         counterEntity.symbolName = counter.symbolName
         
+        save()
+    }
+    
+    ///This function saves the ``container``'s context and updates the ``counters``
+    private func save(){
         try? container.viewContext.save()
         fetchCounters()
     }
