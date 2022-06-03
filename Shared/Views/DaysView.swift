@@ -23,6 +23,7 @@ struct DaysView: View {
         self.isToday = isToday
     }
     
+    //MARK: body
     var body: some View {
         VStack(alignment: .leading){
             //The prominent number or "Today" text
@@ -38,11 +39,14 @@ struct DaysView: View {
     }
 }
 
+//MARK: Previews
 struct DaysView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DaysView(24, "DAYS")
-            DaysView(0, "DAYS")
+                .previewDisplayName("Days")
+            DaysView(0, "DAYS", isToday: true)
+                .previewDisplayName("Today")
         }
         .padding()
         .background(Color.blue)

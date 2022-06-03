@@ -34,7 +34,9 @@ struct ContentView: View {
                 
                 //Change card size button
                 Button{
-                    isAspectSmall.toggle()
+                    withAnimation{
+                        isAspectSmall.toggle()
+                    }
                 } label: {
                     Label("Change card size", systemImage: isAspectSmall ? "rectangle.grid.2x2" : "rectangle.grid.1x2")
                 }

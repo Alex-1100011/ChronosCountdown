@@ -27,6 +27,7 @@ struct CounterTopView: View {
         !counter.isToday && type == .showYears && components.years != 0
     }
     
+    //MARK: body
     var body: some View {
         HStack {
             DaysView(components.days, "DAYS", isToday: counter.isToday)
@@ -50,10 +51,12 @@ struct CounterTopView: View {
     }
 }
 
+//MARK: Previews
 struct CounterTopView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
+            //showWeeks
             CounterTopView(counter:
                 Counter(
                     name: "",
@@ -62,6 +65,8 @@ struct CounterTopView_Previews: PreviewProvider {
                     symbolName: ""
                 ), type: .showWeeks
             )
+            .previewDisplayName("showWeeks")
+            //Today
             CounterTopView(counter:
                 Counter(
                     name: "",
@@ -70,6 +75,7 @@ struct CounterTopView_Previews: PreviewProvider {
                     symbolName: ""
                 ), type: .showWeeks
             )
+            .previewDisplayName("Today")
         }
         .padding()
         .background(Color.red)
