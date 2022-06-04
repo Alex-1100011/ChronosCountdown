@@ -18,13 +18,7 @@ struct ContentView: View {
             ScrollView {
                 ForEach(dataController.counters){ counter in
                     
-                    CounterTopView(counter: counter, type: isAspectSmall ? .showOnlyDays : .showWeeks)
-                        .frame(width: isAspectSmall ? 180 : 360, height: 160, alignment: .leading)
-                        .padding()
-                        .background{
-                            RoundedRectangle(cornerRadius: 30)
-                                .foregroundColor(.blue)
-                        }
+                    CounterCardView(counter: counter, isSmall: isAspectSmall)
                 }
             }
             .navigationBarTitle("Counters")
@@ -47,7 +41,7 @@ struct ContentView: View {
                         name: "Test",
                         date: Date() + 60 * 60 * 24 * Double(Int.random(in: 1...60)),
                         color: .blue,
-                        symbolName: "")
+                        symbolName: "command")
                     dataController.add(counter)
                 } label: {
                     Label("Add new counter", systemImage: "plus")
