@@ -1,8 +1,15 @@
 # ChronosCountdown
-An app that keeps track of upcoming and past events 
+A sample project to try out and demo different frameworks and technologies.
+The app keeps track of upcoming and past events using a countdown.
 
-## Technologies
+## Technologies used
+
 - CoreData
-- CloudKit
 - WidgetKit
 - WatchKit
+
+## Upcoming Technologies
+
+- CloudKit
+- SiriKit
+- AppClips
