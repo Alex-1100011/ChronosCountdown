@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct MainView: View {
     @EnvironmentObject var dataController: DataController
     ///This state controls the size of the ``CounterCardView``
     @State var isAspectSmall = true
@@ -56,7 +56,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
             .environmentObject(DataController())
     }
 }

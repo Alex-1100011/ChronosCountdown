@@ -11,6 +11,7 @@ struct CounterCardView: View {
     var counter: Counter
     var isSmall = false
     
+    //MARK: body
     var body: some View {
         VStack(alignment: .leading) {
             //TopView
@@ -22,7 +23,7 @@ struct CounterCardView: View {
                 .foregroundColor(.white)
         }
         .padding()
-        .frame(width: isSmall ? 180 : 360, height: 160, alignment: .leading)
+        .frame(width: isSmall ? 180 : 360, height: 180, alignment: .leading)
         
         .background(
             ZStack(alignment: .trailing) {
@@ -30,14 +31,14 @@ struct CounterCardView: View {
                 counter.color
                 
                 Image(systemName: counter.symbolName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 120, height: 120)
+                    .symbolVariant(.fill)
+                    .font(.system(size: 90))
+                    .imageScale(.large)
                     .foregroundColor(counter.color)
                     .brightness(-0.2)
                     .rotationEffect(Angle(degrees: -20))
-                    .offset(x: 10, y: 35)
-                
+                    .offset(x: 10, y: 30)
+
             }
         )
         
@@ -46,34 +47,35 @@ struct CounterCardView: View {
     }
 }
 
+//MARK: Previews
 struct CounterCardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             
             CounterCardView(counter: Counter(
-                name: "Hello",
+                name: "Trip to SF",
                 date:
                     Calendar.current.date(
                         byAdding: .day,
                         value: 24,
                         to: Date()
                     ) ?? Date(),
-                color: .blue,
-                symbolName: "car"),
+                color: .orange,
+                symbolName: "airplane"),
                             isSmall: true
             )
             .previewDisplayName("Small")
             
             CounterCardView(counter: Counter(
-                name: "Hello",
+                name: "Train",
                 date:
                     Calendar.current.date(
                         byAdding: .day,
                         value: 24,
                         to: Date()
                     ) ?? Date(),
-                color: .blue,
-                symbolName: "car")
+                color: .green,
+                symbolName: "tram")
             )
             .previewDisplayName("Large")
             

@@ -27,8 +27,8 @@
 		9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
 		9BFC81FF28377E8100219B51 /* ChronosCountdownApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */; };
 		9BFC820028377E8100219B51 /* ChronosCountdownApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */; };
-		9BFC820128377E8100219B51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* ContentView.swift */; };
-		9BFC820228377E8100219B51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* ContentView.swift */; };
+		9BFC820128377E8100219B51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* MainView.swift */; };
+		9BFC820228377E8100219B51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* MainView.swift */; };
 		9BFC820528377E8100219B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
 		9BFC820628377E8100219B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
 		9BFC824E2839571E00219B51 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
@@ -59,7 +59,7 @@
 		9BBA6793284A26BD00BF688C /* CounterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCardView.swift; sourceTree = "<group>"; };
 		9BFC81D328377E7F00219B51 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosCountdownApp.swift; sourceTree = "<group>"; };
-		9BFC81D528377E7F00219B51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9BFC81D528377E7F00219B51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9BFC81D728377E8100219B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BFC81DC28377E8100219B51 /* Chronos Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chronos Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFC81E228377E8100219B51 /* Chronos Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chronos Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +167,7 @@
 		9BFC821528377EFF00219B51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9BFC81D528377E7F00219B51 /* ContentView.swift */,
+				9BFC81D528377E7F00219B51 /* MainView.swift */,
 				9BBA6793284A26BD00BF688C /* CounterCardView.swift */,
 				9B73E111283C0849009178A2 /* DaysView.swift */,
 				9B73E114283C09BE009178A2 /* CounterTopView.swift */,
@@ -349,7 +349,7 @@
 				9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BBA6794284A26BD00BF688C /* CounterCardView.swift in Sources */,
 				9B73E115283C09BE009178A2 /* CounterTopView.swift in Sources */,
-				9BFC820128377E8100219B51 /* ContentView.swift in Sources */,
+				9BFC820128377E8100219B51 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +364,7 @@
 				9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BBA6795284A26BD00BF688C /* CounterCardView.swift in Sources */,
 				9B73E116283C09BE009178A2 /* CounterTopView.swift in Sources */,
-				9BFC820228377E8100219B51 /* ContentView.swift in Sources */,
+				9BFC820228377E8100219B51 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
