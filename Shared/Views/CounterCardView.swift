@@ -28,7 +28,7 @@ struct CounterCardView: View {
         .background(
             ZStack(alignment: .trailing) {
                 
-                counter.color
+                Rectangle().fill(counter.color.gradient)
                 
                 Image(systemName: counter.symbolName)
                     .symbolVariant(.fill)
