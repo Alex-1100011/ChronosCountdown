@@ -19,6 +19,7 @@ struct MainView: View {
                 ForEach(dataController.counters){ counter in
                     
                     CounterCardView(counter: counter, isSmall: isAspectSmall)
+                        .frame(width: isAspectSmall ? 170 : 360, height: 170, alignment: .leading)
                 }
             }
             .navigationBarTitle("Counters")

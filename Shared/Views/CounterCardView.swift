@@ -10,6 +10,7 @@ import SwiftUI
 struct CounterCardView: View {
     var counter: Counter
     var isSmall = false
+    var roundCorners = true
     
     //MARK: body
     var body: some View {
@@ -23,7 +24,7 @@ struct CounterCardView: View {
                 .foregroundColor(.white)
         }
         .padding()
-        .frame(width: isSmall ? 180 : 360, height: 180, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .leading)
         
         .background(
             ZStack(alignment: .trailing) {
@@ -42,7 +43,7 @@ struct CounterCardView: View {
             }
         )
         
-        .clipShape(RoundedRectangle(cornerRadius: 30))
+        .clipShape(RoundedRectangle(cornerRadius: roundCorners ? 30 : 0))
         
     }
 }
@@ -64,6 +65,7 @@ struct CounterCardView_Previews: PreviewProvider {
                 symbolName: "airplane"),
                             isSmall: true
             )
+            .frame(width: 170, height: 170)
             .previewDisplayName("Small")
             
             CounterCardView(counter: Counter(
