@@ -29,23 +29,22 @@ struct CounterTopView: View {
     
     //MARK: body
     var body: some View {
-        HStack {
-            DaysView(components.days, "DAYS", isToday: counter.isToday)
-                .padding(.trailing)
+        HStack(spacing: 20) {
+            DaysView(components.days, "DAYS", isToday: counter.isToday, leadingAlignment: type == .showOnlyDays)
             
             if showWeeks {
                 DaysView(components.weeks, "WEEKS")
-                    .padding(.trailing)
+
             }
             
             if showMonths {
                 DaysView(components.months, "MONTHS")
-                    .padding(.trailing)
+
             }
             
             if type == .showYears {
                 DaysView(components.years, "YEARS")
-                    .padding(.trailing)
+
             }
         }
     }
