@@ -6,28 +6,61 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ImageColorTest: View {
-    var imageName: String
+    
+    @State private var selectedPhotoItem: PhotosPickerItem? = nil
+    @State private var image: UIImage?
+    
     var body: some View {
-        ZStack {
-            getColorFrom(image: imageName)!
+        ZStack{
+            //Background
+            getColorFrom(image: image)
                 .ignoresSafeArea()
-            Image(imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            .frame(height: 200)
-        }
             
+            //Picker
+            PhotosPicker(
+                selection: $selectedPhotoItem,
+                matching: .images,
+                photoLibrary: .shared()) {
+                    
+                    //Image
+                    if let image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                            .frame(width: 300, height: 300)
+                            
+                         //Placeholder Image
+                    } else {
+                        Image(systemName: "photo.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundStyle(.gray, .thinMaterial)
+                    }
+    
+                }
+            //Update image from picker's selection
+                .onChange(of: selectedPhotoItem) { newItem in
+                    Task {
+                        // Retrieve selected asset in the form of Data
+                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                            image = UIImage(data: data)
+                        }
+                    }
+                }
+        }
     }
 }
 
 
-func getColorFrom(image: String) -> Color? {
-    guard let uiImage = UIImage(named: image)
+
+func getColorFrom(image: UIImage?) -> Color? {
+    guard let image = image
         else { return nil }
     
-    guard let ciImage = CIImage(image: uiImage)
+    guard let ciImage = CIImage(image: image)
         else { return nil }
     
     let extentVector = CIVector(
@@ -40,12 +73,12 @@ func getColorFrom(image: String) -> Color? {
         else { return nil }
     
     guard let outputImage = filter.outputImage
-        else { return nil }
+    else { return nil }
     
     var bitmap = [UInt8](repeating: 0, count: 4)
     let context = CIContext(options: [.workingColorSpace: kCFNull])
-            context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
-
+    context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
+    
     return Color(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255)
 }
 
@@ -53,11 +86,6 @@ func getColorFrom(image: String) -> Color? {
 
 struct ImageColorTest_Previews: PreviewProvider {
     static var previews: some View {
-        ImageColorTest(imageName: "sperlonga")
-            .previewDisplayName("sperlonga")
-        ImageColorTest(imageName: "procida")
-            .previewDisplayName("procida")
-        ImageColorTest(imageName: "giardino")
-            .previewDisplayName("giardino")
+        ImageColorTest()
     }
 }
