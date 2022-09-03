@@ -9,21 +9,31 @@ import SwiftUI
 
 struct SymbolPicker: View {
     var color: Color = .blue
+    @Binding var selectedSymbol: String
+    
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 20){
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 15){
             
             CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), symbolName: "magnifyingglass", symbolColor: .secondary)
+            {
+                //Display search
+            }
             
-            ForEach(0 ..< 17) { item in
-                CircleElementView(color: color, selected: false, symbolName: "airplane", symbolColor: .white)
+            ForEach(symbols, id: \.self) { symbol in
+                CircleElementView(color: color, isSelected: selectedSymbol == symbol, symbolName: symbol, symbolColor: .white)
+                {
+                    selectedSymbol = symbol
+                }
             }
         }
     }
+    
+    var symbols = ["hourglass","tram.fill","car.fill","bus.fill","ferry.fill","bicycle","fuelpump.fill","allergens","pawprint.fill","pencil.and.outline","paintbrush.fill","house.fill","gamecontroller.fill","desktopcomputer","printer.filled.and.paper","keyboard.fill","text.book.closed.fill"]
 }
 
 struct SymbolPicker_Previews: PreviewProvider {
     static var previews: some View {
-        SymbolPicker()
+        SymbolPicker(selectedSymbol: .constant("hourglass"))
             .padding()
             .previewLayout(.sizeThatFits)
     }

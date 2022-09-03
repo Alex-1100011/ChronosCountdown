@@ -13,15 +13,29 @@ struct BackgroundPicker: View {
     
 //    @Binding var image
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 20){
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 15){
             
+            //MARK: Colors
             ForEach(colours, id: \.self) { elementColor in
-                CircleElementView(color: elementColor, selected: false, symbolColor: .white)
+                
+                CircleElementView(color: elementColor, isSelected: elementColor == color, symbolColor: .white)
+                {
+                    color = elementColor
+                }
+                
             }
             
-            CircleElementView(color: color, symbolColor: .thinMaterial, bgImage: "multicolor")
+            //MARK: Multicolor
+            CircleElementView(color: color, isSelected: false, symbolColor: .thinMaterial, bgImage: "multicolor")
+            {
+                //Display color picker
+            }
             
-            CircleElementView(color: color, selected: true, symbolName: "photo", symbolColor: .thinMaterial, bgImage: "sperlonga")
+            //MARK: Image
+            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), isSelected: false, symbolName: "photo", symbolColor: .secondary, bgImage: false ? "sperlonga" : nil)
+            {
+                //Display image picker
+            }
         }
     }
     
