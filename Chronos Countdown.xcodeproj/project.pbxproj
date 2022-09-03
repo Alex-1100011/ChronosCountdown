@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B16483B28C38F8300B45637 /* ImageColorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16483A28C38F8300B45637 /* ImageColorTest.swift */; };
 		9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEC28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B16483A28C38F8300B45637 /* ImageColorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageColorTest.swift; sourceTree = "<group>"; };
 		9B5E5AEA28C15370002E8056 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicker.swift; sourceTree = "<group>"; };
 		9B5E5AF028C1627F002E8056 /* CircleElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleElementView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */,
+				9B16483A28C38F8300B45637 /* ImageColorTest.swift */,
 				9BFC821528377EFF00219B51 /* Views */,
 				9BFC821628377F2100219B51 /* Model */,
 				9BFC81D728377E8100219B51 /* Assets.xcassets */,
@@ -370,6 +373,7 @@
 				9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */,
 				9B87C974283A88B40019395E /* DataController.swift in Sources */,
 				9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */,
+				9B16483B28C38F8300B45637 /* ImageColorTest.swift in Sources */,
 				9BFC81FF28377E8100219B51 /* ChronosCountdownApp.swift in Sources */,
 				9B5E5AF128C1627F002E8056 /* CircleElementView.swift in Sources */,
 				9B73E112283C0849009178A2 /* DaysView.swift in Sources */,

@@ -47,7 +47,7 @@ struct BackgroundPicker: View {
     
 }
 
-
+//TODO: Move this to another file ---
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
