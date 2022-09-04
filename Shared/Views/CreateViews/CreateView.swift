@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateView: View {
+    @EnvironmentObject var dataController: DataController
     @State var counter = Counter(name: "", date: Date(), color: Color(hex: "027AFF"), symbolName: "hourglass")
     
     var body: some View {
@@ -34,6 +35,7 @@ struct CreateView: View {
         .safeAreaInset(edge: .bottom){
             Button(action: {
                 //Save and dismiss
+                dataController.add(counter)
             }) {
                 //Save Button
                 HStack {
