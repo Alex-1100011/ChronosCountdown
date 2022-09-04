@@ -11,7 +11,7 @@ struct CreateView: View {
     ///Used to save the ``counter``
     @EnvironmentObject var dataController: DataController
     
-    @State var counter = Counter(name: "", date: Date(), color: Color(hex: "027AFF"), symbolName: "hourglass")
+    @State var counter = Counter()
     ///Used to dismiss the sheet
     @Binding var showSheet: Bool
     

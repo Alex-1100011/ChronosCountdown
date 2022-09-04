@@ -63,6 +63,17 @@ struct Counter: Identifiable{
         case showYears
     }
     
+    ///Instantiates a counter with default values
+    ///
+    ///Used when creating new counters in the ``CreateView``
+    init(){
+        self.name = ""
+        self.date = Date()
+        self.color = Color(hex: "027AFF")
+        self.symbolName = "hourglass"
+        self.image = nil
+    }
+    
     init(name: String, date: Date, color: Color, symbolName: String, image: UIImage? = nil) {
         self.name = name
         self.date = date
