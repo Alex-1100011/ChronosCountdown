@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CircleElementView<S: ShapeStyle>: View {
-    var color: Color
+    var color: Color?
     var isSelected: Bool = false
     var symbolName: String?
     ///This variable conforms to the ShapeStyle, so it could be assigned with any color or material
@@ -19,10 +19,6 @@ struct CircleElementView<S: ShapeStyle>: View {
     var body: some View{
    
             ZStack {
-                //MARK: Circle
-                Circle()
-                    .frame(height: 45)
-                    .foregroundColor(color)
                 
                 //MARK: Image
                 if let bgImage = bgImage {
@@ -31,6 +27,11 @@ struct CircleElementView<S: ShapeStyle>: View {
                         .scaledToFill()
                         .frame(width: 45, height: 45)
                         .clipShape(Circle())
+                } else {
+                    //MARK: Circle
+                    Circle()
+                        .frame(height: 45)
+                        .foregroundColor(color)
                 }
                 
                 //MARK: Symbol

@@ -12,7 +12,7 @@ import PhotosUI
 struct BackgroundPicker: View {
     @Binding var color: Color
     @Binding var image: UIImage?
-    
+    ///The selected item of the photoPicker
     @State private var selectedPhotoItem: PhotosPickerItem? = nil
     
     var body: some View {
@@ -27,6 +27,8 @@ struct BackgroundPicker: View {
                     symbolColor: .white)
                 {
                     color = elementColor
+                    //Deselecting the image
+                    image = nil
                 }
                 
             }
@@ -45,15 +47,23 @@ struct BackgroundPicker: View {
                 matching: .images,
                 photoLibrary: .shared()) {
                     
-                    CircleElementView(
-                        color: Color(UIColor.tertiarySystemGroupedBackground),
-                        isSelected: image != nil,
-                        symbolName: "photo",
-                        symbolColor: .regularMaterial,
-                        bgImage: image)
+                    if image != nil {
+                        CircleElementView(
+                            isSelected: true,
+                            symbolName: "photo",
+                            symbolColor: .regularMaterial,
+                            bgImage: image)
+                    } else {
+                        CircleElementView(
+                            color: Color(UIColor.tertiarySystemGroupedBackground),
+                            isSelected: false,
+                            symbolName: "photo",
+                            symbolColor: .gray)
+                    }
                     
                 }
-                //Update image from picker's selection
+                .buttonStyle(PlainButtonStyle())
+                ///Update the ``image`` variable  with the picker's selection
                 .onChange(of: selectedPhotoItem) { photo in
                     Task {
                         // Retrieve selected asset in the form of Data
