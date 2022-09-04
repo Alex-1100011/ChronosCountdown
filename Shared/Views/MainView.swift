@@ -45,7 +45,7 @@ struct MainView: View {
             })
         }
         .sheet(isPresented: $showCreateView){
-            CreateView()
+            CreateView(showSheet: $showCreateView)
             // datacontroller.add counter
         }
     }

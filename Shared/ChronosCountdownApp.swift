@@ -13,7 +13,7 @@ struct ChronosCountdownApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CreateView()
+            MainView()
                 .environmentObject(dataController)
         }
     }

@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct CreateView: View {
+    ///Used to save the ``counter``
     @EnvironmentObject var dataController: DataController
+    
     @State var counter = Counter(name: "", date: Date(), color: Color(hex: "027AFF"), symbolName: "hourglass")
+    ///Used to dismiss the sheet
+    @Binding var showSheet: Bool
     
     var body: some View {
         List {
@@ -36,6 +40,7 @@ struct CreateView: View {
             Button(action: {
                 //Save and dismiss
                 dataController.add(counter)
+                showSheet = false
             }) {
                 //Save Button
                 HStack {
@@ -61,6 +66,6 @@ struct CreateView: View {
 
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateView()
+        CreateView(showSheet: .constant(true))
     }
 }
