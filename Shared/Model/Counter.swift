@@ -77,6 +77,9 @@ struct Counter: Identifiable{
         date = entity.date ?? Date()
         color = .blue
         symbolName = entity.symbolName ?? ""
+        if let imageData = entity.image {
+            image = UIImage(data: imageData)
+        }
     }
 
 }
