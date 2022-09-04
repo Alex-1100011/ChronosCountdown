@@ -32,7 +32,7 @@ struct CounterCardView: View {
         .background(
             ZStack {
                 if let image = counter.image {
-                    Image(image)
+                    Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
                 } else {
@@ -102,7 +102,8 @@ struct CounterCardView_Previews: PreviewProvider {
                     ) ?? Date(),
                 color: .green,
                 symbolName: "tram",
-                image: "procida")
+                image: UIImage(named: "procida")
+                )
             )
             .previewDisplayName("Image")
             

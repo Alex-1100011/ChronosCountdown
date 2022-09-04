@@ -14,13 +14,13 @@ struct SymbolPicker: View {
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 15){
             
-            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), symbolName: "magnifyingglass", symbolColor: .secondary)
+            CircleElementButton(color: Color(UIColor.tertiarySystemGroupedBackground), symbolName: "magnifyingglass", symbolColor: .secondary)
             {
                 //Display search
             }
             
             ForEach(symbols, id: \.self) { symbol in
-                CircleElementView(color: color, isSelected: selectedSymbol == symbol, symbolName: symbol, symbolColor: .white)
+                CircleElementButton(color: color, isSelected: selectedSymbol == symbol, symbolName: symbol, symbolColor: .white)
                 {
                     selectedSymbol = symbol
                 }

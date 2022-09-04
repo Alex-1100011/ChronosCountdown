@@ -6,19 +6,25 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 
 struct BackgroundPicker: View {
     @Binding var color: Color
+    @Binding var image: UIImage?
     
-//    @Binding var image
+    @State private var selectedPhotoItem: PhotosPickerItem? = nil
+    
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 15){
             
             //MARK: Colors
             ForEach(colours, id: \.self) { elementColor in
                 
-                CircleElementView(color: elementColor, isSelected: elementColor == color, symbolColor: .white)
+                CircleElementButton(
+                    color: elementColor,
+                    isSelected: elementColor == color,
+                    symbolColor: .white)
                 {
                     color = elementColor
                 }
@@ -26,16 +32,40 @@ struct BackgroundPicker: View {
             }
             
             //MARK: Multicolor
-            CircleElementView(color: color, isSelected: false, symbolColor: .thinMaterial, bgImage: "multicolor")
-            {
-                //Display color picker
-            }
+            CircleElementView(
+                color: color,
+                isSelected: false,
+                symbolColor: .thinMaterial,
+                bgImage: UIImage(named: "multicolor"))
+            
             
             //MARK: Image
-            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), isSelected: false, symbolName: "photo", symbolColor: .secondary, bgImage: false ? "sperlonga" : nil)
-            {
-                //Display image picker
-            }
+            PhotosPicker(
+                selection: $selectedPhotoItem,
+                matching: .images,
+                photoLibrary: .shared()) {
+                    
+                    CircleElementView(
+                        color: Color(UIColor.tertiarySystemGroupedBackground),
+                        isSelected: image != nil,
+                        symbolName: "photo",
+                        symbolColor: .regularMaterial,
+                        bgImage: image)
+                    
+                }
+                //Update image from picker's selection
+                .onChange(of: selectedPhotoItem) { photo in
+                    Task {
+                        // Retrieve selected asset in the form of Data
+                        if let data = try? await photo?.loadTransferable(type: Data.self) {
+                            image = UIImage(data: data)
+                            
+                            if let imageColor = getColorFrom(image: image) {
+                                color = imageColor
+                            }
+                        }
+                    }
+                }
         }
     }
     
@@ -78,7 +108,7 @@ extension Color {
 
 struct BackgroundPicker_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundPicker(color: .constant(.blue))
+        BackgroundPicker(color: .constant(.blue), image: .constant(nil))
             .padding()
             .previewLayout(.sizeThatFits)
     }

@@ -13,11 +13,11 @@ struct CircleElementView<S: ShapeStyle>: View {
     var symbolName: String?
     ///This variable conforms to the ShapeStyle, so it could be assigned with any color or material
     var symbolColor: S
-    var bgImage: String?
-    var action: ()->Void
+    var bgImage: UIImage?
+  
     
     var body: some View{
-        Button(action: action) {
+   
             ZStack {
                 //MARK: Circle
                 Circle()
@@ -26,7 +26,7 @@ struct CircleElementView<S: ShapeStyle>: View {
                 
                 //MARK: Image
                 if let bgImage = bgImage {
-                    Image(bgImage)
+                    Image(uiImage: bgImage)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 45, height: 45)
@@ -51,6 +51,27 @@ struct CircleElementView<S: ShapeStyle>: View {
                         .padding(-10)
                 }
             }
+        
+    }
+}
+
+struct CircleElementButton<S: ShapeStyle>: View {
+    var color: Color
+    var isSelected: Bool = false
+    var symbolName: String?
+    var symbolColor: S
+    var bgImage: UIImage?
+    
+    var action: ()->Void
+    
+    var body: some View{
+        Button(action: action){
+            CircleElementView(
+                color: color,
+                isSelected: isSelected,
+                symbolName: symbolName,
+                symbolColor: symbolColor,
+                bgImage: bgImage)
         }
         .buttonStyle(.plain)
     }
@@ -59,17 +80,17 @@ struct CircleElementView<S: ShapeStyle>: View {
 struct CirclePickerElementView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            CircleElementView(color: .blue, isSelected: true, symbolName: "hourglass", symbolColor: .white){}
+            CircleElementView(color: .blue, isSelected: true, symbolName: "hourglass", symbolColor: .white)
                 .previewDisplayName("symbol selected")
             
             
-            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground),symbolName: "photo", symbolColor: .secondary){}
+            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground),symbolName: "photo", symbolColor: .secondary)
                 .previewDisplayName("image")
             
-            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), isSelected: true, symbolName: "photo", symbolColor: .regularMaterial, bgImage: "sperlonga"){}
+            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), isSelected: true, symbolName: "photo", symbolColor: .regularMaterial, bgImage: UIImage(named: "sperlonga"))
                 .previewDisplayName("image selected")
             
-            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), symbolName: "magnifyingglass", symbolColor: .secondary){}
+            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), symbolName: "magnifyingglass", symbolColor: .secondary)
                 .previewDisplayName("search button")
             
         }

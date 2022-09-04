@@ -128,6 +128,17 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
+		9B794AAD28C3C18D003F2DA8 /* CreateViews */ = {
+			isa = PBXGroup;
+			children = (
+				9B5E5AEA28C15370002E8056 /* CreateView.swift */,
+				9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */,
+				9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */,
+				9B5E5AF028C1627F002E8056 /* CircleElementView.swift */,
+			);
+			path = CreateViews;
+			sourceTree = "<group>";
+		};
 		9BFC81CC28377E7E00219B51 = {
 			isa = PBXGroup;
 			children = (
@@ -193,10 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				9BFC81D528377E7F00219B51 /* MainView.swift */,
-				9B5E5AEA28C15370002E8056 /* CreateView.swift */,
-				9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */,
-				9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */,
-				9B5E5AF028C1627F002E8056 /* CircleElementView.swift */,
+				9B794AAD28C3C18D003F2DA8 /* CreateViews */,
 				9B5E5AE928C15327002E8056 /* Card */,
 			);
 			path = Views;

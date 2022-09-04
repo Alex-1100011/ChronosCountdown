@@ -13,7 +13,7 @@ struct CreateView: View {
     var body: some View {
         List {
             Section("Background"){
-                BackgroundPicker(color: $counter.color)
+                BackgroundPicker(color: $counter.color, image: $counter.image)
                     .padding(.vertical)
             }
             
