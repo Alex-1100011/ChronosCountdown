@@ -53,6 +53,8 @@ struct MainView: View {
                 }
             })
         }
+        //To avoid side list on iPad
+        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showCreateView){
             CreateView(showSheet: $showCreateView)
             // datacontroller.add counter

@@ -15,22 +15,26 @@ struct CreateTopView: View {
             CounterCardView(counter: counter, editMode: true)
                 .edgesIgnoringSafeArea(.all)
 
-            
+            //Textfield
             TextField("Title", text: $counter.name)
                 .font(Font.system(size: 30, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
                 .padding()
                 .padding(.leading, 5)
+                .padding(3)
             
                 .background(
-                    
+                    //Textfield Background
                     RoundedRectangle(cornerRadius: 9)
+                        .if(counter.image != nil){ view in
+                            view
+                                .foregroundStyle(.ultraThinMaterial)
+                        }
                         .foregroundColor(counter.color)
                         .brightness(-0.2)
-                    //Matching the TextField padding
                         .padding()
-                    //Adding more padding from the TextField
-                        .padding(-4)
+                    
+                    
                 )
         }
         .frame(height: 180)
@@ -40,7 +44,12 @@ struct CreateTopView: View {
 struct CreateTopView_Previews: PreviewProvider {
     static var previews: some View {
         CreateTopView(
-            counter: .constant(Counter(name: "Hell-o", date: Date(), color: getColorFrom(image: UIImage(named: "sperlonga")) ?? .red, symbolName: "car", image: UIImage(named: "sperlonga"))))
+            counter: .constant(Counter(name: "Hello", date: Date(), color: getColorFrom(image: UIImage(named: "sperlonga")) ?? .red, symbolName: "car", image: UIImage(named: "sperlonga"))))
         .previewLayout(.sizeThatFits)
+        .previewDisplayName("Image")
+        CreateTopView(
+            counter: .constant(Counter(name: "Hello", date: Date(), color: .blue, symbolName: "car")))
+        .previewLayout(.sizeThatFits)
+        .previewDisplayName("Color")
     }
 }

@@ -67,7 +67,7 @@ struct Counter: Identifiable{
     ///
     ///Used when creating new counters in the ``CreateView``
     init(){
-        self.name = ""
+        self.name = "Title"
         self.date = Date()
         self.color = Color(hex: "027AFF")
         self.symbolName = "hourglass"

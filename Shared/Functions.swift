@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//MARK: - if Modifier
+//MARK: if Modifier
 extension View {
     /// Applies the given transform if the given condition evaluates to `true`.
     /// - Parameters:
@@ -23,6 +23,7 @@ extension View {
     }
 }
 
+//MARK: Color to String
 extension Color {
     ///Generates a `Color` from a hex `String`
     ///
@@ -54,7 +55,7 @@ extension Color {
 }
 
 
-
+//MARK: String to Color
 extension String {
     ///Generates a hex `String` from a `Color`
     ///
@@ -65,7 +66,7 @@ extension String {
             let r = Float(components[0])
             let g = Float(components[1])
             let b = Float(components[2])
-            
+            //Generate the hex string
             self.init(format: "%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255))
         } else {
             self.init("")
