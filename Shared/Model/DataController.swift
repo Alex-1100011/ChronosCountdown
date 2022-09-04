@@ -46,6 +46,7 @@ class DataController: ObservableObject{
         counterEntity.date = counter.date
         counterEntity.color = String(describing: counter.color)
         counterEntity.symbolName = counter.symbolName
+        counterEntity.image = counter.image?.pngData()
         
         save()
     }
