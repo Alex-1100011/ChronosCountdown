@@ -10,25 +10,35 @@ import SwiftUI
 struct CounterCardView: View {
     var counter: Counter
     var isSmall = false
+    var editMode = false
     
     //MARK: body
     var body: some View {
         VStack(alignment: .leading) {
-            //TopView
+            //MARK: TopView
             CounterTopView(counter: counter, type: isSmall ? .showOnlyDays : .showWeeks)
+            //To extend horizontally the card
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, editMode ? 10 : 0)
                 
             Spacer()
             
-            //Name
+            //MARK: Name
             Text(counter.name)
                 .font(Font.system(size: 25, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
+                .opacity(editMode ? 0 : 1)
         }
         //Adding a shadow for better readability on images
         .shadow(radius: counter.image != nil ? 10 : 0)
         .padding()
-        .frame(width: isSmall ? 180 : 360, height: 180, alignment: .leading)
+        //Giving infinite stretch in edit mode
+        .if(!editMode){ view in
+            view
+                .frame(width: isSmall ? 180 : 360, height: 180, alignment: .leading)
+        }
         
+        //MARK: Background
         .background(
             ZStack {
                 if let image = counter.image {
@@ -48,6 +58,8 @@ struct CounterCardView: View {
                             .brightness(-0.2)
                             .rotationEffect(Angle(degrees: -20))
                             .offset(x: 10, y: 30)
+                            //Hide the symbol in edit mode
+                            .opacity(editMode ? 0 : 1)
                         
                     }
                 }
@@ -55,7 +67,7 @@ struct CounterCardView: View {
            
         )
         
-        .clipShape(RoundedRectangle(cornerRadius: 30))
+        .clipShape(RoundedRectangle(cornerRadius: editMode ? 0 : 30))
         
     }
 }

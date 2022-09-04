@@ -16,10 +16,19 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                ForEach(dataController.counters){ counter in
-                    
-                    CounterCardView(counter: counter, isSmall: isAspectSmall)
+           ScrollView {
+               LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? 180 : 360))],spacing: 25) {
+                   
+                    ForEach(dataController.counters){ counter in
+                        //MARK: Counter
+                        CounterCardView(counter: counter, isSmall: isAspectSmall)
+                            .contextMenu{
+                                Button(role: .destructive, action: {}){
+                                    Text("Delete")
+                                    Image(systemName: "trash")
+                                }
+                            }
+                    }
                 }
             }
             .navigationBarTitle("Counters")
@@ -45,7 +54,7 @@ struct MainView: View {
             })
         }
         .sheet(isPresented: $showCreateView){
-            CreateView()
+            CreateView(showSheet: $showCreateView)
             // datacontroller.add counter
         }
     }
