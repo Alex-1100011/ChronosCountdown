@@ -16,50 +16,53 @@ struct CreateView: View {
     @Binding var showSheet: Bool
     
     var body: some View {
-        List {
-            Section("Background"){
-                BackgroundPicker(color: $counter.color, image: $counter.image)
-                    .padding(.vertical)
-            }
-            
-            Section("Date"){
-                DatePicker("Date", selection: $counter.date, displayedComponents: .date)
-                    .accentColor(counter.color)
-                    .datePickerStyle(.graphical)
-            }
-            
-            Section("Symbol"){
-                SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName)
-                    .padding(.vertical)
-            }
-        }
-        .listStyle(.insetGrouped)
-        
-        //MARK: - Save
-        .safeAreaInset(edge: .bottom){
-            Button(action: {
-                //Save and dismiss
-                dataController.add(counter)
-                showSheet = false
-            }) {
-                //Save Button
-                HStack {
-                    Spacer()
-                    Text("Save")
-                        .font(Font.system(size: 25, weight: .semibold, design: .rounded))
-                    Spacer()
+        VStack(spacing: 0) {
+            CreateTopView(counter: $counter)
+            List {
+                Section("Background"){
+                    BackgroundPicker(color: $counter.color, image: $counter.image)
+                        .padding(.vertical)
                 }
-                .foregroundColor(.white)
-                .padding(10.0)
-                .background(counter.color.cornerRadius(15))
-                .padding([.top, .leading, .trailing])
-                .background(
-                    counter.color
-                        .edgesIgnoringSafeArea(.bottom)
-                        .opacity(0.1)
-                )
-                .background(.ultraThinMaterial)
+                
+                Section("Date"){
+                    DatePicker("Date", selection: $counter.date, displayedComponents: .date)
+                        .accentColor(counter.color)
+                        .datePickerStyle(.graphical)
+                }
+                
+                Section("Symbol"){
+                    SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName)
+                        .padding(.vertical)
+                }
             }
+            .listStyle(.insetGrouped)
+            
+            //MARK: - Save
+            .safeAreaInset(edge: .bottom){
+                Button(action: {
+                    //Save and dismiss
+                    dataController.add(counter)
+                    showSheet = false
+                }) {
+                    //Save Button
+                    HStack {
+                        Spacer()
+                        Text("Save")
+                            .font(Font.system(size: 25, weight: .semibold, design: .rounded))
+                        Spacer()
+                    }
+                    .foregroundColor(.white)
+                    .padding(10.0)
+                    .background(counter.color.cornerRadius(15))
+                    .padding([.top, .leading, .trailing])
+                    .background(
+                        counter.color
+                            .edgesIgnoringSafeArea(.bottom)
+                            .opacity(0.1)
+                    )
+                    .background(.ultraThinMaterial)
+                }
+        }
         }
     }
 }
