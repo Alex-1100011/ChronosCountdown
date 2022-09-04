@@ -128,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				9BBA6793284A26BD00BF688C /* CounterCardView.swift */,
-				9BDC827B28C515330032A49E /* Functions.swift */,
 				9B73E111283C0849009178A2 /* DaysView.swift */,
 				9B73E114283C09BE009178A2 /* CounterTopView.swift */,
 			);
@@ -163,6 +162,7 @@
 			children = (
 				9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */,
 				9B16483A28C38F8300B45637 /* ImageColorTest.swift */,
+				9BDC827B28C515330032A49E /* Functions.swift */,
 				9BFC821528377EFF00219B51 /* Views */,
 				9BFC821628377F2100219B51 /* Model */,
 				9BFC81D728377E8100219B51 /* Assets.xcassets */,

@@ -44,7 +44,7 @@ class DataController: ObservableObject{
         let counterEntity = CounterDataEntity(context: container.viewContext)
         counterEntity.name = counter.name
         counterEntity.date = counter.date
-        counterEntity.color = String(describing: counter.color)
+        counterEntity.color = String(counter.color)
         counterEntity.symbolName = counter.symbolName
         counterEntity.image = counter.image?.pngData()
         

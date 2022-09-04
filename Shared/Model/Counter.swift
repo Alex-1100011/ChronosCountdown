@@ -86,7 +86,7 @@ struct Counter: Identifiable{
     init(from entity: CounterDataEntity){
         name = entity.name ?? ""
         date = entity.date ?? Date()
-        color = .blue
+        color = Color(hex: entity.color ?? "027AFF")
         symbolName = entity.symbolName ?? ""
         if let imageData = entity.image {
             image = UIImage(data: imageData)
