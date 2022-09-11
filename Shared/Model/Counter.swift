@@ -14,6 +14,7 @@ struct Counter: Identifiable{
     var date: Date
     var color: Color
     var symbolName: String
+    var image: UIImage?
     var id = UUID()
     
     ///Returns true if the event is on the current day
@@ -62,19 +63,34 @@ struct Counter: Identifiable{
         case showYears
     }
     
-    init(name: String, date: Date, color: Color, symbolName: String) {
+    ///Instantiates a counter with default values
+    ///
+    ///Used when creating new counters in the ``CreateView``
+    init(){
+        self.name = "Title"
+        self.date = Date()
+        self.color = Color(hex: "027AFF")
+        self.symbolName = "hourglass"
+        self.image = nil
+    }
+    
+    init(name: String, date: Date, color: Color, symbolName: String, image: UIImage? = nil) {
         self.name = name
         self.date = date
         self.color = color
         self.symbolName = symbolName
+        self.image = image
     }
     
     ///instantiate a new ``Counter`` from a CoreData's ``CounterDataEntity``
     init(from entity: CounterDataEntity){
         name = entity.name ?? ""
         date = entity.date ?? Date()
-        color = .blue
+        color = Color(hex: entity.color ?? "027AFF")
         symbolName = entity.symbolName ?? ""
+        if let imageData = entity.image {
+            image = UIImage(data: imageData)
+        }
     }
 
 }

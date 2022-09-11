@@ -8,17 +8,27 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct MainView: View {
     @EnvironmentObject var dataController: DataController
     ///This state controls the size of the ``CounterCardView``
     @State var isAspectSmall = true
+    @State var showCreateView = false
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                ForEach(dataController.counters){ counter in
-                    
-                    CounterCardView(counter: counter, isSmall: isAspectSmall)
+           ScrollView {
+               LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? 180 : 360))],spacing: 25) {
+                   
+                    ForEach(dataController.counters){ counter in
+                        //MARK: Counter
+                        CounterCardView(counter: counter, isSmall: isAspectSmall)
+                            .contextMenu{
+                                Button(role: .destructive, action: {}){
+                                    Text("Delete")
+                                    Image(systemName: "trash")
+                                }
+                            }
+                    }
                 }
             }
             .navigationBarTitle("Counters")
@@ -26,7 +36,7 @@ struct ContentView: View {
             .navigationBarItems(trailing:
              HStack {
                 
-                //Change card size button
+                //MARK: Change size button
                 Button{
                     withAnimation{
                         isAspectSmall.toggle()
@@ -35,20 +45,20 @@ struct ContentView: View {
                     Label("Change card size", systemImage: isAspectSmall ? "rectangle.grid.2x2" : "rectangle.grid.1x2")
                 }
                 
-                //Add new counter button
+                //MARK: Add button
                 Button{
-                    let counter = Counter(
-                        name: "Test",
-                        date: Date() + 60 * 60 * 24 * Double(Int.random(in: 1...60)),
-                        color: .blue,
-                        symbolName: "command")
-                    dataController.add(counter)
+                    showCreateView = true
                 } label: {
                     Label("Add new counter", systemImage: "plus")
                 }
             })
         }
-        
+        //To avoid side list on iPad
+        .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $showCreateView){
+            CreateView(showSheet: $showCreateView)
+            // datacontroller.add counter
+        }
     }
 
 }
@@ -56,7 +66,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
             .environmentObject(DataController())
     }
 }

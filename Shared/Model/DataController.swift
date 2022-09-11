@@ -15,6 +15,13 @@ class DataController: ObservableObject{
     @Published var counters: [Counter] = []
     
     init(){
+        //Assigning the AppGroup's storing URL
+        let storeURL = FileManager.default
+            .containerURL(forSecurityApplicationGroupIdentifier: "group.com.Alessandro.Alberti.Chronos-Countdown")!
+            .appendingPathComponent("Chronos.sqlite")
+        let description = NSPersistentStoreDescription(url: storeURL)
+        container.persistentStoreDescriptions = [description]
+        
         //Loading the Persistent Container
         container.loadPersistentStores{ description, error in
             if let error = error {
@@ -32,7 +39,7 @@ class DataController: ObservableObject{
         let entities = try? container.viewContext.fetch(request)
         
         if let entities = entities{
-            ///Converting from ``CounterDataEntity`` to ``Counter``
+            ///Updating the ``counters`` variable with the entities converted from the ``CounterDataEntity`` to ``Counter`` type
             counters = entities.map{
                 Counter(from: $0)
             }
@@ -44,8 +51,9 @@ class DataController: ObservableObject{
         let counterEntity = CounterDataEntity(context: container.viewContext)
         counterEntity.name = counter.name
         counterEntity.date = counter.date
-        counterEntity.color = String(describing: counter.color)
+        counterEntity.color = String(counter.color)
         counterEntity.symbolName = counter.symbolName
+        counterEntity.image = counter.image?.pngData()
         
         save()
     }
