@@ -32,11 +32,7 @@ struct CounterCardView: View {
         //Adding a shadow for better readability on images
         .shadow(radius: counter.image != nil ? 10 : 0)
         .padding()
-        //Giving infinite stretch in edit mode
-        .if(!editMode){ view in
-            view
-                .frame(width: isSmall ? 180 : 360, height: 180, alignment: .leading)
-        }
+        
         
         //MARK: Background
         .background(
@@ -67,7 +63,6 @@ struct CounterCardView: View {
            
         )
         
-        .clipShape(RoundedRectangle(cornerRadius: editMode ? 0 : 30))
         
     }
 }
