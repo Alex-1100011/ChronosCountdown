@@ -26,11 +26,9 @@ struct CreateTopView: View {
                 .background(
                     //Textfield Background
                     RoundedRectangle(cornerRadius: 9)
-                        .if(counter.image != nil){ view in
-                            view
-                                .foregroundStyle(.ultraThinMaterial)
-                        }
-                        .foregroundColor(counter.color)
+                        .foregroundStyle(counter.image != nil ?
+                                         AnyShapeStyle(Material.ultraThinMaterial) :
+                                         AnyShapeStyle(counter.color))
                         .brightness(-0.2)
                         .padding()
                     
