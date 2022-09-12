@@ -22,6 +22,8 @@ struct MainView: View {
                     ForEach(dataController.counters){ counter in
                         //MARK: Counter
                         CounterCardView(counter: counter, isSmall: isAspectSmall)
+                            .frame(width: isAspectSmall ? 180 : 360, height: 180)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
                             .contextMenu{
                                 Button(role: .destructive, action: {}){
                                     Text("Delete")
