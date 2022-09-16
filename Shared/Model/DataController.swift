@@ -53,7 +53,7 @@ class DataController: ObservableObject{
         counterEntity.date = counter.date
         counterEntity.color = String(counter.color)
         counterEntity.symbolName = counter.symbolName
-        counterEntity.image = counter.image?.pngData()
+        counterEntity.image = counter.image?.jpegData(compressionQuality: 0.5)
         
         save()
     }
@@ -62,6 +62,14 @@ class DataController: ObservableObject{
     private func save(){
         try? container.viewContext.save()
         fetchCounters()
+    }
+    
+    
+    /// This function ...
+    /// - Parameter name: name description
+    /// - Returns: description
+    func getCounterNamed(_ name: String)-> Counter? {
+        counters.first(where: {$0.name == name})
     }
     
 }

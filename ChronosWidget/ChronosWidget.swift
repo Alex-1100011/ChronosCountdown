@@ -42,9 +42,14 @@ struct SimpleEntry: TimelineEntry {
 
 struct ChronosWidgetEntryView : View {
     var entry: Provider.Entry
+    let data = DataController()
 
     var body: some View {
-        CounterCardView(counter: Counter(name: "Sperlonga", date: Date() + 3 * 24 * 60 * 60, color: .blue, symbolName: "hourglass", image: UIImage(named: "sperlonga")), isSmall: true, editMode: false)
+        if let name = entry.configuration.counter?.name, let counter = data.getCounterNamed(name){
+            CounterCardView(counter: counter)
+        } else {
+            Text("🚨 Error")
+        }
     }
 }
 
@@ -56,8 +61,8 @@ struct ChronosWidget: Widget {
         IntentConfiguration(kind: kind, intent: SelectCounterIntent.self, provider: Provider()) { entry in
             ChronosWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Single Counter")
+        .description("Displays a single counter.")
     }
 }
 

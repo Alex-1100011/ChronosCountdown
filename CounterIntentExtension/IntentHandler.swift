@@ -37,6 +37,23 @@ class IntentHandler: INExtension, SelectCounterIntentHandling {
     }
     
     func defaultCounter(for intent: SelectCounterIntent) -> CounterSelection? {
+        //Fetch counters from CoreData
+        let data = DataController()
+        
+        //If there's at least 1 element
+        if data.counters.count != 0 {
+            let counter = data.counters[0]
+            
+            //Convert the first counter into CounterSelection
+            let counterSelection = CounterSelection(
+                identifier: counter.name,
+                display: counter.name)
+            counterSelection.name = counter.name
+            counterSelection.symbolName = counter.symbolName
+            
+            return counterSelection
+        }
+
         return nil
     }
 }
