@@ -11,15 +11,15 @@ import Intents
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+        SimpleEntry(date: Date(), configuration: SelectCounterIntent())
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+    func getSnapshot(for configuration: SelectCounterIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         let entry = SimpleEntry(date: Date(), configuration: configuration)
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(for configuration: SelectCounterIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
@@ -37,7 +37,7 @@ struct Provider: IntentTimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationIntent
+    let configuration: SelectCounterIntent
 }
 
 struct ChronosWidgetEntryView : View {
@@ -53,7 +53,7 @@ struct ChronosWidget: Widget {
     let kind: String = "ChronosWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        IntentConfiguration(kind: kind, intent: SelectCounterIntent.self, provider: Provider()) { entry in
             ChronosWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
@@ -63,7 +63,7 @@ struct ChronosWidget: Widget {
 
 struct ChronosWidget_Previews: PreviewProvider {
     static var previews: some View {
-        ChronosWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        ChronosWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: SelectCounterIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

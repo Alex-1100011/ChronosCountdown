@@ -47,6 +47,14 @@
 		9BDC827A28C510310032A49E /* CreateTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateTopView.swift */; };
 		9BDC827C28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9BDC827D28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
+		9BF3935D28D489510060DFC0 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF3935C28D489510060DFC0 /* Intents.framework */; };
+		9BF3936028D489510060DFC0 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3935F28D489510060DFC0 /* IntentHandler.swift */; };
+		9BF3937528D489510060DFC0 /* CounterIntentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9BF3937C28D48A180060DFC0 /* ChronosWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */; };
+		9BF3937D28D48F2C0060DFC0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
+		9BF3937E28D48F2C0060DFC0 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
+		9BF3937F28D490CD0060DFC0 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
+		9BF3938028D491000060DFC0 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9BFC81EE28377E8100219B51 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81ED28377E8100219B51 /* Tests_iOS.swift */; };
 		9BFC81F028377E8100219B51 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81EF28377E8100219B51 /* Tests_iOSLaunchTests.swift */; };
 		9BFC81FA28377E8100219B51 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81F928377E8100219B51 /* Tests_macOS.swift */; };
@@ -69,6 +77,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9BA3E2C628CE6E2900C2E75C;
 			remoteInfo = ChronosWidgetExtension;
+		};
+		9BF3937328D489510060DFC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BFC81CD28377E7E00219B51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BF3935A28D489510060DFC0;
+			remoteInfo = CounterIntentExtension;
 		};
 		9BFC81EA28377E8100219B51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -94,6 +109,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				9BA3E2D828CE6E2A00C2E75C /* ChronosWidgetExtension.appex in Embed Foundation Extensions */,
+				9BF3937528D489510060DFC0 /* CounterIntentExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +137,12 @@
 		9BBA6793284A26BD00BF688C /* CounterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCardView.swift; sourceTree = "<group>"; };
 		9BDC827828C510310032A49E /* CreateTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopView.swift; sourceTree = "<group>"; };
 		9BDC827B28C515330032A49E /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		9BF3935328D482C30060DFC0 /* Chronos-Countdown--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chronos-Countdown--iOS--Info.plist"; sourceTree = "<group>"; };
+		9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CounterIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF3935C28D489510060DFC0 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		9BF3935F28D489510060DFC0 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		9BF3936128D489510060DFC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BF3936728D489510060DFC0 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		9BFC81D328377E7F00219B51 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosCountdownApp.swift; sourceTree = "<group>"; };
 		9BFC81D528377E7F00219B51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -143,6 +165,14 @@
 			files = (
 				9BA3E2CC28CE6E2900C2E75C /* SwiftUI.framework in Frameworks */,
 				9BA3E2CA28CE6E2900C2E75C /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BF3935828D489510060DFC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BF3935D28D489510060DFC0 /* Intents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +234,8 @@
 			children = (
 				9BA3E2C928CE6E2900C2E75C /* WidgetKit.framework */,
 				9BA3E2CB28CE6E2900C2E75C /* SwiftUI.framework */,
+				9BF3935C28D489510060DFC0 /* Intents.framework */,
+				9BF3936728D489510060DFC0 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,12 +251,23 @@
 			path = ChronosWidget;
 			sourceTree = "<group>";
 		};
+		9BF3935E28D489510060DFC0 /* CounterIntentExtension */ = {
+			isa = PBXGroup;
+			children = (
+				9BF3935F28D489510060DFC0 /* IntentHandler.swift */,
+				9BF3936128D489510060DFC0 /* Info.plist */,
+			);
+			path = CounterIntentExtension;
+			sourceTree = "<group>";
+		};
 		9BFC81CC28377E7E00219B51 = {
 			isa = PBXGroup;
 			children = (
+				9BF3935328D482C30060DFC0 /* Chronos-Countdown--iOS--Info.plist */,
 				9B16B3B028CE0275002B7DE2 /* Chronos Countdown (iOS).entitlements */,
 				9BFC81D128377E7F00219B51 /* Shared */,
 				9BA3E2CD28CE6E2900C2E75C /* ChronosWidget */,
+				9BF3935E28D489510060DFC0 /* CounterIntentExtension */,
 				9BFC81E328377E8100219B51 /* macOS */,
 				9BFC81EC28377E8100219B51 /* Tests iOS */,
 				9BFC81F828377E8100219B51 /* Tests macOS */,
@@ -255,6 +298,7 @@
 				9BFC81E928377E8100219B51 /* Tests iOS.xctest */,
 				9BFC81F528377E8100219B51 /* Tests macOS.xctest */,
 				9BA3E2C728CE6E2900C2E75C /* ChronosWidgetExtension.appex */,
+				9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,6 +368,23 @@
 			productReference = 9BA3E2C728CE6E2900C2E75C /* ChronosWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		9BF3935A28D489510060DFC0 /* CounterIntentExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BF3937928D489510060DFC0 /* Build configuration list for PBXNativeTarget "CounterIntentExtension" */;
+			buildPhases = (
+				9BF3935728D489510060DFC0 /* Sources */,
+				9BF3935828D489510060DFC0 /* Frameworks */,
+				9BF3935928D489510060DFC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CounterIntentExtension;
+			productName = CounterIntentExtension;
+			productReference = 9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		9BFC81DB28377E8100219B51 /* Chronos Countdown (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BFC820928377E8100219B51 /* Build configuration list for PBXNativeTarget "Chronos Countdown (iOS)" */;
@@ -337,6 +398,7 @@
 			);
 			dependencies = (
 				9BA3E2D728CE6E2A00C2E75C /* PBXTargetDependency */,
+				9BF3937428D489510060DFC0 /* PBXTargetDependency */,
 			);
 			name = "Chronos Countdown (iOS)";
 			productName = "Chronos Countdown (iOS)";
@@ -409,6 +471,9 @@
 					9BA3E2C628CE6E2900C2E75C = {
 						CreatedOnToolsVersion = 14.0;
 					};
+					9BF3935A28D489510060DFC0 = {
+						CreatedOnToolsVersion = 14.0;
+					};
 					9BFC81DB28377E8100219B51 = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
@@ -443,6 +508,7 @@
 				9BFC81E828377E8100219B51 /* Tests iOS */,
 				9BFC81F428377E8100219B51 /* Tests macOS */,
 				9BA3E2C628CE6E2900C2E75C /* ChronosWidgetExtension */,
+				9BF3935A28D489510060DFC0 /* CounterIntentExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -454,6 +520,13 @@
 			files = (
 				9BA3E2E428CE71CA00C2E75C /* Assets.xcassets in Resources */,
 				9BA3E2D228CE6E2A00C2E75C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BF3935928D489510060DFC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +576,19 @@
 				9BA3E2D428CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
 				9BA3E2DD28CE703B00C2E75C /* CounterCardView.swift in Sources */,
 				9BA3E2E128CE704C00C2E75C /* Counter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BF3935728D489510060DFC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BF3937E28D48F2C0060DFC0 /* Counter.swift in Sources */,
+				9BF3936028D489510060DFC0 /* IntentHandler.swift in Sources */,
+				9BF3937F28D490CD0060DFC0 /* Chronos.xcdatamodeld in Sources */,
+				9BF3937D28D48F2C0060DFC0 /* DataController.swift in Sources */,
+				9BF3937C28D48A180060DFC0 /* ChronosWidget.intentdefinition in Sources */,
+				9BF3938028D491000060DFC0 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +665,11 @@
 			target = 9BA3E2C628CE6E2900C2E75C /* ChronosWidgetExtension */;
 			targetProxy = 9BA3E2D628CE6E2A00C2E75C /* PBXContainerItemProxy */;
 		};
+		9BF3937428D489510060DFC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BF3935A28D489510060DFC0 /* CounterIntentExtension */;
+			targetProxy = 9BF3937328D489510060DFC0 /* PBXContainerItemProxy */;
+		};
 		9BFC81EB28377E8100219B51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9BFC81DB28377E8100219B51 /* Chronos Countdown (iOS) */;
@@ -643,6 +734,63 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown.ChronosWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9BF3937A28D489510060DFC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6MWN6EWBL2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CounterIntentExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CounterIntentExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown.CounterIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BF3937B28D489510060DFC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6MWN6EWBL2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CounterIntentExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CounterIntentExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown.CounterIntentExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -774,6 +922,7 @@
 				DEVELOPMENT_TEAM = 6MWN6EWBL2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Chronos-Countdown--iOS--Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Chronos;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -807,6 +956,7 @@
 				DEVELOPMENT_TEAM = 6MWN6EWBL2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Chronos-Countdown--iOS--Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Chronos;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -972,6 +1122,15 @@
 			buildConfigurations = (
 				9BA3E2DA28CE6E2A00C2E75C /* Debug */,
 				9BA3E2DB28CE6E2A00C2E75C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BF3937928D489510060DFC0 /* Build configuration list for PBXNativeTarget "CounterIntentExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BF3937A28D489510060DFC0 /* Debug */,
+				9BF3937B28D489510060DFC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
