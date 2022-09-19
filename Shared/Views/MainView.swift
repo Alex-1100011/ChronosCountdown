@@ -13,6 +13,7 @@ struct MainView: View {
     ///This state controls the size of the ``CounterCardView``
     @State var isAspectSmall = true
     @State var showCreateView = false
+    @State var showSettings = false
     
     var body: some View {
         NavigationView {
@@ -24,6 +25,7 @@ struct MainView: View {
                         CounterCardView(counter: counter, isSmall: isAspectSmall)
                             .frame(width: isAspectSmall ? 180 : 360, height: 180)
                             .clipShape(RoundedRectangle(cornerRadius: 30))
+                        //MARK: ContextMenu
                             .contextMenu{
                                 Button(role: .destructive, action: {}){
                                     Text("Delete")
@@ -35,28 +37,44 @@ struct MainView: View {
             }
             .navigationBarTitle("Counters")
             //MARK: navigationBarItems
-            .navigationBarItems(trailing:
-             HStack {
+            .toolbar {
+                //MARK: Settings button
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button{
+                        showSettings = true
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                    }
+                }
                 
                 //MARK: Change size button
-                Button{
-                    withAnimation{
-                        isAspectSmall.toggle()
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button{
+                        withAnimation{
+                            isAspectSmall.toggle()
+                        }
+                    } label: {
+                        Label("Change card size", systemImage: isAspectSmall ? "rectangle.grid.2x2" : "rectangle.grid.1x2")
                     }
-                } label: {
-                    Label("Change card size", systemImage: isAspectSmall ? "rectangle.grid.2x2" : "rectangle.grid.1x2")
                 }
-                
                 //MARK: Add button
-                Button{
-                    showCreateView = true
-                } label: {
-                    Label("Add new counter", systemImage: "plus")
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button{
+                        showCreateView = true
+                    } label: {
+                        Label("Add new counter", systemImage: "plus")
+                    }
                 }
-            })
+            }
         }
         //To avoid side list on iPad
         .navigationViewStyle(StackNavigationViewStyle())
+        //MARK: SettingsView
+        .sheet(isPresented: $showSettings){
+            SettingsView()
+            // datacontroller.add counter
+        }
+        //MARK: CreateView
         .sheet(isPresented: $showCreateView){
             CreateView(showSheet: $showCreateView)
             // datacontroller.add counter
