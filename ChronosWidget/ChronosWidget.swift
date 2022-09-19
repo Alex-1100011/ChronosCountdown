@@ -9,6 +9,7 @@ import WidgetKit
 import SwiftUI
 import Intents
 
+//MARK: Timeline
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: SelectCounterIntent())
@@ -40,15 +41,44 @@ struct SimpleEntry: TimelineEntry {
     let configuration: SelectCounterIntent
 }
 
+//MARK: View
 struct ChronosWidgetEntryView : View {
     var entry: Provider.Entry
     let data = DataController()
+    @Environment (\.widgetFamily) var family
 
     var body: some View {
         if let name = entry.configuration.counter?.name{
             if let counter = data.getCounterNamed(name){
                 
-                CounterCardView(counter: counter)
+                switch family {
+                case .systemSmall:
+                    CounterCardView(counter: counter, isSmall: true)
+                    
+                case .systemMedium:
+                    CounterCardView(counter: counter)
+                    
+                case .systemLarge:
+                    CounterCardView(counter: counter)
+                    
+                case .systemExtraLarge:
+                    CounterCardView(counter: counter)
+                    
+                case .accessoryCircular:
+                    Color.black
+                    
+                case .accessoryRectangular:
+                    Color.black
+                    
+                case .accessoryInline:
+                    Label(
+                        "\(counter.getCounterComponents(type: .showOnlyDays).days) days",
+                        systemImage: counter.symbolName
+                    )
+                     
+                @unknown default:
+                    Text("Error")
+                }
                 
             } else {
                 Text("🚨 Error: \(name) not found")
@@ -59,6 +89,7 @@ struct ChronosWidgetEntryView : View {
     }
 }
 
+//MARK: Widget
 @main
 struct ChronosWidget: Widget {
     let kind: String = "ChronosWidget"
@@ -69,12 +100,13 @@ struct ChronosWidget: Widget {
         }
         .configurationDisplayName("Single Counter")
         .description("Displays a single counter.")
+        .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline, .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
     }
 }
 
 struct ChronosWidget_Previews: PreviewProvider {
     static var previews: some View {
         ChronosWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: SelectCounterIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }
