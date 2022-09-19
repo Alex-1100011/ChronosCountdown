@@ -24,6 +24,7 @@ struct Provider: IntentTimelineProvider {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        //TODO: Change to Days
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
@@ -44,12 +45,19 @@ struct SimpleEntry: TimelineEntry {
 //MARK: View
 struct ChronosWidgetEntryView : View {
     var entry: Provider.Entry
-    let data = DataController()
+    var counter: Counter
+    
     @Environment (\.widgetFamily) var family
 
+    init(entry: Provider.Entry) {
+        self.entry = entry
+        //Retrieves the intent configuration counter from the CoreData Persistent Store
+        let data = DataController()
+        let counterName = entry.configuration.counter?.name
+        self.counter = data.getCounterNamed(counterName) ?? Counter(days: 2)
+    }
+    
     var body: some View {
-        let name = entry.configuration.counter?.name
-        let counter = data.getCounterNamed(name) ?? Counter(days: 0)
         
         switch family {
         case .systemSmall:
@@ -117,6 +125,7 @@ struct ChronosWidget: Widget {
 //MARK: Preview
 struct ChronosWidget_Previews: PreviewProvider {
     static var previews: some View {
+#if os (iOS)
         ChronosWidgetEntryView(entry: SimpleEntry(date: Date(),configuration: SelectCounterIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("systemSmall")
@@ -124,6 +133,7 @@ struct ChronosWidget_Previews: PreviewProvider {
         ChronosWidgetEntryView(entry: SimpleEntry(date: Date(),configuration: SelectCounterIntent()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("systemMedium")
+#endif
         
         ChronosWidgetEntryView(entry: SimpleEntry(date: Date(),configuration: SelectCounterIntent()))
             .previewContext(WidgetPreviewContext(family: .accessoryInline))
