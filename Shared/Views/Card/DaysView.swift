@@ -17,6 +17,9 @@ struct DaysView: View {
     var isToday: Bool
     ///When only days are shown the ``subtitle`` has a *leading* alignment, instead it is *centred* when more ``DaysView`` are displayed
     var leadingAlignment: Bool
+    ///The size for the title and subtitle text
+    @Environment(\.daysElementSize) var textSize
+    
     
     ///This `init` lets initialise the `view` without specifying the `parameter`'s name
     init(_ days: Int, _ subtitle: String, isToday: Bool = false, leadingAlignment: Bool = false){
@@ -28,16 +31,16 @@ struct DaysView: View {
     
     //MARK: body
     var body: some View {
-        VStack(alignment: leadingAlignment ? .leading : .center){
+        VStack(alignment: leadingAlignment ? .leading : .center, spacing: 0){
             //The prominent number or "Today" text
             Text(isToday ? "Today" : "\(days)")
-                .font(Font.system(size: 50, weight: .semibold, design: .rounded))
-                .frame(height: 45)
+                .font(Font.system(size: textSize.h1, weight: .semibold, design: .rounded))
+                .frame(height: textSize.h1)
     
             //The subtitle
             if !isToday {
                 Text(subtitle)
-                    .font(.headline)
+                    .font(Font.system(size: textSize.h2, weight: .medium))
             }
         }
         

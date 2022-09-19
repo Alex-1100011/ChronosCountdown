@@ -26,6 +26,11 @@ struct CounterTopView: View {
     var showYears: Bool {
         !counter.isToday && type == .showYears && components.years != 0
     }
+    ///The font size of the ``DaysView/days`` text
+    @ScaledMetric var daysSize: CGFloat = 50
+    ///The font size of the ``DaysView/subtitle``
+    @ScaledMetric var subtitleSize: CGFloat = 20
+    
     
     //MARK: body
     var body: some View {
@@ -47,8 +52,22 @@ struct CounterTopView: View {
 
             }
         }
+        .environment(\.daysElementSize, (daysSize,subtitleSize))
     }
 }
+
+
+extension EnvironmentValues {
+    var daysElementSize: (h1: CGFloat, h2: CGFloat) {
+    get { self[DaysElementSizeKey.self] }
+    set { self[DaysElementSizeKey.self] = newValue }
+  }
+}
+
+private struct DaysElementSizeKey: EnvironmentKey {
+  static let defaultValue: (h1: CGFloat, h2: CGFloat) = (50,20)
+}
+
 
 //MARK: Previews
 struct CounterTopView_Previews: PreviewProvider {
@@ -81,3 +100,4 @@ struct CounterTopView_Previews: PreviewProvider {
         .previewLayout(.sizeThatFits)
     }
 }
+
