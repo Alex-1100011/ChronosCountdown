@@ -100,7 +100,11 @@ struct ChronosWidget: Widget {
         }
         .configurationDisplayName("Single Counter")
         .description("Displays a single counter.")
+#if os (watchOS)
+        .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline])
+#else
         .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline, .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
+#endif
     }
 }
 
