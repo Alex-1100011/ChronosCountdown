@@ -66,9 +66,9 @@ struct Counter: Identifiable{
     ///Instantiates a counter with default values
     ///
     ///Used when creating new counters in the ``CreateView``
-    init(){
+    init(days: Double = 0){
         self.name = "Title"
-        self.date = Date()
+        self.date = Date() + (days * 24 * 60 * 60)
         self.color = Color(hex: "027AFF")
         self.symbolName = "hourglass"
         self.image = nil

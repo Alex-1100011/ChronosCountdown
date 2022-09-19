@@ -68,7 +68,7 @@ class DataController: ObservableObject{
     /// This function ...
     /// - Parameter name: name description
     /// - Returns: description
-    func getCounterNamed(_ name: String)-> Counter? {
+    func getCounterNamed(_ name: String?)-> Counter? {
         counters.first(where: {$0.name == name})
     }
     
