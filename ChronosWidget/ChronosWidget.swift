@@ -11,6 +11,19 @@ import Intents
 
 //MARK: Timeline
 struct Provider: IntentTimelineProvider {
+    
+    func recommendations() -> [IntentRecommendation<SelectCounterIntent>] {
+        let data = DataController()
+        
+        var recommendations: [IntentRecommendation<SelectCounterIntent>] = data.counters.map { counter in
+            let intent = SelectCounterIntent()
+            intent.counter?.name = counter.name
+            return IntentRecommendation(intent: intent, description: counter.name)
+        }
+        
+        return recommendations
+    }
+    
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: SelectCounterIntent())
     }
@@ -42,7 +55,7 @@ struct SimpleEntry: TimelineEntry {
     let configuration: SelectCounterIntent
 }
 
-//MARK: View
+//MARK: Views
 struct ChronosWidgetEntryView : View {
     var entry: Provider.Entry
     var counter: Counter
@@ -54,7 +67,7 @@ struct ChronosWidgetEntryView : View {
         //Retrieves the intent configuration counter from the CoreData Persistent Store
         let data = DataController()
         let counterName = entry.configuration.counter?.name
-        self.counter = data.getCounterNamed(counterName) ?? Counter(days: 2)
+        self.counter = data.getCounterNamed(counterName) ?? Counter(days: 39)
     }
     
     var body: some View {
@@ -72,30 +85,38 @@ struct ChronosWidgetEntryView : View {
         case .systemExtraLarge:
             CounterCardView(counter: counter)
             
+        //MARK: circular
         case .accessoryCircular:
             ZStack {
-                Color.black
+                AccessoryWidgetBackground()
                 VStack(spacing: -2) {
                     Text("\(counter.getCounterComponents(type: .showOnlyDays).days)")
-                        .font(.title)
+                        .font(Font.system(.title, design: .rounded))
+                        
                     Image(systemName: counter.symbolName)
+                        .foregroundColor(counter.color)
+                        .widgetAccentable()
                 }
             }
-            
+        //MARK: rectangular
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 0) {
                 Label(counter.name,systemImage: counter.symbolName)
+                    .fontWeight(.medium)
+                    .foregroundColor(counter.color)
+                    .widgetAccentable()
+                
                 CounterTopView(counter: counter, type: .showWeeks, daysSize: 30, subtitleSize: 10)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
-            
-            
-            
+        //MARK: inline
         case .accessoryInline:
-            Label(
-                "\(counter.getCounterComponents(type: .showOnlyDays).days) days",
-                systemImage: counter.symbolName
-            )
+            HStack {
+                Image(systemName: counter.symbolName)
+                    .foregroundColor(counter.color)
+                    .widgetAccentable()
+                Text("\(counter.getCounterComponents(type: .showOnlyDays).days) days")
+            }
              
         @unknown default:
             Text("Error")
