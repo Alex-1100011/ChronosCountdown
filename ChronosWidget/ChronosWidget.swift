@@ -45,10 +45,16 @@ struct ChronosWidgetEntryView : View {
     let data = DataController()
 
     var body: some View {
-        if let name = entry.configuration.counter?.name, let counter = data.getCounterNamed(name){
-            CounterCardView(counter: counter)
+        if let name = entry.configuration.counter?.name{
+            if let counter = data.getCounterNamed(name){
+                
+                CounterCardView(counter: counter)
+                
+            } else {
+                Text("🚨 Error: \(name) not found")
+            }
         } else {
-            Text("🚨 Error")
+            Text("🚨 Error: configuration is nil ")
         }
     }
 }
