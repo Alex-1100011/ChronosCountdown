@@ -17,6 +17,20 @@ struct Counter: Identifiable{
     var image: UIImage?
     var id = UUID()
     
+    ///This variable stores the reference today's Date for counting down to the ``date`` variable
+    ///
+    ///It automatically excludes the time from the date.
+    ///It is used in the timeline ``Provider`` to get future versions of the counters for the widgets
+    var referenceDate: Date {
+        get {todayDate}
+        set (newDate) {
+            ///Excluding the time from  `todayDate`
+            let todayComponents = Calendar.current.dateComponents([.year,.month,.day], from: newDate)
+            self.todayDate = Calendar.current.date(from: todayComponents)!
+        }
+    }
+    private var todayDate: Date
+    
     ///Returns true if the event is on the current day
     var isToday: Bool{
         getCounterComponents(type: .showOnlyDays).days == 0
@@ -27,11 +41,7 @@ struct Counter: Identifiable{
     /// - Returns: A tuple with all the components as `Integers`
     func getCounterComponents(type: Types) -> counterComponents{
         let calendar = Calendar.current
-        var todayDate = Date()
         
-        ///Excluding the time from  `todayDate`
-        let todayComponents = calendar.dateComponents([.year,.month,.day], from: todayDate)
-        todayDate = calendar.date(from: todayComponents)!
         
         ///Difference between `todayDate` and `date`
         let components = calendar.dateComponents([.day, .month, .year], from: todayDate, to: date)
@@ -66,20 +76,24 @@ struct Counter: Identifiable{
     ///Instantiates a counter with default values
     ///
     ///Used when creating new counters in the ``CreateView``
-    init(days: Double = 0){
+    init(days: Double = 0, referenceDate: Date = Date()){
         self.name = "Title"
         self.date = Date() + (days * 24 * 60 * 60)
         self.color = Color(hex: "027AFF")
         self.symbolName = "hourglass"
         self.image = nil
+        self.todayDate = Date()
+        self.referenceDate = referenceDate
     }
     
-    init(name: String, date: Date, color: Color, symbolName: String, image: UIImage? = nil) {
+    init(name: String, date: Date, color: Color, symbolName: String, image: UIImage? = nil, referenceDate: Date = Date()) {
         self.name = name
         self.date = date
         self.color = color
         self.symbolName = symbolName
         self.image = image
+        self.todayDate = Date()
+        self.referenceDate = referenceDate
     }
     
     ///instantiate a new ``Counter`` from a CoreData's ``CounterDataEntity``
@@ -91,6 +105,8 @@ struct Counter: Identifiable{
         if let imageData = entity.image {
             image = UIImage(data: imageData)
         }
+        self.todayDate = Date()
+        self.referenceDate = Date()
     }
 
 }
