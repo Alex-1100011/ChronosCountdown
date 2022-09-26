@@ -29,7 +29,6 @@
 		9BA3E2CA28CE6E2900C2E75C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2C928CE6E2900C2E75C /* WidgetKit.framework */; };
 		9BA3E2CC28CE6E2900C2E75C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2CB28CE6E2900C2E75C /* SwiftUI.framework */; };
 		9BA3E2CF28CE6E2900C2E75C /* ChronosWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2CE28CE6E2900C2E75C /* ChronosWidget.swift */; };
-		9BA3E2D228CE6E2A00C2E75C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D128CE6E2A00C2E75C /* Assets.xcassets */; };
 		9BA3E2D428CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */; };
 		9BA3E2D528CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */; };
 		9BA3E2D828CE6E2A00C2E75C /* ChronosWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9BA3E2C728CE6E2900C2E75C /* ChronosWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -41,6 +40,7 @@
 		9BA3E2E228CE704F00C2E75C /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
 		9BA3E2E328CE708100C2E75C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9BA3E2E428CE71CA00C2E75C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
+		9BB93DDE28E21D720010CC4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
 		9BBA6794284A26BD00BF688C /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
 		9BBA6795284A26BD00BF688C /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
 		9BDC827928C510310032A49E /* CreateTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateTopView.swift */; };
@@ -91,7 +91,6 @@
 		9BFCC23C28D8DD5500FC2CED /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2CB28CE6E2900C2E75C /* SwiftUI.framework */; };
 		9BFCC23D28D8DD5500FC2CED /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2C928CE6E2900C2E75C /* WidgetKit.framework */; };
 		9BFCC23F28D8DD5500FC2CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
-		9BFCC24028D8DD5500FC2CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D128CE6E2A00C2E75C /* Assets.xcassets */; };
 		9BFCC24628D8DDCE00FC2CED /* ChronosWidgetExtension watch.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9BFCC24428D8DD5500FC2CED /* ChronosWidgetExtension watch.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -177,7 +176,6 @@
 		9BA3E2CB28CE6E2900C2E75C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9BA3E2CE28CE6E2900C2E75C /* ChronosWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosWidget.swift; sourceTree = "<group>"; };
 		9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ChronosWidget.intentdefinition; sourceTree = "<group>"; };
-		9BA3E2D128CE6E2A00C2E75C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BA3E2D328CE6E2A00C2E75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BBA6793284A26BD00BF688C /* CounterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCardView.swift; sourceTree = "<group>"; };
 		9BDC827828C510310032A49E /* CreateTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopView.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				9B9F0FFC28D86F2F0093458D /* ChronosWidgetExtension.entitlements */,
 				9BA3E2CE28CE6E2900C2E75C /* ChronosWidget.swift */,
 				9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */,
-				9BA3E2D128CE6E2A00C2E75C /* Assets.xcassets */,
 				9BA3E2D328CE6E2A00C2E75C /* Info.plist */,
 			);
 			path = ChronosWidget;
@@ -333,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				9B16B3B028CE0275002B7DE2 /* Chronos Countdown (iOS).entitlements */,
+				9BFC81D728377E8100219B51 /* Assets.xcassets */,
 				9BFC81D128377E7F00219B51 /* Shared */,
 				9BA3E2CD28CE6E2900C2E75C /* ChronosWidget */,
 				9BF3935E28D489510060DFC0 /* CounterIntentExtension */,
@@ -354,7 +352,6 @@
 				9BDC827B28C515330032A49E /* Functions.swift */,
 				9BFC821528377EFF00219B51 /* Views */,
 				9BFC821628377F2100219B51 /* Model */,
-				9BFC81D728377E8100219B51 /* Assets.xcassets */,
 				9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */,
 			);
 			path = Shared;
@@ -651,7 +648,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BA3E2E428CE71CA00C2E75C /* Assets.xcassets in Resources */,
-				9BA3E2D228CE6E2A00C2E75C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BFCC22128D8DCCA00FC2CED /* Preview Assets.xcassets in Resources */,
+				9BB93DDE28E21D720010CC4E /* Assets.xcassets in Resources */,
 				9BFCC21E28D8DCCA00FC2CED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,7 +703,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BFCC23F28D8DD5500FC2CED /* Assets.xcassets in Resources */,
-				9BFCC24028D8DD5500FC2CED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

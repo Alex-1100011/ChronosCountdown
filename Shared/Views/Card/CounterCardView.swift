@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CounterCardView: View {
+    ///State of the Always on display
+    @Environment(\.scenePhase) private var scenePhase
     var counter: Counter
     var isSmall = false
     var editMode = false
@@ -37,10 +39,20 @@ struct CounterCardView: View {
         //MARK: Background
         .background(
             ZStack {
+                //Always On
+                if scenePhase != .active {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(lineWidth: 10)
+                        .foregroundColor(counter.color)
+                }
+                
+                //Image
                 if let image = counter.image {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
+                    
+                //Color Background
                 } else {
                     ZStack(alignment: .trailing) {
                         
@@ -56,8 +68,9 @@ struct CounterCardView: View {
                             .offset(x: 10, y: 30)
                             //Hide the symbol in edit mode
                             .opacity(editMode ? 0 : 1)
-                        
                     }
+                    .opacity(scenePhase == .active ? 1 : 0.2)
+                     
                 }
             }
            

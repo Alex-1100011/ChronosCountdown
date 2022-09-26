@@ -9,13 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView{
+            List{
+                //Counters
+                ForEach(0 ..< 5) { _ in
+                    CounterCardView(counter: Counter(days: 3), isSmall: true)
+                        .listRowInsets(EdgeInsets())
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                }
+                //Add Button
+                
+                .toolbar{
+                    ToolbarItem(placement: .primaryAction) {
+                        Button(action: {}) {
+                            Text("+ Add")
+                                .font(Font.system(size: 30, weight: .medium, design: .rounded))
+                                .frame(maxWidth: .infinity)
+                                .offset(x: -10)
+                        }
+                        .tint(Color(UIColor.darkGray))
+                    }
+                }
+            }
+            .listStyle(CarouselListStyle())
+//            .navigationTitle("Chronos")
         }
-        .padding()
+        
+        
     }
 }
 
