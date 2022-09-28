@@ -13,6 +13,10 @@ struct CounterCardView: View {
     var counter: Counter
     var isSmall = false
     var editMode = false
+    ///If the Always on display mode is enabled
+    private var isAodEnabled: Bool {
+        scenePhase == .inactive
+    }
     
     //MARK: body
     var body: some View {
@@ -40,9 +44,9 @@ struct CounterCardView: View {
         .background(
             ZStack {
                 //Always On
-                if scenePhase != .active {
+                if isAodEnabled {
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(lineWidth: 10)
+                        .stroke(lineWidth: 5)
                         .foregroundColor(counter.color)
                 }
                 
@@ -57,6 +61,8 @@ struct CounterCardView: View {
                     ZStack(alignment: .trailing) {
                         
                         counter.color
+                            //More contrast in AODisplay mode
+                            .opacity(isAodEnabled ? 0.2 : 1)
                         
                         Image(systemName: counter.symbolName)
                             .symbolVariant(.fill)
@@ -66,10 +72,9 @@ struct CounterCardView: View {
                             .brightness(-0.2)
                             .rotationEffect(Angle(degrees: -20))
                             .offset(x: 10, y: 30)
-                            //Hide the symbol in edit mode
-                            .opacity(editMode ? 0 : 1)
+                            //Hide the symbol in edit mode and in AODisplay mode
+                            .opacity(editMode || isAodEnabled ? 0 : 1)
                     }
-                    .opacity(scenePhase == .active ? 1 : 0.2)
                      
                 }
             }

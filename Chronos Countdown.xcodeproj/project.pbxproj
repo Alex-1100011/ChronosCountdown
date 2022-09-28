@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9B16483B28C38F8300B45637 /* ImageColorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16483A28C38F8300B45637 /* ImageColorTest.swift */; };
+		9B27B23228E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
+		9B27B23328E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEC28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */; };
@@ -791,6 +793,7 @@
 				9BFC81F028377E8100219B51 /* Tests_iOSLaunchTests.swift in Sources */,
 				9BFC81EE28377E8100219B51 /* Tests_iOS.swift in Sources */,
 				9BFC824E2839571E00219B51 /* Chronos.xcdatamodeld in Sources */,
+				9B27B23228E343C8002DE045 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,6 +803,7 @@
 			files = (
 				9BFC81FC28377E8100219B51 /* Tests_macOSLaunchTests.swift in Sources */,
 				9BFC81FA28377E8100219B51 /* Tests_macOS.swift in Sources */,
+				9B27B23328E343C8002DE045 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

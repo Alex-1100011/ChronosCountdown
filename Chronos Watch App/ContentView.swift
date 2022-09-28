@@ -9,34 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView{
-            List{
-                //Counters
-                ForEach(0 ..< 5) { _ in
-                    CounterCardView(counter: Counter(days: 3), isSmall: true)
-                        .listRowInsets(EdgeInsets())
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                }
-                //Add Button
-                
-                .toolbar{
-                    ToolbarItem(placement: .primaryAction) {
-                        Button(action: {}) {
-                            Text("+ Add")
-                                .font(Font.system(size: 30, weight: .medium, design: .rounded))
-                                .frame(maxWidth: .infinity)
-                                .offset(x: -10)
-                        }
-                        .tint(Color(UIColor.darkGray))
-                    }
-                }
+        
+        List{
+            //Counters
+            ForEach(testCounters) { counter in
+                CounterCardView(counter: counter)
+                    .listRowInsets(EdgeInsets())
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
             }
-            .listStyle(CarouselListStyle())
-//            .navigationTitle("Chronos")
+            //Add Button
+            
+            .toolbar{
+                
+                Button(action: {}) {
+                    Text("+ Add")
+                        .font(Font.system(size: 30, weight: .medium, design: .rounded))
+                        .frame(maxWidth: .infinity)
+                        .offset(x: -10)
+                }
+                .padding(.bottom)
+            }
         }
-        
-        
+        .listStyle(CarouselListStyle())
+                    .navigationTitle("Chronos")
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
