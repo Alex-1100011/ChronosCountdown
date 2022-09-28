@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct CounterCardView: View {
-    ///State of the Always on display
-    @Environment(\.scenePhase) private var scenePhase
+    ///If the Always on display mode is enabled
+    @Environment(\.isLuminanceReduced) private var isLuminanceReduced
     var counter: Counter
     var isSmall = false
     var editMode = false
-    ///If the Always on display mode is enabled
-    private var isAodEnabled: Bool {
-        scenePhase == .inactive
-    }
+ 
     
     //MARK: body
     var body: some View {
@@ -43,18 +40,13 @@ struct CounterCardView: View {
         //MARK: Background
         .background(
             ZStack {
-                //Always On
-                if isAodEnabled {
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(lineWidth: 5)
-                        .foregroundColor(counter.color)
-                }
                 
                 //Image
                 if let image = counter.image {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
+                        .opacity(isLuminanceReduced ? 0.2 : 1)
                     
                 //Color Background
                 } else {
@@ -62,20 +54,29 @@ struct CounterCardView: View {
                         
                         counter.color
                             //More contrast in AODisplay mode
-                            .opacity(isAodEnabled ? 0.2 : 1)
+                            .opacity(isLuminanceReduced ? 0.2 : 1)
                         
-                        Image(systemName: counter.symbolName)
-                            .symbolVariant(.fill)
-                            .font(.system(size: 90))
-                            .imageScale(.large)
-                            .foregroundColor(counter.color)
-                            .brightness(-0.2)
-                            .rotationEffect(Angle(degrees: -20))
-                            .offset(x: 10, y: 30)
-                            //Hide the symbol in edit mode and in AODisplay mode
-                            .opacity(editMode || isAodEnabled ? 0 : 1)
+                        //Hide the symbol in AODisplay mode
+                        if !isLuminanceReduced{
+                            Image(systemName: counter.symbolName)
+                                .symbolVariant(.fill)
+                                .font(.system(size: 90))
+                                .imageScale(.large)
+                                .foregroundColor(counter.color)
+                                .brightness(-0.2)
+                                .rotationEffect(Angle(degrees: -20))
+                                .offset(x: 10, y: 30)
+                                .opacity(editMode ? 0 : 1)
+                        }
                     }
                      
+                }
+                    
+                
+                //Always On
+                if isLuminanceReduced {
+                    RoundedRectangle(cornerRadius: 20)
+                        .strokeBorder(counter.color, lineWidth: 5)
                 }
             }
            
@@ -103,6 +104,7 @@ struct CounterCardView_Previews: PreviewProvider {
                             isSmall: true
             )
             .previewDisplayName("Small")
+            .environment(\.isLuminanceReduced, true)
             
             CounterCardView(counter: Counter(
                 name: "Train",
@@ -127,7 +129,7 @@ struct CounterCardView_Previews: PreviewProvider {
                     ) ?? Date(),
                 color: .green,
                 symbolName: "tram",
-                image: UIImage(named: "procida")
+                image: UIImage(named: "sperlonga")
                 )
             )
             .previewDisplayName("Image")
