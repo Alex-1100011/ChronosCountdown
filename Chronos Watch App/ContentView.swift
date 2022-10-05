@@ -9,18 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        List{
+            //Counters
+            ForEach(testCounters) { counter in
+                CounterCardView(counter: counter)
+                    .listRowInsets(EdgeInsets())
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+            }
+            //Add Button
+            
+            .toolbar{
+                
+                Button(action: {}) {
+                    Text("+ Add")
+                        .font(Font.system(size: 30, weight: .medium, design: .rounded))
+                        .frame(maxWidth: .infinity)
+                        .offset(x: -10)
+                }
+                .padding(.bottom)
+            }
         }
-        .padding()
+        .listStyle(CarouselListStyle())
+                    .navigationTitle("Chronos")
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.isLuminanceReduced, true)
     }
 }

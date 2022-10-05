@@ -17,7 +17,13 @@ struct Provider: IntentTimelineProvider {
         
         let recommendations: [IntentRecommendation<SelectCounterIntent>] = data.counters.map { counter in
             let intent = SelectCounterIntent()
+            intent.counter = CounterSelection(
+                identifier: counter.name,
+                display: counter.name)
+            
             intent.counter?.name = counter.name
+            intent.counter?.symbolName = counter.symbolName
+            
             return IntentRecommendation(intent: intent, description: counter.name)
         }
         
@@ -64,6 +70,7 @@ struct CounterTimelineEntry: TimelineEntry {
         let counterName = configuration.counter?.name
         self.counter = data.getCounterNamed(counterName) ?? Counter(days: 3)
         
+        //Adjust the date to count from with the Intent date
         self.counter.referenceDate = date
         
     }
@@ -105,6 +112,7 @@ struct ChronosWidgetEntryView : View {
                         .font(Font.system(.title, design: .rounded))
                         
                     Image(systemName: entry.counter.symbolName)
+                        .symbolVariant(.fill)
                         .foregroundColor(entry.counter.color)
                         .widgetAccentable()
                 }
@@ -113,6 +121,7 @@ struct ChronosWidgetEntryView : View {
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 0) {
                 Label(entry.counter.name,systemImage: entry.counter.symbolName)
+                    .symbolVariant(.fill)
                     .fontWeight(.medium)
                     .foregroundColor(entry.counter.color)
                     .widgetAccentable()

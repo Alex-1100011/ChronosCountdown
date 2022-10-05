@@ -1,8 +1,15 @@
 {
   "images" : [
     {
+      "filename" : "Main App Icon.png",
       "idiom" : "universal",
       "platform" : "ios",
+      "size" : "1024x1024"
+    },
+    {
+      "filename" : " watch.png",
+      "idiom" : "universal",
+      "platform" : "watchos",
       "size" : "1024x1024"
     }
   ],

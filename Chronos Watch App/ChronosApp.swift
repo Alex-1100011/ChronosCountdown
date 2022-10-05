@@ -11,7 +11,11 @@ import SwiftUI
 struct Chronos_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack{
+                ContentView()
+            }
         }
     }
 }
+
+
