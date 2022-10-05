@@ -52,7 +52,9 @@ struct CounterCardView: View {
                 } else {
                     ZStack(alignment: .trailing) {
                         
-                        counter.color
+                        Rectangle()
+                            .foregroundStyle(counter.color.gradient)
+                        
                             //More contrast in AODisplay mode
                             .opacity(isLuminanceReduced ? 0.2 : 1)
                         
@@ -104,7 +106,7 @@ struct CounterCardView_Previews: PreviewProvider {
                             isSmall: true
             )
             .previewDisplayName("Small")
-            .environment(\.isLuminanceReduced, true)
+//            .environment(\.isLuminanceReduced, true)
             
             CounterCardView(counter: Counter(
                 name: "Train",

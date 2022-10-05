@@ -13,8 +13,9 @@ import Intents
 struct Provider: IntentTimelineProvider {
     
     func recommendations() -> [IntentRecommendation<SelectCounterIntent>] {
+        let data = DataController()
         
-        let recommendations: [IntentRecommendation<SelectCounterIntent>] = testCounters.map { counter in
+        let recommendations: [IntentRecommendation<SelectCounterIntent>] = data.counters.map { counter in
             let intent = SelectCounterIntent()
             intent.counter = CounterSelection(
                 identifier: counter.name,
@@ -65,8 +66,9 @@ struct CounterTimelineEntry: TimelineEntry {
         self.date = date
         
         //Retrieves the intent configuration counter from the CoreData Persistent Store
+        let data = DataController()
         let counterName = configuration.counter?.name
-        self.counter = testCounters.first(where: {$0.name == counterName}) ?? Counter(days: 3)
+        self.counter = data.getCounterNamed(counterName) ?? Counter(days: 3)
         
         //Adjust the date to count from with the Intent date
         self.counter.referenceDate = date
