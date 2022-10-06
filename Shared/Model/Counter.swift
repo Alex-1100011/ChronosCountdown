@@ -15,7 +15,7 @@ struct Counter: Identifiable{
     var color: Color
     var symbolName: String
     var image: UIImage?
-    var id = UUID()
+    var id: UUID
     
     ///This variable stores the reference today's Date for counting down to the ``date`` variable
     ///
@@ -82,8 +82,10 @@ struct Counter: Identifiable{
         self.color = Color(hex: "027AFF")
         self.symbolName = "hourglass"
         self.image = nil
+        self.id = UUID()
         self.todayDate = Date()
         self.referenceDate = referenceDate
+        
     }
     
     init(name: String, date: Date, color: Color, symbolName: String, image: UIImage? = nil, referenceDate: Date = Date()) {
@@ -92,6 +94,7 @@ struct Counter: Identifiable{
         self.color = color
         self.symbolName = symbolName
         self.image = image
+        self.id = UUID()
         self.todayDate = Date()
         self.referenceDate = referenceDate
     }
@@ -102,11 +105,13 @@ struct Counter: Identifiable{
         date = entity.date ?? Date()
         color = Color(hex: entity.color ?? "027AFF")
         symbolName = entity.symbolName ?? ""
+        id = entity.id!
         if let imageData = entity.image {
             image = UIImage(data: imageData)
         }
         self.todayDate = Date()
         self.referenceDate = Date()
+        
     }
 
 }

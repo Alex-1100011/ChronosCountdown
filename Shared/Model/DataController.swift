@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 
+///The ViewModel that manages ....
 class DataController: ObservableObject{
     ///The CoreData `Persistent Container`
     let container = NSPersistentContainer(name: "Chronos")
@@ -32,6 +33,7 @@ class DataController: ObservableObject{
         fetchCounters()
     }
     
+    //MARK: Fetch
     ///A function that fetches ``counters`` from the Core Data ``container``
     func fetchCounters(){
         //Making the fetch request
@@ -39,14 +41,15 @@ class DataController: ObservableObject{
         let entities = try? container.viewContext.fetch(request)
         
         if let entities = entities{
-            ///Updating the ``counters`` variable with the entities converted from the ``CounterDataEntity`` to ``Counter`` type
+            ///Updating the ``counters`` variable with the converted entities (from ``CounterDataEntity`` to ``Counter`` type)
             counters = entities.map{
                 Counter(from: $0)
             }
         }
     }
     
-    ///This function adds a new ``Counter`` to the ``counters``
+    //MARK: Add
+    ///Adds a new ``Counter`` to the CoreData `Persistent Container`
     func add(_ counter: Counter){
         let counterEntity = CounterDataEntity(context: container.viewContext)
         counterEntity.name = counter.name
@@ -54,12 +57,26 @@ class DataController: ObservableObject{
         counterEntity.color = String(counter.color)
         counterEntity.symbolName = counter.symbolName
         counterEntity.image = counter.image?.jpegData(compressionQuality: 0.5)
+        counterEntity.id = counter.id
         
-        save()
+        saveData()
     }
     
+    //MARK: Delete
+    ///Deletes a ``Counter`` from the CoreData `Persistent Container`
+    func delete(_ counter: Counter){
+        let request = NSFetchRequest<CounterDataEntity>(entityName: "CounterDataEntity")
+        let entities = try? container.viewContext.fetch(request)
+        
+        if let entity = entities?.first(where: {$0.id == counter.id}){
+            container.viewContext.delete(entity)
+            saveData()
+        }
+    }
+    
+    //MARK: Save
     ///This function saves the ``container``'s context and updates the ``counters``
-    private func save(){
+    private func saveData(){
         try? container.viewContext.save()
         fetchCounters()
     }

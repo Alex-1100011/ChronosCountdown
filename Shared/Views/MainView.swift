@@ -24,8 +24,24 @@ struct MainView: View {
                         CounterCardView(counter: counter, isSmall: isAspectSmall)
                             .frame(width: isAspectSmall ? 180 : 360, height: 180)
                             .clipShape(RoundedRectangle(cornerRadius: 30))
+                        //MARK: contextMenu
                             .contextMenu{
-                                Button(role: .destructive, action: {}){
+                                //Edit
+                                Button(action: {
+                                    withAnimation{
+                                        
+                                    }
+                                }){
+                                    Text("Edit")
+                                    Image(systemName: "square.and.pencil")
+                                }
+                                
+                                //Delete
+                                Button(role: .destructive, action: {
+                                    withAnimation{
+                                        dataController.delete(counter)
+                                    }
+                                }){
                                     Text("Delete")
                                     Image(systemName: "trash")
                                 }
