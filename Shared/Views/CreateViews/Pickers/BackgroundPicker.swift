@@ -35,13 +35,13 @@ struct BackgroundPicker: View {
             
             //MARK: Multicolor
             CircleElementView(
-                color: color,
                 isSelected:
                 //When no image and no other colours are selected
                     (image == nil) &&
                     (colours.firstIndex(of: color) == nil),
                 symbolColor: .thinMaterial,
                 bgImage: UIImage(named: "multicolor"))
+            .tint(color)
             .overlay{
                 ColorPicker("color picker", selection: $color, supportsOpacity: false)
                     .labelsHidden()
@@ -63,10 +63,10 @@ struct BackgroundPicker: View {
                             bgImage: image)
                     } else {
                         CircleElementView(
-                            color: Color(UIColor.tertiarySystemGroupedBackground),
                             isSelected: false,
                             symbolName: "photo",
                             symbolColor: .gray)
+                        .tint(Color(UIColor.tertiarySystemGroupedBackground))
                     }
                     
                 }

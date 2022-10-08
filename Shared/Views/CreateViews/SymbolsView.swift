@@ -40,25 +40,33 @@ struct SymbolsListView: View {
     
     var body: some View {
         List {
+            
+            //Suggested
             Section{
-                Text("Hello")
-                Text("Hello")
+                Text("...")
             } header: {
                 Label("Suggested", systemImage: "wand.and.stars.inverse")
             }
             
+            //Recents
             Section{
-                SymbolListRow(symbol: "tram.fill", selectedSymbol: $selectedSymbol)
-                SymbolListRow(symbol: "hourglass", selectedSymbol: $selectedSymbol)
+                Text("...")
             } header: {
                 Label("Recents", systemImage: "clock.arrow.circlepath")
             }
             
-            Section{
-                SymbolListRow(symbol: "car.fill", selectedSymbol: $selectedSymbol)
-                SymbolListRow(symbol: "tram.fill", selectedSymbol: $selectedSymbol)
-            } header: {
-                Label("Transportation", systemImage: "car.fill")
+            //Categories
+            ForEach(symbolsCategory.allCases, id: \.self){ category in
+                Section{
+                    let filteredSymbols = symbols.filter{
+                        $0.category == category
+                    }
+                    ForEach(filteredSymbols.map{$0.name}, id: \.self){ symbol in
+                        SymbolListRow(symbol: symbol, selectedSymbol: $selectedSymbol)
+                    }
+                } header: {
+                    Label(category.name, systemImage: category.symbol)
+                }
             }
         }
     }
@@ -98,7 +106,8 @@ struct SymbolListRow: View{
             selectedSymbol = symbol
         } label: {
             HStack {
-                Label(symbol, systemImage: symbol)
+                CircleElementView(symbolName: symbol, symbolColor: Color.white)
+                Text(symbol.capitalizeFirstLetter())
                 Spacer()
                 
                 if symbol == selectedSymbol {
