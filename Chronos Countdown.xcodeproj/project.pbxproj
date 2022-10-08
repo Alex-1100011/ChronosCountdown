@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9B16483B28C38F8300B45637 /* ImageColorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16483A28C38F8300B45637 /* ImageColorTest.swift */; };
+		9B206CC828F191E500C50624 /* SymbolSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolSearchView.swift */; };
+		9B206CC928F191E500C50624 /* SymbolSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolSearchView.swift */; };
 		9B27B23228E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B27B23328E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
@@ -163,6 +165,7 @@
 /* Begin PBXFileReference section */
 		9B16483A28C38F8300B45637 /* ImageColorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageColorTest.swift; sourceTree = "<group>"; };
 		9B16B3B028CE0275002B7DE2 /* Chronos Countdown (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chronos Countdown (iOS).entitlements"; sourceTree = "<group>"; };
+		9B206CC728F191E500C50624 /* SymbolSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolSearchView.swift; sourceTree = "<group>"; };
 		9B5E5AEA28C15370002E8056 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicker.swift; sourceTree = "<group>"; };
 		9B5E5AF028C1627F002E8056 /* CircleElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleElementView.swift; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				9B5E5AEA28C15370002E8056 /* CreateView.swift */,
+				9B206CC728F191E500C50624 /* SymbolSearchView.swift */,
 				9BDC827828C510310032A49E /* CreateTopView.swift */,
 				9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */,
 				9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */,
@@ -755,6 +759,7 @@
 				9B5E5AF128C1627F002E8056 /* CircleElementView.swift in Sources */,
 				9BDC827C28C515330032A49E /* Functions.swift in Sources */,
 				9B73E112283C0849009178A2 /* DaysView.swift in Sources */,
+				9B206CC828F191E500C50624 /* SymbolSearchView.swift in Sources */,
 				9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BBA6794284A26BD00BF688C /* CounterCardView.swift in Sources */,
 				9B9CECE328C1FC04008ADF1E /* SymbolPicker.swift in Sources */,
@@ -778,6 +783,7 @@
 				9B73E113283C0849009178A2 /* DaysView.swift in Sources */,
 				9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BBA6795284A26BD00BF688C /* CounterCardView.swift in Sources */,
+				9B206CC928F191E500C50624 /* SymbolSearchView.swift in Sources */,
 				9B9CECE428C1FC05008ADF1E /* SymbolPicker.swift in Sources */,
 				9B73E116283C09BE009178A2 /* CounterTopView.swift in Sources */,
 				9BFC820228377E8100219B51 /* MainView.swift in Sources */,

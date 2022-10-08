@@ -14,6 +14,7 @@ struct CreateView: View {
     @State var counter = Counter()
     ///Used to dismiss the sheet
     @Binding var showSheet: Bool
+    @State private var showSymbolSearch = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -31,7 +32,7 @@ struct CreateView: View {
                 }
                 
                 Section("Symbol"){
-                    SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName)
+                    SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName, showSearch: $showSymbolSearch)
                         .padding(.vertical)
                 }
             }
@@ -63,6 +64,9 @@ struct CreateView: View {
                     .background(.ultraThinMaterial)
                 }
         }
+        }
+        .sheet(isPresented: $showSymbolSearch){
+            SymbolSearchView(text: $counter.symbolName)
         }
     }
 }
