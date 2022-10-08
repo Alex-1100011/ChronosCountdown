@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+//MARK: SymbolsView
 struct SymbolsView: View {
-    @State private var searchText = ""
     @Binding var symbol: String
+    var color: Color
     
+    @State private var searchText = ""
     private var isSearching: Bool {
         searchText != ""
     }
@@ -20,18 +22,22 @@ struct SymbolsView: View {
             
             Group{
                 if isSearching {
-                    SymbolsSearchView(searchText: $searchText)
+                    SymbolsSearchView(selectedSymbol: $symbol, searchText: searchText)
                 } else {
-                    SymbolsListView()
+                    SymbolsListView(selectedSymbol: $symbol)
                 }
             }
+            .tint(color)
             .searchable(text: $searchText)
             .navigationTitle("Symbols")
         }
     }
 }
 
+//MARK: SymbolsListView
 struct SymbolsListView: View {
+    @Binding var selectedSymbol: String
+    
     var body: some View {
         List {
             Section{
@@ -42,15 +48,15 @@ struct SymbolsListView: View {
             }
             
             Section{
-                Text("Hello")
-                Text("Hello")
+                SymbolListRow(symbol: "tram.fill", selectedSymbol: $selectedSymbol)
+                SymbolListRow(symbol: "hourglass", selectedSymbol: $selectedSymbol)
             } header: {
                 Label("Recents", systemImage: "clock.arrow.circlepath")
             }
             
             Section{
-                Text("Hello")
-                Text("Hello")
+                SymbolListRow(symbol: "car.fill", selectedSymbol: $selectedSymbol)
+                SymbolListRow(symbol: "tram.fill", selectedSymbol: $selectedSymbol)
             } header: {
                 Label("Transportation", systemImage: "car.fill")
             }
@@ -60,8 +66,11 @@ struct SymbolsListView: View {
 
 
 
+//MARK: SymbolsSearchView
 struct SymbolsSearchView: View{
-    @Binding var searchText: String
+    @Binding var selectedSymbol: String
+    var searchText: String
+    
     var filteredList: [String] {
         symbols.filter {
             $0.contains(searchText.lowercased())
@@ -71,7 +80,7 @@ struct SymbolsSearchView: View{
     var body: some View{
         List{
             ForEach(filteredList, id: \.self){ symbol in
-                Label(symbol, systemImage: symbol)
+                SymbolListRow(symbol: symbol, selectedSymbol: $selectedSymbol)
             }
         }
     }
@@ -79,9 +88,37 @@ struct SymbolsSearchView: View{
     var symbols = ["hourglass","tram.fill","car.fill","bus.fill","ferry.fill","bicycle","fuelpump.fill","allergens","pawprint.fill","pencil.and.outline","paintbrush.fill","house.fill","gamecontroller.fill","desktopcomputer","printer.filled.and.paper","keyboard.fill","text.book.closed.fill"]
 }
 
+//MARK: SymbolListRow
+struct SymbolListRow: View{
+    var symbol: String
+    @Binding var selectedSymbol: String
+    
+    var body: some View{
+        Button {
+            selectedSymbol = symbol
+        } label: {
+            HStack {
+                Label(symbol, systemImage: symbol)
+                Spacer()
+                
+                if symbol == selectedSymbol {
+                    Image(systemName: "checkmark")
+                        .fontWeight(.bold)
+                        .foregroundStyle(.tint)
+                }
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+    }
+}
+
 
 struct SymbolSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SymbolsView(symbol: .constant("hello"))
+        SymbolsView(symbol: .constant("hourglass"), color: .red)
+        
+        SymbolsSearchView(selectedSymbol: .constant("hourglass"), searchText: "a")
+            .tint(.green)
     }
 }

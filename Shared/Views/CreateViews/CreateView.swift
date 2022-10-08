@@ -66,7 +66,7 @@ struct CreateView: View {
         }
         }
         .sheet(isPresented: $showSymbolSearch){
-            SymbolsView(symbol: $counter.symbolName)
+            SymbolsView(symbol: $counter.symbolName, color: counter.color)
         }
     }
 }
