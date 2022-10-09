@@ -21,7 +21,8 @@ struct SymbolPicker: View {
                 showSearch = true
             }
             
-            ForEach(symbols, id: \.self) { symbol in
+            ForEach(0..<17) { i in
+                let symbol = symbols[i].name
                 CircleElementButton(color: color, isSelected: selectedSymbol == symbol, symbolName: symbol, symbolColor: .white)
                 {
                     selectedSymbol = symbol
@@ -29,8 +30,6 @@ struct SymbolPicker: View {
             }
         }
     }
-    
-    var symbols = ["hourglass","tram.fill","car.fill","bus.fill","ferry.fill","bicycle","fuelpump.fill","allergens","pawprint.fill","pencil.and.outline","paintbrush.fill","house.fill","gamecontroller.fill","desktopcomputer","printer.filled.and.paper","keyboard.fill","text.book.closed.fill"]
 }
 
 struct SymbolPicker_Previews: PreviewProvider {

@@ -13,7 +13,15 @@ struct CircleElementView<S: ShapeStyle>: View {
     ///This variable conforms to the ShapeStyle, so it could be assigned with any color or material
     var symbolColor: S
     var bgImage: UIImage?
-  
+    
+    @ScaledMetric var circleSize: CGFloat = 45
+    var symbolSize: CGFloat {
+        circleSize/2.5
+    }
+    var selectionRingSize: CGFloat {
+        circleSize + (circleSize/4)
+    }
+    
     
     var body: some View{
    
@@ -29,7 +37,7 @@ struct CircleElementView<S: ShapeStyle>: View {
                 } else {
                     //MARK: Circle
                     Circle()
-                        .frame(height: 45)
+                        .frame(height: circleSize)
                         .foregroundStyle(.tint)
                 }
                 
@@ -37,7 +45,7 @@ struct CircleElementView<S: ShapeStyle>: View {
                 if let symbol = symbolName{
                     Image(systemName: symbol)
                         .foregroundStyle(symbolColor)
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: symbolSize, weight: .bold))
                         .symbolVariant(.fill)
                         
 
@@ -45,8 +53,8 @@ struct CircleElementView<S: ShapeStyle>: View {
                 //MARK: Selection ring
                 if isSelected{
                     Circle()
-                        .stroke(lineWidth: 3)
-                        .frame(width: 55, height: 55)
+                        .stroke(lineWidth: circleSize/15)
+                        .frame(width: selectionRingSize, height: selectionRingSize)
                         .foregroundColor(Color(UIColor.tertiaryLabel))
                         //To eliminate the extra frame size due to the ring
                         .padding(-10)

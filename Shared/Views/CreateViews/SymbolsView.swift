@@ -41,20 +41,6 @@ struct SymbolsListView: View {
     var body: some View {
         List {
             
-            //Suggested
-            Section{
-                Text("...")
-            } header: {
-                Label("Suggested", systemImage: "wand.and.stars.inverse")
-            }
-            
-            //Recents
-            Section{
-                Text("...")
-            } header: {
-                Label("Recents", systemImage: "clock.arrow.circlepath")
-            }
-            
             //Categories
             ForEach(symbolsCategory.allCases, id: \.self){ category in
                 Section{
@@ -80,8 +66,11 @@ struct SymbolsSearchView: View{
     var searchText: String
     
     var filteredList: [String] {
-        symbols.filter {
-            $0.contains(searchText.lowercased())
+        let s = symbols.filter {
+            $0.name.contains(searchText.lowercased())
+        }
+        return s.map{
+            $0.name
         }
     }
     
@@ -92,8 +81,6 @@ struct SymbolsSearchView: View{
             }
         }
     }
-    
-    var symbols = ["hourglass","tram.fill","car.fill","bus.fill","ferry.fill","bicycle","fuelpump.fill","allergens","pawprint.fill","pencil.and.outline","paintbrush.fill","house.fill","gamecontroller.fill","desktopcomputer","printer.filled.and.paper","keyboard.fill","text.book.closed.fill"]
 }
 
 //MARK: SymbolListRow
@@ -106,7 +93,7 @@ struct SymbolListRow: View{
             selectedSymbol = symbol
         } label: {
             HStack {
-                CircleElementView(symbolName: symbol, symbolColor: Color.white)
+                CircleElementView(symbolName: symbol, symbolColor: Color.white, circleSize: 30)
                 Text(symbol.capitalizeFirstLetter())
                 Spacer()
                 
