@@ -22,7 +22,7 @@ struct SymbolPicker: View {
             }
             
             ForEach(0..<17) { i in
-                let symbol = symbols[i].name
+                let symbol = symbols[i].symbolName
                 CircleElementButton(color: color, isSelected: selectedSymbol == symbol, symbolName: symbol, symbolColor: .white)
                 {
                     selectedSymbol = symbol

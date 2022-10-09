@@ -47,7 +47,7 @@ struct SymbolsListView: View {
                     let filteredSymbols = symbols.filter{
                         $0.category == category
                     }
-                    ForEach(filteredSymbols.map{$0.name}, id: \.self){ symbol in
+                    ForEach(filteredSymbols.map{$0.symbolName}, id: \.self){ symbol in
                         SymbolListRow(symbol: symbol, selectedSymbol: $selectedSymbol)
                     }
                 } header: {
@@ -65,20 +65,49 @@ struct SymbolsSearchView: View{
     @Binding var selectedSymbol: String
     var searchText: String
     
-    var filteredList: [String] {
-        let s = symbols.filter {
-            $0.name.contains(searchText.lowercased())
-        }
-        return s.map{
-            $0.name
-        }
-    }
-    
     var body: some View{
         List{
             ForEach(filteredList, id: \.self){ symbol in
                 SymbolListRow(symbol: symbol, selectedSymbol: $selectedSymbol)
             }
+        }
+    }
+    
+    ///Filters the ``symbols`` list based on the ``searchText``, using specific priorities.
+    ///
+    ///The list is ordered with priority to
+    ///the matching string, than
+    ///the ones that start with the same letters,
+    ///the ones that contains the query in its name and at the end
+    ///the ones that contains the query in the keywords.
+    var filteredList: [String] {
+        var matchName = [Symbol]()
+        var prefixName = [Symbol]()
+        var containsName = [Symbol]()
+        var containsString = [Symbol]()
+        
+        let query = searchText.lowercased()
+        
+        for symbol in symbols {
+
+            if query == symbol.displayName {
+                matchName.append(symbol)
+                
+            } else if symbol.displayName.hasPrefix(query) {
+                prefixName.append(symbol)
+                
+            } else if symbol.displayName.contains(query) {
+                containsName.append(symbol)
+                
+            } else if symbol.keywords.contains(query) {
+                containsString.append(symbol)
+            }
+        }
+
+        let results = matchName + prefixName + containsName + containsString
+        
+        return results.map{
+            $0.symbolName
         }
     }
 }
