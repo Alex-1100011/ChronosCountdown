@@ -47,7 +47,7 @@ struct SymbolsListView: View {
                     let filteredSymbols = symbols.filter{
                         $0.category == category
                     }
-                    ForEach(filteredSymbols.map{$0.symbolName}, id: \.self){ symbol in
+                    ForEach(filteredSymbols, id: \.self){ symbol in
                         SymbolListRow(symbol: symbol, selectedSymbol: $selectedSymbol)
                     }
                 } header: {
@@ -80,14 +80,16 @@ struct SymbolsSearchView: View{
     ///the ones that start with the same letters,
     ///the ones that contains the query in its name and at the end
     ///the ones that contains the query in the keywords.
-    var filteredList: [String] {
+    var filteredList: [Symbol] {
+        //Lists
         var matchName = [Symbol]()
         var prefixName = [Symbol]()
         var containsName = [Symbol]()
-        var containsString = [Symbol]()
+        var containsKeyword = [Symbol]()
         
         let query = searchText.lowercased()
         
+        //Do the query
         for symbol in symbols {
 
             if query == symbol.displayName {
@@ -100,33 +102,43 @@ struct SymbolsSearchView: View{
                 containsName.append(symbol)
                 
             } else if symbol.keywords.contains(query) {
-                containsString.append(symbol)
+                containsKeyword.append(symbol)
             }
         }
-
-        let results = matchName + prefixName + containsName + containsString
         
-        return results.map{
-            $0.symbolName
+        //Sort the results
+        matchName.sort{
+            $0.displayName < $1.displayName
         }
+        prefixName.sort{
+            $0.displayName < $1.displayName
+        }
+        containsName.sort{
+            $0.displayName < $1.displayName
+        }
+        containsKeyword.sort{
+            $0.displayName < $1.displayName
+        }
+        //Return with the priority order
+        return matchName + prefixName + containsName + containsKeyword
     }
 }
 
 //MARK: SymbolListRow
 struct SymbolListRow: View{
-    var symbol: String
+    var symbol: Symbol
     @Binding var selectedSymbol: String
     
     var body: some View{
         Button {
-            selectedSymbol = symbol
+            selectedSymbol = symbol.symbolName
         } label: {
             HStack {
-                CircleElementView(symbolName: symbol, symbolColor: Color.white, circleSize: 30)
-                Text(symbol.capitalizeFirstLetter())
+                CircleElementView(symbolName: symbol.symbolName, symbolColor: Color.white, circleSize: 30)
+                Text(symbol.displayName.capitalizeFirstLetter())
                 Spacer()
                 
-                if symbol == selectedSymbol {
+                if symbol.symbolName == selectedSymbol {
                     Image(systemName: "checkmark")
                         .fontWeight(.bold)
                         .foregroundStyle(.tint)
