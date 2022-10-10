@@ -14,7 +14,7 @@ struct CircleElementView<S: ShapeStyle>: View {
     var symbolColor: S
     var bgImage: UIImage?
     
-    @ScaledMetric var circleSize: CGFloat = 45
+    @ScaledMetric var circleSize: CGFloat = 42
     var symbolSize: CGFloat {
         circleSize/2.5
     }
@@ -32,7 +32,7 @@ struct CircleElementView<S: ShapeStyle>: View {
                     Image(uiImage: bgImage)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 45, height: 45)
+                        .frame(width: circleSize, height: circleSize)
                         .clipShape(Circle())
                 } else {
                     //MARK: Circle

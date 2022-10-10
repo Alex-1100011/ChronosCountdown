@@ -17,13 +17,19 @@ struct MainView: View {
     var body: some View {
         NavigationView {
            ScrollView {
-               LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? 180 : 360))],spacing: 25) {
+               LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? 180 : 360))],spacing: 15) {
                    
                     ForEach(dataController.counters){ counter in
                         //MARK: Counter
                         CounterCardView(counter: counter, isSmall: isAspectSmall)
                             .frame(width: isAspectSmall ? 180 : 360, height: 180)
                             .clipShape(RoundedRectangle(cornerRadius: 30))
+                            .shadow(
+                                color: .black.opacity(0.2),
+                                radius: 5,
+                                y: 5)
+                        
+                        //MARK: contextMenu
                             .contextMenu{
                                 Button(role: .destructive, action: {}){
                                     Text("Delete")
@@ -32,6 +38,7 @@ struct MainView: View {
                             }
                     }
                 }
+               .padding([.top, .leading, .trailing])
             }
             .navigationBarTitle("Counters")
             //MARK: navigationBarItems
