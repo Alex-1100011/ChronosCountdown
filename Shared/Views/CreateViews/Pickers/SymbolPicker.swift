@@ -10,6 +10,7 @@ import SwiftUI
 struct SymbolPicker: View {
     var color: Color = .blue
     @Binding var selectedSymbol: String
+    @Binding var showSearch: Bool
     
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 15){
@@ -17,9 +18,11 @@ struct SymbolPicker: View {
             CircleElementButton(color: Color(UIColor.tertiarySystemGroupedBackground), symbolName: "magnifyingglass", symbolColor: .secondary)
             {
                 //Display search
+                showSearch = true
             }
             
-            ForEach(symbols, id: \.self) { symbol in
+            ForEach(0..<17) { i in
+                let symbol = symbols[i].symbolName
                 CircleElementButton(color: color, isSelected: selectedSymbol == symbol, symbolName: symbol, symbolColor: .white)
                 {
                     selectedSymbol = symbol
@@ -27,13 +30,11 @@ struct SymbolPicker: View {
             }
         }
     }
-    
-    var symbols = ["hourglass","tram.fill","car.fill","bus.fill","ferry.fill","bicycle","fuelpump.fill","allergens","pawprint.fill","pencil.and.outline","paintbrush.fill","house.fill","gamecontroller.fill","desktopcomputer","printer.filled.and.paper","keyboard.fill","text.book.closed.fill"]
 }
 
 struct SymbolPicker_Previews: PreviewProvider {
     static var previews: some View {
-        SymbolPicker(selectedSymbol: .constant("hourglass"))
+        SymbolPicker(selectedSymbol: .constant("hourglass"), showSearch: .constant(false))
             .padding()
             .previewLayout(.sizeThatFits)
     }

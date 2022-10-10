@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9B16483B28C38F8300B45637 /* ImageColorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16483A28C38F8300B45637 /* ImageColorTest.swift */; };
+		9B206CC828F191E500C50624 /* SymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolsView.swift */; };
+		9B206CC928F191E500C50624 /* SymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolsView.swift */; };
 		9B27B23228E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B27B23328E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
@@ -26,6 +28,8 @@
 		9B87C978283A93E40019395E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
 		9B87C979283A93E40019395E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
 		9B87C97A283A93E40019395E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
+		9B8F9B1628F1D0F700C506E0 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F9B1528F1D0F700C506E0 /* Symbols.swift */; };
+		9B8F9B1728F1D0F700C506E0 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F9B1528F1D0F700C506E0 /* Symbols.swift */; };
 		9B9CECE328C1FC04008ADF1E /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */; };
 		9B9CECE428C1FC05008ADF1E /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */; };
 		9B9F0FFE28D872560093458D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F0FFD28D872560093458D /* SettingsView.swift */; };
@@ -165,6 +169,7 @@
 /* Begin PBXFileReference section */
 		9B16483A28C38F8300B45637 /* ImageColorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageColorTest.swift; sourceTree = "<group>"; };
 		9B16B3B028CE0275002B7DE2 /* Chronos Countdown (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chronos Countdown (iOS).entitlements"; sourceTree = "<group>"; };
+		9B206CC728F191E500C50624 /* SymbolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsView.swift; sourceTree = "<group>"; };
 		9B5E5AEA28C15370002E8056 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicker.swift; sourceTree = "<group>"; };
 		9B5E5AF028C1627F002E8056 /* CircleElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleElementView.swift; sourceTree = "<group>"; };
@@ -172,6 +177,7 @@
 		9B73E114283C09BE009178A2 /* CounterTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTopView.swift; sourceTree = "<group>"; };
 		9B87C973283A88B40019395E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9B87C977283A93E40019395E /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		9B8F9B1528F1D0F700C506E0 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolPicker.swift; sourceTree = "<group>"; };
 		9B9F0FFB28D86F0E0093458D /* CounterIntentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CounterIntentExtension.entitlements; sourceTree = "<group>"; };
 		9B9F0FFC28D86F2F0093458D /* ChronosWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChronosWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -277,6 +283,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B206CCA28F1BA6C00C50624 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */,
+				9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
 		9B5E5AE928C15327002E8056 /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,8 +307,8 @@
 			children = (
 				9B5E5AEA28C15370002E8056 /* CreateView.swift */,
 				9BDC827828C510310032A49E /* CreateTopView.swift */,
-				9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */,
-				9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */,
+				9B206CCA28F1BA6C00C50624 /* Pickers */,
+				9B206CC728F191E500C50624 /* SymbolsView.swift */,
 				9B5E5AF028C1627F002E8056 /* CircleElementView.swift */,
 			);
 			path = CreateViews;
@@ -355,6 +370,7 @@
 				9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */,
 				9B16483A28C38F8300B45637 /* ImageColorTest.swift */,
 				9BDC827B28C515330032A49E /* Functions.swift */,
+				9B8F9B1528F1D0F700C506E0 /* Symbols.swift */,
 				9BFC821528377EFF00219B51 /* Views */,
 				9BFC821628377F2100219B51 /* Model */,
 				9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */,
@@ -758,8 +774,10 @@
 				9BFC81FF28377E8100219B51 /* ChronosCountdownApp.swift in Sources */,
 				9BA3E2D528CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
 				9B5E5AF128C1627F002E8056 /* CircleElementView.swift in Sources */,
+				9B8F9B1628F1D0F700C506E0 /* Symbols.swift in Sources */,
 				9BDC827C28C515330032A49E /* Functions.swift in Sources */,
 				9B73E112283C0849009178A2 /* DaysView.swift in Sources */,
+				9B206CC828F191E500C50624 /* SymbolsView.swift in Sources */,
 				9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BBA6794284A26BD00BF688C /* CounterCardView.swift in Sources */,
 				9B9CECE328C1FC04008ADF1E /* SymbolPicker.swift in Sources */,
@@ -774,6 +792,7 @@
 			files = (
 				9B9F0FFF28D872560093458D /* SettingsView.swift in Sources */,
 				9B87C979283A93E40019395E /* Counter.swift in Sources */,
+				9B8F9B1728F1D0F700C506E0 /* Symbols.swift in Sources */,
 				9B5E5AEC28C15370002E8056 /* CreateView.swift in Sources */,
 				9B87C975283A88B40019395E /* DataController.swift in Sources */,
 				9BDC827D28C515330032A49E /* Functions.swift in Sources */,
@@ -784,6 +803,7 @@
 				9B73E113283C0849009178A2 /* DaysView.swift in Sources */,
 				9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9BBA6795284A26BD00BF688C /* CounterCardView.swift in Sources */,
+				9B206CC928F191E500C50624 /* SymbolsView.swift in Sources */,
 				9B9CECE428C1FC05008ADF1E /* SymbolPicker.swift in Sources */,
 				9B73E116283C09BE009178A2 /* CounterTopView.swift in Sources */,
 				9BFC820228377E8100219B51 /* MainView.swift in Sources */,

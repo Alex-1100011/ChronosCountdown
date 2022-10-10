@@ -74,6 +74,12 @@ extension String {
     }
 }
 
+extension String {
+    func capitalizeFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+}
+
 
 var testColours: [Color] = [
     Color(hex: "027AFF"), Color(hex: "1DB2DF"), Color(hex: "44D7B6"),
