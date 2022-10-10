@@ -36,9 +36,17 @@ struct BackgroundPicker: View {
             //MARK: Multicolor
             CircleElementView(
                 color: color,
-                isSelected: false,
+                isSelected:
+                //When no image and no other colours are selected
+                    (image == nil) &&
+                    (colours.firstIndex(of: color) == nil),
                 symbolColor: .thinMaterial,
                 bgImage: UIImage(named: "multicolor"))
+            .overlay{
+                ColorPicker("color picker", selection: $color, supportsOpacity: false)
+                    .labelsHidden()
+                    .opacity(0.015)
+            }
             
             
             //MARK: Image

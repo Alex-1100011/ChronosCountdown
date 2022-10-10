@@ -75,3 +75,15 @@ extension String {
 }
 
 
+var testColours: [Color] = [
+    Color(hex: "027AFF"), Color(hex: "1DB2DF"), Color(hex: "44D7B6"),
+    Color(hex: "35C759"), Color(hex: "FFCC02"), Color(hex: "FFA700"), Color(hex: "A736FF"), Color(hex: "E020B8"),
+    Color(hex: "E02020"), Color(hex: "FF7100")]
+
+var testCounters: [Counter] = [
+    Counter(name: "Hello World", date: Date() + 60 * 60 * 24 * 3, color: testColours[3], symbolName: "globe"),
+    Counter(name: "Testing", date: Date() + 60 * 60 * 24 * 9, color: testColours[0], symbolName: "hammer"),
+    Counter(name: "Coding", date: Date() + 60 * 60 * 24 * 6, color: testColours[4], symbolName: "keyboard")
+]
+
+
