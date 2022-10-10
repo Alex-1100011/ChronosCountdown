@@ -31,7 +31,22 @@ struct MainView: View {
                         
                         //MARK: contextMenu
                             .contextMenu{
-                                Button(role: .destructive, action: {}){
+                                //Edit
+                                Button(action: {
+                                    withAnimation{
+                                        
+                                    }
+                                }){
+                                    Text("Edit")
+                                    Image(systemName: "square.and.pencil")
+                                }
+                                
+                                //Delete
+                                Button(role: .destructive, action: {
+                                    withAnimation{
+                                        dataController.delete(counter)
+                                    }
+                                }){
                                     Text("Delete")
                                     Image(systemName: "trash")
                                 }
