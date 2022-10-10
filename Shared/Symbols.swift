@@ -7,12 +7,17 @@
 import SwiftUI
 
 enum symbolsCategory: String, CaseIterable{
-    case health = "stethoscope"
+    case stationery = "doc.text"
+    case school = "backpack"
+    case tools = "hammer"
     case objects = "text.book.closed.fill"
     case music = "music.note"
+    case leisure = "theatermasks"
     case transportation = "car.fill"
-    case people = "person.fill"
+    case health = "stethoscope"
     case fitness = "figure.run"
+    case people = "person.fill"
+    
     
     var symbol: String {
         self.rawValue
@@ -33,6 +38,14 @@ enum symbolsCategory: String, CaseIterable{
         case .people:
             return ""
         case .fitness:
+            return ""
+        case .leisure:
+            return "freetime fun relax"
+        case .tools:
+            return ""
+        case .school:
+            return ""
+        case .stationery:
             return ""
         }
     }
@@ -74,6 +87,8 @@ var symbols: [Symbol] = [
     Symbol("bicycle", .transportation),
     Symbol("scooter", .transportation),
     Symbol("fuelpump", .transportation),
+    Symbol("sailboat", .transportation),
+    Symbol("road.lanes", .transportation),
     
     //MARK: People
     Symbol("person", .people),
@@ -166,66 +181,83 @@ var symbols: [Symbol] = [
     Symbol("testtube.2", .health),
     Symbol("stethoscope", .health),
     
+    //MARK: Leisure
+    Symbol("popcorn", .leisure),
+    Symbol("ticket", .leisure),
+    Symbol("theatermasks", .leisure),
+    Symbol("puzzlepiece", .leisure),
+    Symbol("building.columns", .leisure),
+    Symbol("tv.inset.filled", .leisure),
+    Symbol("radio", .leisure),
+    Symbol("checkerboard.rectangle", .leisure),
+    Symbol("gamecontroller", .leisure),
+    Symbol("app.gift", .leisure),
+    Symbol("party.popper", .leisure),
+    Symbol("binoculars", .leisure),
+    Symbol("tent", .leisure),
+    Symbol("beach.umbrella", .leisure),
+    Symbol("balloon.2", .leisure),
+    Symbol("fireplace", .leisure),
+    Symbol("film.stack", .leisure),
+    Symbol("birthday.cake", .leisure),
+    
     //MARK: Objects
     Symbol("hourglass", .objects),
-    Symbol("pencil", .objects),
-    Symbol("eraser", .objects),
-    Symbol("square.and.pencil", .objects),
-    Symbol("highlighter", .objects),
-    Symbol("pencil.and.outline", .objects),
+    Symbol("pencil", .stationery),
+    Symbol("eraser", .stationery),
+    Symbol("square.and.pencil", .stationery),
+    Symbol("highlighter", .stationery),
+    Symbol("pencil.and.outline", .stationery),
     Symbol("trash", .objects),
-    Symbol("folder", .objects),
-    Symbol("paperplane", .objects),
-    Symbol("tray.full", .objects),
-    Symbol("doc.text", .objects),
-    Symbol("list.bullet.clipboard", .objects),
+    Symbol("folder", .stationery),
+    Symbol("paperplane", .school),
+    Symbol("tray.full", .stationery),
+    Symbol("doc.text", .stationery),
+    Symbol("list.bullet.clipboard", .stationery),
     Symbol("note.text", .objects),
     Symbol("calendar", .objects),
-    Symbol("book", .objects),
-    Symbol("books.vertical", .objects),
-    Symbol("text.book.closed", .objects),
+    Symbol("book", .school),
+    Symbol("books.vertical", .school),
+    Symbol("text.book.closed", .school),
     Symbol("newspaper", .objects),
-    Symbol("graduationcap", .objects),
-    Symbol("ruler", .objects),
-    Symbol("backpack", .objects),
-    Symbol("studentdesk", .objects),
-    Symbol("paperclip", .objects),
-    Symbol("link", .objects),
+    Symbol("graduationcap", .school),
+    Symbol("ruler", .stationery),
+    Symbol("backpack", .school),
+    Symbol("studentdesk", .school),
+    Symbol("paperclip", .stationery),
+    Symbol("link", .stationery),
     Symbol("photo.artframe", .objects),
-    Symbol("beach.umbrella", .objects),
     Symbol("umbrella", .objects),
     Symbol("megaphone", .objects),
-    Symbol("magnifyingglass", .objects),
-    Symbol("bell", .objects),
-    Symbol("tag", .objects),
+    Symbol("magnifyingglass", .stationery),
+    Symbol("bell", .school),
+    Symbol("tag", .stationery),
     Symbol("flashlight.on.fill", .objects),
     Symbol("camera", .objects),
-    Symbol("gearshape", .objects),
-    Symbol("gearshape.2", .objects),
-    Symbol("scissors", .objects),
+    Symbol("gearshape", .tools),
+    Symbol("gearshape.2", .tools),
+    Symbol("scissors", .stationery),
     Symbol("bag", .objects),
     Symbol("cart", .objects),
     Symbol("basket", .objects),
     Symbol("creditcard", .objects),
     Symbol("wand.and.rays", .objects),
     Symbol("creditcard", .objects),
-    Symbol("die.face.5", .objects),
+    Symbol("die.face.5", .leisure),
     Symbol("paintbrush", .objects),
     Symbol("paintbrush.pointed", .objects),
-    Symbol("level", .objects),
-    Symbol("wrench.adjustable", .objects),
-    Symbol("hammer", .objects),
-    Symbol("screwdriver", .objects),
+    Symbol("level", .tools),
+    Symbol("wrench.adjustable", .tools),
+    Symbol("hammer", .tools),
+    Symbol("screwdriver", .tools),
     Symbol("eyedropper", .objects),
     Symbol("scroll", .objects),
-    Symbol("printer", .objects),
+    Symbol("printer", .stationery),
     Symbol("briefcase", .objects),
     Symbol("suitcase", .objects),
-    Symbol("puzzlepiece.fill", .objects),
-    Symbol("balloon.2", .objects),
-    Symbol("tent", .objects),
+    Symbol("puzzlepiece.fill", .leisure),
     Symbol("building.2", .objects),
-    Symbol("lock", .objects),
-    Symbol("map", .objects)
+    Symbol("lock", .tools),
+    Symbol("map", .leisure)
 ]
 
