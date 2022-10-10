@@ -66,6 +66,8 @@ struct MainView: View {
                     } label: {
                         Label("Settings", systemImage: "gear")
                     }
+                    //For better tappable area
+                    .contentShape(Rectangle())
                 }
                 
                 //MARK: Change size button
@@ -77,6 +79,8 @@ struct MainView: View {
                     } label: {
                         Label("Change card size", systemImage: isAspectSmall ? "rectangle.grid.2x2" : "rectangle.grid.1x2")
                     }
+                    //For better tappable area
+                    .contentShape(Rectangle())
                 }
                 //MARK: Add button
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -85,6 +89,8 @@ struct MainView: View {
                     } label: {
                         Label("Add new counter", systemImage: "plus")
                     }
+                    //For better tappable area
+                    .contentShape(Rectangle())
                 }
             }
         }
