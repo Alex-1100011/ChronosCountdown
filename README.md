@@ -1,10 +1,8 @@
-# ChronosCountdown
-A **sample project** to try out and demo different frameworks and technologies. <br>
-It is an app that keeps track of upcoming and past events with a visual countdown.
+# Chronos Countdown
+![chronos@1x](https://user-images.githubusercontent.com/49677462/195297833-52c2ab9f-5860-40f9-ac4b-061de0dbc363.png)
 
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/49677462/174494688-3184fc39-afd0-46aa-9858-edf156a561ef.png" width="600">
-</div>
+Chronos is a **sample project** to try out and demo different frameworks and technologies. <br>
+The **multi-platform app** allows you to keep track of upcoming and past events with a visual countdown.
 
 ## Technologies used
 
@@ -18,4 +16,12 @@ It is an app that keeps track of upcoming and past events with a visual countdow
 - CloudKit
 - SiriKit
 - AppClips
+- Shared with you API
+- Vision
 
+## Supported Platforms
+
+- **iPhone** with iOS 16 or later
+- **Apple Watch** with watchOS 9.0 or later
+- **iPad** with iPadOS 16.0 or later
+- **Mac** with macOS 12.3 or later
