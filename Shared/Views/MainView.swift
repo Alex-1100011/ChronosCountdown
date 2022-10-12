@@ -14,16 +14,18 @@ struct MainView: View {
     @State var isAspectSmall = true
     @State var showCreateView = false
     @State var showSettings = false
+    @ScaledMetric var counterHeight = 180
+    @ScaledMetric var counterWidth = 360
     
     var body: some View {
         NavigationView {
            ScrollView {
-               LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? 180 : 360))],spacing: 15) {
+               LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? counterHeight : counterWidth))],spacing: 15) {
                    
                     ForEach(dataController.counters){ counter in
                         //MARK: Counter
                         CounterCardView(counter: counter, isSmall: isAspectSmall)
-                            .frame(width: isAspectSmall ? 180 : 360, height: 180)
+                            .frame(width: isAspectSmall ? counterHeight : counterWidth, height: counterHeight)
                             .clipShape(RoundedRectangle(cornerRadius: 30))
                             .shadow(
                                 color: .black.opacity(0.2),
