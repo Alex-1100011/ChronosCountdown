@@ -13,6 +13,16 @@ struct SettingsView: View {
             
             List{
                 
+                Section("TESTS"){
+                    NavigationLink(destination: {ImageColorTest()}){
+                        Label("Color from Image", systemImage: "paintbrush.fill")
+                    }
+                    
+                    NavigationLink(destination: {ImageSegmentationTestView()}){
+                        Label("Photo Segmentation", systemImage: "person.fill")
+                    }
+                }
+                
                 Section("App icon"){
                     ForEach(icons, id: \.self){ icon in
                         AppIconView(name: icon)
