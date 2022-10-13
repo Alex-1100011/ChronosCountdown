@@ -10,6 +10,7 @@ import SwiftUI
 //MARK: SymbolsView
 struct SymbolsView: View {
     @Binding var symbol: String
+    @Binding var showSymbolsView: Bool
     var color: Color
     
     @State private var searchText = ""
@@ -22,9 +23,16 @@ struct SymbolsView: View {
             
             Group{
                 if isSearching {
-                    SymbolsSearchView(selectedSymbol: $symbol, searchText: searchText)
+                    SymbolsSearchView(
+                        selectedSymbol: $symbol,
+                        showSymbolsView: $showSymbolsView,
+                        searchText: searchText
+                    )
                 } else {
-                    SymbolsListView(selectedSymbol: $symbol)
+                    SymbolsListView(
+                        selectedSymbol: $symbol,
+                        showSymbolsView: $showSymbolsView
+                    )
                 }
             }
             .tint(color)
@@ -37,6 +45,7 @@ struct SymbolsView: View {
 //MARK: SymbolsListView
 struct SymbolsListView: View {
     @Binding var selectedSymbol: String
+    @Binding var showSymbolsView: Bool
     
     var body: some View {
         List {
@@ -48,7 +57,10 @@ struct SymbolsListView: View {
                         $0.category == category
                     }
                     ForEach(filteredSymbols, id: \.self){ symbol in
-                        SymbolListRow(symbol: symbol, selectedSymbol: $selectedSymbol)
+                        SymbolListRow(
+                            symbol: symbol,
+                            selectedSymbol: $selectedSymbol,
+                            showSymbolsView: $showSymbolsView)
                     }
                 } header: {
                     Label(category.name, systemImage: category.symbol)
@@ -63,12 +75,16 @@ struct SymbolsListView: View {
 //MARK: SymbolsSearchView
 struct SymbolsSearchView: View{
     @Binding var selectedSymbol: String
+    @Binding var showSymbolsView: Bool
     var searchText: String
     
     var body: some View{
         List{
             ForEach(filteredList, id: \.self){ symbol in
-                SymbolListRow(symbol: symbol, selectedSymbol: $selectedSymbol)
+                SymbolListRow(
+                    symbol: symbol,
+                    selectedSymbol: $selectedSymbol,
+                    showSymbolsView: $showSymbolsView)
             }
         }
     }
@@ -128,10 +144,12 @@ struct SymbolsSearchView: View{
 struct SymbolListRow: View{
     var symbol: Symbol
     @Binding var selectedSymbol: String
+    @Binding var showSymbolsView: Bool
     
     var body: some View{
         Button {
             selectedSymbol = symbol.symbolName
+            showSymbolsView = false
         } label: {
             HStack {
                 CircleElementView(symbolName: symbol.symbolName, symbolColor: Color.white, circleSize: 30)
@@ -153,9 +171,9 @@ struct SymbolListRow: View{
 
 struct SymbolSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SymbolsView(symbol: .constant("hourglass"), color: .red)
+        SymbolsView(symbol: .constant("hourglass"), showSymbolsView: .constant(true), color: .red)
         
-        SymbolsSearchView(selectedSymbol: .constant("hourglass"), searchText: "a")
+        SymbolsSearchView(selectedSymbol: .constant("hourglass"), showSymbolsView: .constant(true), searchText: "a")
             .tint(.green)
     }
 }
