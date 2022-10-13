@@ -12,41 +12,66 @@ import Vision
 struct ImageSegmentationTestView: View {
     @State private var selectedPhotoItem: PhotosPickerItem? = nil
     @State private var image: UIImage? = nil
+    @State private var color: Color = .blue
+    @State private var dragOffset = CGSize.zero
     var size: CGFloat = 400
     
     var body: some View {
-        ScrollView {
-            //Picker
-            PhotosPicker(
-                selection: $selectedPhotoItem,
-                matching: .images,
-                photoLibrary: .shared()) {
-                    
-                    Label("Select an image", systemImage: "photo.fill")
-                    
-                }
-            //Update image from picker's selection
-                .onChange(of: selectedPhotoItem) { newItem in
-                    Task {
-                        // Retrieve selected asset in the form of Data
-                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                            image = UIImage(data: data)
-                        }
+        VStack {
+            
+            
+            //Pickers
+            HStack {
+                PhotosPicker(
+                    selection: $selectedPhotoItem,
+                    matching: .images,
+                    photoLibrary: .shared()) {
+                        
+                        Label("Select an image", systemImage: "photo.fill")
+                        
                     }
+                //Update image from picker's selection
+                    .onChange(of: selectedPhotoItem) { newItem in
+                        Task {
+                            // Retrieve selected asset in the form of Data
+                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                image = UIImage(data: data)
+                            }
+                        }
                 }
+                ColorPicker("", selection: $color)
+            }
+            
             
             //Images
-            Text("image:")
-            imageView()
+            ZStack {
+                color
+                
+                imageView()
+                    .blendMode(.overlay)
+                    .offset(dragOffset)
+                
+                VStack {
+                    Text("Hello World")
+                    Text("Hello World")
+                    Text("Hello World")
+                    Text("Hello World")
+                }
+                .font(.largeTitle)
+                .fontWeight(.heavy)
+                
+                maskedImage()
+                    .shadow(radius: 10)
+                    .offset(dragOffset)
+                
+            }
+            .gesture(
+                DragGesture()
+                    .onChanged { gesture in
+                        dragOffset = gesture.translation
+                    }
+            )
             
-            Text("mask:")
-            maskView()
-            
-            Text("masked image:")
-            maskedImage()
-            
-            Text("effect:")
-            effect()
             
         }
     }
@@ -57,7 +82,6 @@ struct ImageSegmentationTestView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: size)
-                .border(Color.blue)
         }
     }
     @ViewBuilder func maskView() -> some View{
@@ -78,9 +102,9 @@ struct ImageSegmentationTestView: View {
             }
     }
     
-    @ViewBuilder func effect() -> some View{
+    @ViewBuilder func colorEffect() -> some View{
         ZStack{
-            testColours[0]
+            color
             
             imageView()
                 .blendMode(.overlay)
@@ -88,18 +112,6 @@ struct ImageSegmentationTestView: View {
             maskedImage()
         }
 
-    }
-    
-    @ViewBuilder func colorEffect() -> some View{
-        ZStack{
-            imageView()
-                
-            Rectangle()
-                .foregroundColor(testColours[0])
-                .blendMode(.color)
-            
-            maskedImage()
-        }
     }
     
     
