@@ -11,9 +11,10 @@ import Vision
 
 struct ImageSegmentationTestView: View {
     @State private var selectedPhotoItem: PhotosPickerItem? = nil
-    @State private var image: UIImage? = nil
-    @State private var color: Color = .blue
-    @State private var dragOffset = CGSize.zero
+
+    
+    @State var bgImage = BackgroundImage(colorEffect: .blue)
+    
     var size: CGFloat = 400
     
     var body: some View {
@@ -35,87 +36,40 @@ struct ImageSegmentationTestView: View {
                         Task {
                             // Retrieve selected asset in the form of Data
                             if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                image = UIImage(data: data)
+                                
+                                bgImage.image = UIImage(data: data)
+                                bgImage.offset = CGSize.zero
+                                
+                                
                             }
                         }
                 }
-                ColorPicker("", selection: $color)
+                ColorPicker("", selection: $bgImage.colorEffect)
             }
             
             
-            //Images
+            //Counter
             ZStack {
-                color
                 
-                imageView()
-                    .blendMode(.overlay)
-                    .offset(dragOffset)
+               CounterCardView(counter: Counter(days: 90), bgImage: bgImage)
+                    .frame(width: 360, height: 180)
                 
-                VStack {
-                    Text("Hello World")
-                    Text("Hello World")
-                    Text("Hello World")
-                    Text("Hello World")
-                }
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                
-                maskedImage()
-                    .shadow(radius: 10)
-                    .offset(dragOffset)
                 
             }
             .gesture(
                 DragGesture()
                     .onChanged { gesture in
-                        dragOffset = gesture.translation
+                        bgImage.offset = gesture.translation
                     }
             )
+            .clipShape(RoundedRectangle(cornerRadius: 30))
             
             
         }
     }
-    
-    @ViewBuilder func imageView() -> some View{
-        if let image {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: size)
-        }
-    }
-    @ViewBuilder func maskView() -> some View{
-        if let image, let mask = getMaskFrom(image){
-            Image(uiImage: mask)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: size)
-                .border(Color.black)
-        }
-    }
-    
-    @ViewBuilder func maskedImage() -> some View{
-        imageView()
-            .mask{
-                maskView()
-                    .luminanceToAlpha()
-            }
-    }
-    
-    @ViewBuilder func colorEffect() -> some View{
-        ZStack{
-            color
-            
-            imageView()
-                .blendMode(.overlay)
-            
-            maskedImage()
-        }
-
-    }
-    
-    
 }
+
+
 
 
 func getMaskFrom(_ uiImage: UIImage) -> UIImage?{
@@ -155,7 +109,43 @@ func getMaskFrom(_ uiImage: UIImage) -> UIImage?{
 }
 
 
-
+struct BackgroundImage{
+    var image: UIImage?
+    var mask: UIImage? {
+        if let image{
+            return getMaskFrom(image)
+        }
+        return nil
+    }
+    var colorEffect: Color
+    var offset = CGSize.zero
+    
+    @ViewBuilder func imageView() -> some View{
+        if let image {
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+//                .frame(height: size)
+        }
+    }
+    @ViewBuilder func maskView() -> some View{
+        if let mask {
+            Image(uiImage: mask)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+//                .frame(height: size)
+        }
+    }
+    
+    @ViewBuilder func maskedImage() -> some View{
+        imageView()
+            .mask{
+                maskView()
+                    .luminanceToAlpha()
+            }
+    }
+    
+}
 
 
 

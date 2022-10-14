@@ -14,6 +14,9 @@
 		9B206CC928F191E500C50624 /* SymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolsView.swift */; };
 		9B27B23228E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B27B23328E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
+		9B55DB3E28F95ED900D4ED81 /* ImageSegmentationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A395D28F8335100A10B16 /* ImageSegmentationTest.swift */; };
+		9B55DB4028F95EDA00D4ED81 /* ImageSegmentationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A395D28F8335100A10B16 /* ImageSegmentationTest.swift */; };
+		9B55DB4128F95EDA00D4ED81 /* ImageSegmentationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A395D28F8335100A10B16 /* ImageSegmentationTest.swift */; };
 		9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEC28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */; };
@@ -758,6 +761,7 @@
 				9BA3E2E028CE704C00C2E75C /* DataController.swift in Sources */,
 				9BA3E2DE28CE703B00C2E75C /* DaysView.swift in Sources */,
 				9BA3E2D428CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
+				9B55DB3E28F95ED900D4ED81 /* ImageSegmentationTest.swift in Sources */,
 				9BA3E2DD28CE703B00C2E75C /* CounterCardView.swift in Sources */,
 				9BA3E2E128CE704C00C2E75C /* Counter.swift in Sources */,
 			);
@@ -864,6 +868,7 @@
 				9BFCC21A28D8DCC900FC2CED /* ChronosApp.swift in Sources */,
 				9BFCC22928D8DD2D00FC2CED /* Functions.swift in Sources */,
 				9BFCC22E28D8DD3C00FC2CED /* DataController.swift in Sources */,
+				9B55DB4028F95EDA00D4ED81 /* ImageSegmentationTest.swift in Sources */,
 				9BFCC22C28D8DD3700FC2CED /* CounterCardView.swift in Sources */,
 				9BFCC22D28D8DD3C00FC2CED /* Counter.swift in Sources */,
 			);
@@ -880,6 +885,7 @@
 				9BFCC23628D8DD5500FC2CED /* DaysView.swift in Sources */,
 				9BFCC23728D8DD5500FC2CED /* CounterTopView.swift in Sources */,
 				9BFCC23828D8DD5500FC2CED /* ChronosWidget.intentdefinition in Sources */,
+				9B55DB4128F95EDA00D4ED81 /* ImageSegmentationTest.swift in Sources */,
 				9BFCC23928D8DD5500FC2CED /* CounterCardView.swift in Sources */,
 				9BFCC23A28D8DD5500FC2CED /* Counter.swift in Sources */,
 			);
