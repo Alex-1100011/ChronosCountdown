@@ -16,10 +16,12 @@ The **multi-platform app** allows you to keep track of upcoming and past events 
 
 ## Technologies used
 
-- SwiftUI
+- SwiftUI MVVM
 - CoreData
 - WidgetKit
 - WatchKit
+- PhotoKit
+- Vision
 
 ## Upcoming technologies
 
