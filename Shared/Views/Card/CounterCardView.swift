@@ -34,11 +34,14 @@ struct CounterCardView: View {
                     .zIndex(0)
                     .frame(height: 180)
                     .offset(bgImage.offset)
+                    .scaleEffect(bgImage.scale)
                 
                 bgImage.maskedImage()
                     .zIndex(2)
                     .frame(height: 180)
                     .offset(bgImage.offset)
+                    .scaleEffect(bgImage.scale)
+                    .shadow(radius: 10)
             } else {
                 //Color Background
                 ZStack(alignment: .trailing) {
@@ -91,7 +94,7 @@ struct CounterCardView: View {
                     .zIndex(3)
             }
             //Adding a shadow for better readability on images
-            .shadow(radius: counter.image != nil ? 10 : 0)
+            .shadow(radius: bgImage.image != nil ? 10 : 0)
             .padding()
         }
         

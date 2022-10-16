@@ -14,6 +14,7 @@ struct ImageSegmentationTestView: View {
 
     
     @State var bgImage = BackgroundImage(colorEffect: .blue)
+    @State var lastScaleValue: CGFloat = 1.0
     
     var size: CGFloat = 400
     
@@ -51,20 +52,34 @@ struct ImageSegmentationTestView: View {
             //Counter
             ZStack {
                 
-               CounterCardView(counter: Counter(days: 90), bgImage: bgImage)
+               CounterCardView(counter:
+                                Counter(name: "Presentation", date: Date() + 24 * 24 * 60 * 60, color: testColours[0], symbolName: "car", image: nil, referenceDate: Date()),
+                               isSmall: false,
+                               bgImage: bgImage)
                     .frame(width: 360, height: 180)
                 
                 
             }
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            
             .gesture(
                 DragGesture()
                     .onChanged { gesture in
                         bgImage.offset = gesture.translation
                     }
             )
-            .clipShape(RoundedRectangle(cornerRadius: 30))
             
-            
+            .gesture(MagnificationGesture().onChanged { val in
+                        let delta = val / self.lastScaleValue
+                        self.lastScaleValue = val
+                        let newScale = bgImage.scale * delta
+                        bgImage.scale = newScale
+
+            //... anything else e.g. clamping the newScale
+            }.onEnded { val in
+              // without this the next gesture will be broken
+              self.lastScaleValue = 1.0
+            })
         }
     }
 }
@@ -119,6 +134,7 @@ struct BackgroundImage{
     }
     var colorEffect: Color
     var offset = CGSize.zero
+    var scale: CGFloat = 1.0
     
     @ViewBuilder func imageView() -> some View{
         if let image {
