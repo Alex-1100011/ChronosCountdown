@@ -8,6 +8,8 @@
 import SwiftUI
 import CoreData
 
+/// This `View` is the **entry-point** of the App and displays a list of all the ``DataController/counters``,
+/// with options to add, delete and edit them.
 struct MainView: View {
     @EnvironmentObject var dataController: DataController
     ///This state controls the size of the ``CounterCardView``

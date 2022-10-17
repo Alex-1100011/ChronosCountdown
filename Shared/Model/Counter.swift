@@ -10,7 +10,9 @@ import CoreData
 import SwiftUI
 
 struct Counter: Identifiable{
+    ///The name of the event
     var name: String
+    ///The date of the event
     var date: Date
     var color: Color
     var symbolName: String

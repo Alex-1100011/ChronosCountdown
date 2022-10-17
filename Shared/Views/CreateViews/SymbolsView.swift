@@ -8,12 +8,18 @@
 import SwiftUI
 
 //MARK: SymbolsView
+///This `View` shows all the symbols in a searchable list with the corresponding names, in a more accessible way
+///The selected symbol can be changed tapping on the ``SymbolListRow``, so the ``SymbolsView/symbol`` is a `binding`
 struct SymbolsView: View {
+    ///The selected symbol
     @Binding var symbol: String
+    ///To dismiss itself
     @Binding var showSymbolsView: Bool
+    ///The accent color of the view
     var color: Color
-    
+    ///The searched text
     @State private var searchText = ""
+    ///When the user actually types something
     private var isSearching: Bool {
         searchText != ""
     }
@@ -43,8 +49,12 @@ struct SymbolsView: View {
 }
 
 //MARK: SymbolsListView
+///The `list` of all the ``symbols`` divided by categories.
+///
+///It is shown when the user isn't using the search field.
 struct SymbolsListView: View {
     @Binding var selectedSymbol: String
+    ///To dismiss itself
     @Binding var showSymbolsView: Bool
     
     var body: some View {
@@ -73,9 +83,11 @@ struct SymbolsListView: View {
 
 
 //MARK: SymbolsSearchView
-struct SymbolsSearchView: View{
+///This `View` shows the search results from the ``SymbolsSearchView/searchText`` variable.
+struct SymbolsSearchView: View {
     @Binding var selectedSymbol: String
     @Binding var showSymbolsView: Bool
+    ///The text of the user's query
     var searchText: String
     
     var body: some View{
@@ -141,6 +153,7 @@ struct SymbolsSearchView: View{
 }
 
 //MARK: SymbolListRow
+///The row for the ``SymbolsListView`` and ``SymbolsSearchView``, it shows the selectable symbols with their names and a checkmark if it's selected
 struct SymbolListRow: View{
     var symbol: Symbol
     @Binding var selectedSymbol: String

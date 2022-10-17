@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+///The main visual representation of a ``Counter``
 struct CounterCardView: View {
-    ///If the Always on display mode is enabled
+    ///If the Always on display mode is enabled the card background is dimmed and an outline is added.
     @Environment(\.isLuminanceReduced) private var isLuminanceReduced
     var counter: Counter
     var isSmall = false
+    ///When shown in the ``CreateTopView`` certain elements are hidden
     var editMode = false
  
     

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B16483B28C38F8300B45637 /* ImageColorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B16483A28C38F8300B45637 /* ImageColorTest.swift */; };
 		9B206CC828F191E500C50624 /* SymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolsView.swift */; };
 		9B206CC928F191E500C50624 /* SymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolsView.swift */; };
 		9B27B23228E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
@@ -169,7 +168,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9B16483A28C38F8300B45637 /* ImageColorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageColorTest.swift; sourceTree = "<group>"; };
 		9B16B3B028CE0275002B7DE2 /* Chronos Countdown (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chronos Countdown (iOS).entitlements"; sourceTree = "<group>"; };
 		9B206CC728F191E500C50624 /* SymbolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsView.swift; sourceTree = "<group>"; };
 		9B5E5AEA28C15370002E8056 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
@@ -380,7 +378,6 @@
 			isa = PBXGroup;
 			children = (
 				9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */,
-				9B16483A28C38F8300B45637 /* ImageColorTest.swift */,
 				9BDC827B28C515330032A49E /* Functions.swift */,
 				9B8F9B1528F1D0F700C506E0 /* Symbols.swift */,
 				9BFC821528377EFF00219B51 /* Views */,
@@ -782,7 +779,6 @@
 				9B87C974283A88B40019395E /* DataController.swift in Sources */,
 				9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */,
 				9B9F0FFE28D872560093458D /* SettingsView.swift in Sources */,
-				9B16483B28C38F8300B45637 /* ImageColorTest.swift in Sources */,
 				9BFC81FF28377E8100219B51 /* ChronosCountdownApp.swift in Sources */,
 				9BA3E2D528CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
 				9BA5F43C28F46EDB0015F429 /* AppIconView.swift in Sources */,

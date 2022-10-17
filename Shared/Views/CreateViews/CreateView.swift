@@ -7,13 +7,15 @@
 
 import SwiftUI
 
+///This `View` lets users **create** and **edit** a ``Counter``
 struct CreateView: View {
     ///Used to save the ``counter``
     @EnvironmentObject var dataController: DataController
     
     @State var counter = Counter()
-    ///Used to dismiss the sheet
+    ///To dismiss the current sheet
     @Binding var showSheet: Bool
+    ///To display the search sheet
     @State private var showSymbolSearch = false
     
     var body: some View {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///This `View` is the top section of the ``CreateView`` and lets **preview** the counter and **edit** its name
 struct CreateTopView: View {
     @Binding var counter: Counter
     

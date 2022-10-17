@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+///A basic circular view used throughout all the app, it can display an `SFSymbol` with a specific `Color` or `Material` and and Image as a background.
+///
+///To change the circle color use the `.tint` modifier.
+///An outer ring is shown when selected.
 struct CircleElementView<S: ShapeStyle>: View {
     var isSelected: Bool = false
+    ///The foreground symbol
     var symbolName: String?
     ///This variable conforms to the ShapeStyle, so it could be assigned with any color or material
     var symbolColor: S
@@ -64,6 +69,7 @@ struct CircleElementView<S: ShapeStyle>: View {
     }
 }
 
+///The ``CircleElementView`` as a button with an ``CircleElementButton/action`` to be executed when tapped
 struct CircleElementButton<S: ShapeStyle>: View {
     var color: Color
     var isSelected: Bool = false

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///This `View` lets the user change the App Icon and other settings
 struct SettingsView: View {
     var body: some View {
         NavigationView {

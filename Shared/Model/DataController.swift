@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-///The ViewModel that manages ....
+///The `ViewModel` that manages all the CRUD operations on the ``DataController/counters``
 class DataController: ObservableObject{
     ///The CoreData `Persistent Container`
     let container = NSPersistentContainer(name: "Chronos")

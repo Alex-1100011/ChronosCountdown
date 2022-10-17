@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-
+///This `View` lets the user pick a color or Image, the values are passed with the `color` and `image` bindings
 struct BackgroundPicker: View {
     @Binding var color: Color
     @Binding var image: UIImage?
@@ -87,12 +87,11 @@ struct BackgroundPicker: View {
         }
     }
     
+    ///The selectable colours
     var colours: [Color] = [
         Color(hex: "027AFF"), Color(hex: "1DB2DF"), Color(hex: "44D7B6"),
         Color(hex: "35C759"), Color(hex: "FFCC02"), Color(hex: "FFA700"), Color(hex: "A736FF"), Color(hex: "E020B8"),
         Color(hex: "E02020"), Color(hex: "FF7100")]
-    
-    
 }
 
 

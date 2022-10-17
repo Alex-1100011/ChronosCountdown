@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+///This `View` displays and sets a single App Icon from its ``AppIconView/name``
 struct AppIconView: View {
     @ScaledMetric var size: CGFloat = 80
     
+    ///The name of the App Icon
+    ///
+    ///It should correspond to the name of the asset following the structure `"AppIcon-\(name)"`
     var name: String
     
     var body: some View {
@@ -27,6 +31,7 @@ struct AppIconView: View {
         .buttonStyle(.plain)
     }
     
+    ///Sets the App's Icon from the given name, when nil the default icon is set
     func setIcon(named iconName: String?){
         UIApplication.shared.setAlternateIconName(iconName) { (error) in
             if let error = error {
