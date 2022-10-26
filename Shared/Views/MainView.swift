@@ -27,28 +27,29 @@ struct MainView: View {
                         //MARK: Counter
                         Button(action: {showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))}) {
                             CounterCardView(counter: counter, isSmall: isAspectSmall)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                            //MARK: contextMenu
+                                .contextMenu{
+                                    
+                                    //Delete
+                                    Button(role: .destructive, action: {
+                                        withAnimation{
+                                            dataController.delete(counter)
+                                    }
+                                }){
+                                    Text("Delete")
+                                    Image(systemName: "trash")
+                                }
+                            }
                         }
                         .buttonStyle(.plain)
                         .frame(width: isAspectSmall ? counterHeight : counterWidth, height: counterHeight)
-                        .clipShape(RoundedRectangle(cornerRadius: 30))
                         .shadow(
                             color: .black.opacity(0.2),
                             radius: 5,
                             y: 5)
                         
-                        //MARK: contextMenu
-                        .contextMenu{
-                            
-                            //Delete
-                            Button(role: .destructive, action: {
-                                withAnimation{
-                                    dataController.delete(counter)
-                                }
-                            }){
-                                Text("Delete")
-                                Image(systemName: "trash")
-                            }
-                        }
+                        
                     }
                 }
                 .padding([.top, .leading, .trailing])

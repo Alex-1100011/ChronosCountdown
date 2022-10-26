@@ -9,12 +9,12 @@ import SwiftUI
 
 ///This `View` displays and sets a single App Icon from its ``AppIconView/name``
 struct AppIconView: View {
-    @ScaledMetric var size: CGFloat = 80
-    
     ///The name of the App Icon
     ///
     ///It should correspond to the name of the asset following the structure `"AppIcon-\(name)"`
     var name: String
+    ///The size of the app Icon Image, it also affects the rounded corners
+    @ScaledMetric var size: CGFloat = 80
     
     var body: some View {
         Button{

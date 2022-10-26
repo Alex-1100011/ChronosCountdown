@@ -9,19 +9,23 @@ import SwiftUI
 
 ///This `View` lets the user change the App Icon and other settings
 struct SettingsView: View {
+    @ScaledMetric var appIconSize: CGFloat = 70
     var body: some View {
         NavigationView {
             
             List{
                 
                 Section("App icon"){
-                    ForEach(icons, id: \.self){ icon in
-                        AppIconView(name: icon)
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: appIconSize))]) {
+                        ForEach(icons, id: \.self){ icon in
+                            AppIconView(name: icon, size: appIconSize)
+                        }
                     }
                 }
                 
                 Section("About"){
-                    Text("About")
+                    Link("About", destination: URL(string: "https://alessandro-alberti.notion.site/Chronos-Beta-Test-6147a650d7dd4a3190c2ae8c7d84b023")!)
+                        
                 }
             }
             
