@@ -7,14 +7,26 @@
 
 import SwiftUI
 
+///A basic circular view used throughout all the app, it can display an `SFSymbol` with a specific `Color` or `Material` and and Image as a background.
+///
+///To change the circle color use the `.tint` modifier.
+///An outer ring is shown when selected.
 struct CircleElementView<S: ShapeStyle>: View {
-    var color: Color?
     var isSelected: Bool = false
+    ///The foreground symbol
     var symbolName: String?
     ///This variable conforms to the ShapeStyle, so it could be assigned with any color or material
     var symbolColor: S
     var bgImage: UIImage?
-  
+    
+    @ScaledMetric var circleSize: CGFloat = 42
+    var symbolSize: CGFloat {
+        circleSize/2.5
+    }
+    var selectionRingSize: CGFloat {
+        circleSize + (circleSize/4)
+    }
+    
     
     var body: some View{
    
@@ -25,28 +37,29 @@ struct CircleElementView<S: ShapeStyle>: View {
                     Image(uiImage: bgImage)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 45, height: 45)
+                        .frame(width: circleSize, height: circleSize)
                         .clipShape(Circle())
                 } else {
                     //MARK: Circle
                     Circle()
-                        .frame(height: 45)
-                        .foregroundColor(color)
+                        .frame(height: circleSize)
+                        .foregroundStyle(.tint)
                 }
                 
                 //MARK: Symbol
                 if let symbol = symbolName{
                     Image(systemName: symbol)
                         .foregroundStyle(symbolColor)
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: symbolSize, weight: .bold))
+                        .symbolVariant(.fill)
                         
 
                 }
                 //MARK: Selection ring
                 if isSelected{
                     Circle()
-                        .stroke(lineWidth: 3)
-                        .frame(width: 55, height: 55)
+                        .stroke(lineWidth: circleSize/15)
+                        .frame(width: selectionRingSize, height: selectionRingSize)
                         .foregroundColor(Color(UIColor.tertiaryLabel))
                         //To eliminate the extra frame size due to the ring
                         .padding(-10)
@@ -56,6 +69,7 @@ struct CircleElementView<S: ShapeStyle>: View {
     }
 }
 
+///The ``CircleElementView`` as a button with an ``CircleElementButton/action`` to be executed when tapped
 struct CircleElementButton<S: ShapeStyle>: View {
     var color: Color
     var isSelected: Bool = false
@@ -68,11 +82,11 @@ struct CircleElementButton<S: ShapeStyle>: View {
     var body: some View{
         Button(action: action){
             CircleElementView(
-                color: color,
                 isSelected: isSelected,
                 symbolName: symbolName,
                 symbolColor: symbolColor,
                 bgImage: bgImage)
+            .tint(color)
         }
         .buttonStyle(.plain)
     }
@@ -81,17 +95,17 @@ struct CircleElementButton<S: ShapeStyle>: View {
 struct CirclePickerElementView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            CircleElementView(color: .blue, isSelected: true, symbolName: "hourglass", symbolColor: .white)
+            CircleElementView(isSelected: true, symbolName: "hourglass", symbolColor: .white)
                 .previewDisplayName("symbol selected")
             
             
-            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground),symbolName: "photo", symbolColor: .secondary)
+            CircleElementView(symbolName: "photo", symbolColor: .secondary)
                 .previewDisplayName("image")
             
-            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), isSelected: true, symbolName: "photo", symbolColor: .regularMaterial, bgImage: UIImage(named: "sperlonga"))
+            CircleElementView(isSelected: true, symbolName: "photo", symbolColor: .regularMaterial, bgImage: UIImage(named: "sperlonga"))
                 .previewDisplayName("image selected")
             
-            CircleElementView(color: Color(UIColor.tertiarySystemGroupedBackground), symbolName: "magnifyingglass", symbolColor: .secondary)
+            CircleElementView(symbolName: "magnifyingglass", symbolColor: .secondary)
                 .previewDisplayName("search button")
             
         }

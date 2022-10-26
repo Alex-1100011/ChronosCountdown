@@ -7,10 +7,15 @@
 
 import SwiftUI
 
+///The main visual representation of a ``Counter``
 struct CounterCardView: View {
+    ///If the Always on display mode is enabled the card background is dimmed and an outline is added.
+    @Environment(\.isLuminanceReduced) private var isLuminanceReduced
     var counter: Counter
     var isSmall = false
+    ///When shown in the ``CreateTopView`` certain elements are hidden
     var editMode = false
+ 
     
     //MARK: body
     var body: some View {
@@ -37,27 +42,45 @@ struct CounterCardView: View {
         //MARK: Background
         .background(
             ZStack {
+                
+                //Image
                 if let image = counter.image {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
+                        .opacity(isLuminanceReduced ? 0.2 : 1)
+                    
+                //Color Background
                 } else {
                     ZStack(alignment: .trailing) {
                         
-                        counter.color
+                        Rectangle()
+                            .foregroundStyle(counter.color.gradient)
                         
-                        Image(systemName: counter.symbolName)
-                            .symbolVariant(.fill)
-                            .font(.system(size: 90))
-                            .imageScale(.large)
-                            .foregroundColor(counter.color)
-                            .brightness(-0.2)
-                            .rotationEffect(Angle(degrees: -20))
-                            .offset(x: 10, y: 30)
-                            //Hide the symbol in edit mode
-                            .opacity(editMode ? 0 : 1)
+                            //More contrast in AODisplay mode
+                            .opacity(isLuminanceReduced ? 0.2 : 1)
                         
+                        //Hide the symbol in AODisplay mode
+                        if !isLuminanceReduced{
+                            Image(systemName: counter.symbolName)
+                                .symbolVariant(.fill)
+                                .font(.system(size: 90))
+                                .imageScale(.large)
+                                .foregroundColor(counter.color)
+                                .brightness(-0.2)
+                                .rotationEffect(Angle(degrees: -20))
+                                .offset(x: 10, y: 30)
+                                .opacity(editMode ? 0 : 1)
+                        }
                     }
+                     
+                }
+                    
+                
+                //Always On
+                if isLuminanceReduced {
+                    RoundedRectangle(cornerRadius: 20)
+                        .strokeBorder(counter.color, lineWidth: 5)
                 }
             }
            
@@ -85,6 +108,7 @@ struct CounterCardView_Previews: PreviewProvider {
                             isSmall: true
             )
             .previewDisplayName("Small")
+//            .environment(\.isLuminanceReduced, true)
             
             CounterCardView(counter: Counter(
                 name: "Train",
@@ -109,7 +133,7 @@ struct CounterCardView_Previews: PreviewProvider {
                     ) ?? Date(),
                 color: .green,
                 symbolName: "tram",
-                image: UIImage(named: "procida")
+                image: UIImage(named: "sperlonga")
                 )
             )
             .previewDisplayName("Image")
