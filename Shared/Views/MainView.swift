@@ -20,42 +20,38 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-           ScrollView {
-               LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? counterHeight : counterWidth))],spacing: 15) {
-                   
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? counterHeight : counterWidth))],spacing: 15) {
+                    
                     ForEach(dataController.counters){ counter in
                         //MARK: Counter
-                        CounterCardView(counter: counter, isSmall: isAspectSmall)
-                            .frame(width: isAspectSmall ? counterHeight : counterWidth, height: counterHeight)
-                            .clipShape(RoundedRectangle(cornerRadius: 30))
-                            .shadow(
-                                color: .black.opacity(0.2),
-                                radius: 5,
-                                y: 5)
+                        Button(action: {showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))}) {
+                            CounterCardView(counter: counter, isSmall: isAspectSmall)
+                        }
+                        .buttonStyle(.plain)
+                        .frame(width: isAspectSmall ? counterHeight : counterWidth, height: counterHeight)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .shadow(
+                            color: .black.opacity(0.2),
+                            radius: 5,
+                            y: 5)
                         
                         //MARK: contextMenu
-                            .contextMenu{
-                                //Edit
-                                Button(action: {
-                                    showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))
-                                }){
-                                    Text("Edit")
-                                    Image(systemName: "square.and.pencil")
+                        .contextMenu{
+                            
+                            //Delete
+                            Button(role: .destructive, action: {
+                                withAnimation{
+                                    dataController.delete(counter)
                                 }
-                                
-                                //Delete
-                                Button(role: .destructive, action: {
-                                    withAnimation{
-                                        dataController.delete(counter)
-                                    }
-                                }){
-                                    Text("Delete")
-                                    Image(systemName: "trash")
-                                }
+                            }){
+                                Text("Delete")
+                                Image(systemName: "trash")
                             }
+                        }
                     }
                 }
-               .padding([.top, .leading, .trailing])
+                .padding([.top, .leading, .trailing])
             }
             .navigationBarTitle("Counters")
             //MARK: navigationBarItems
@@ -115,6 +111,7 @@ struct MainView: View {
     func showCreateView(counterIndex: Int? = nil){
         editingIndex = counterIndex
         isCreateViewActive = true
+        print(isCreateViewActive)
     }
 
 }
