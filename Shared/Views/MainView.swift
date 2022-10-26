@@ -100,8 +100,7 @@ struct MainView: View {
         }
         //MARK: CreateView
         .sheet(isPresented: $isCreateViewActive){
-            CreateView(showSheet: $isCreateViewActive, editingIndex: editingIndex)
-            // datacontroller.add counter
+            CreateView(showSheet: $isCreateViewActive, editingIndex: $editingIndex)
         }
     }
     
@@ -109,9 +108,8 @@ struct MainView: View {
     @State var editingIndex: Int? = nil
     
     func showCreateView(counterIndex: Int? = nil){
-        editingIndex = counterIndex
-        isCreateViewActive = true
-        print(isCreateViewActive)
+        self.editingIndex = counterIndex
+        self.isCreateViewActive = true
     }
 
 }

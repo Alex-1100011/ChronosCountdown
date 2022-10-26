@@ -22,8 +22,9 @@ struct CreateView: View {
     @State private var showSymbolSearch = false
     ///The index of the counter in the ``DataController/counters`` list to be modified
     ///
-    ///If `nil` this view creates a new counter rather than editing one
-    var editingIndex: Int?
+    ///If `nil` this view creates a new counter rather than editing one.
+    ///Must be a Binding otherwise .sheet in the ``MainView`` won't pass an updated value.
+    @Binding var editingIndex: Int?
     ///When the `View` should save an existing counter rather than creating a new one
     private var isEditing: Bool{
         editingIndex != nil
@@ -102,6 +103,12 @@ struct CreateView: View {
         //Dismiss
         showSheet = false
     }
+    
+    init(showSheet: Binding<Bool>, editingIndex: Binding <Int?>? = nil) {
+        self._showSheet = showSheet
+        self._editingIndex = editingIndex ?? .constant(nil)
+    }
+    
 }
 
 struct CreateView_Previews: PreviewProvider {
