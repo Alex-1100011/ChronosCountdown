@@ -14,7 +14,6 @@ struct MainView: View {
     @EnvironmentObject var dataController: DataController
     ///This state controls the size of the ``CounterCardView``
     @State var isAspectSmall = true
-    @State var showCreateView = false
     @State var showSettings = false
     @ScaledMetric var counterHeight = 180
     @ScaledMetric var counterWidth = 360
@@ -38,9 +37,7 @@ struct MainView: View {
                             .contextMenu{
                                 //Edit
                                 Button(action: {
-                                    withAnimation{
-                                        
-                                    }
+                                    showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))
                                 }){
                                     Text("Edit")
                                     Image(systemName: "square.and.pencil")
@@ -89,7 +86,7 @@ struct MainView: View {
                 //MARK: Add button
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button{
-                        showCreateView = true
+                        showCreateView()
                     } label: {
                         Label("Add new counter", systemImage: "plus")
                     }
@@ -106,10 +103,18 @@ struct MainView: View {
             // datacontroller.add counter
         }
         //MARK: CreateView
-        .sheet(isPresented: $showCreateView){
-            CreateView(showSheet: $showCreateView)
+        .sheet(isPresented: $isCreateViewActive){
+            CreateView(showSheet: $isCreateViewActive, editingIndex: editingIndex)
             // datacontroller.add counter
         }
+    }
+    
+    @State var isCreateViewActive = false
+    @State var editingIndex: Int? = nil
+    
+    func showCreateView(counterIndex: Int? = nil){
+        editingIndex = counterIndex
+        isCreateViewActive = true
     }
 
 }

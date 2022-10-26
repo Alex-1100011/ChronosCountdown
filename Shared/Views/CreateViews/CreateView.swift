@@ -11,12 +11,24 @@ import SwiftUI
 struct CreateView: View {
     ///Used to save the ``counter``
     @EnvironmentObject var dataController: DataController
-    
-    @State var counter = Counter()
+    ///The temporary counter to be edited
+    ///
+    ///Changes are applied to this variable rather than directly on the list so that all the changes can be discarded.
+    ///It will be saved only when the ``CreateView/save()`` method gets called
+    @State private var counter = Counter()
     ///To dismiss the current sheet
     @Binding var showSheet: Bool
     ///To display the search sheet
     @State private var showSymbolSearch = false
+    ///The index of the counter in the ``DataController/counters`` list to be modified
+    ///
+    ///If `nil` this view creates a new counter rather than editing one
+    var editingIndex: Int?
+    ///When the `View` should save an existing counter rather than creating a new one
+    private var isEditing: Bool{
+        editingIndex != nil
+    }
+    
     
     var body: some View {
         VStack(spacing: 0) {
@@ -42,11 +54,7 @@ struct CreateView: View {
             
             //MARK: - Save
             .safeAreaInset(edge: .bottom){
-                Button(action: {
-                    //Save and dismiss
-                    dataController.add(counter)
-                    showSheet = false
-                }) {
+                Button(action: save) {
                     //Save Button
                     HStack {
                         Spacer()
@@ -74,6 +82,25 @@ struct CreateView: View {
                 color: counter.color
             )
         }
+        .onAppear{
+            if let editingIndex {
+                self.counter = dataController.counters[editingIndex]
+            }
+        }
+    }
+    
+    func save(){
+        
+        if isEditing {
+            //Modify an existing counter
+            dataController.update(counter)
+            
+        } else {
+            //Add a new counter
+            dataController.add(counter)
+        }
+        //Dismiss
+        showSheet = false
     }
 }
 
