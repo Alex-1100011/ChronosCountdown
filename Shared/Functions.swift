@@ -74,6 +74,7 @@ extension String {
     }
 }
 
+#if canImport(CoreImage)
 //MARK: Color from Image
 /// Get the average Color of an Image
 ///
@@ -105,6 +106,7 @@ func getColorFrom(image: UIImage?) -> Color? {
     
     return Color(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255)
 }
+#endif
 
 extension String {
     ///Capitalises the first letter of a `String`
