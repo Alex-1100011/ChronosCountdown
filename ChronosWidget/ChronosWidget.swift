@@ -124,6 +124,7 @@ struct ChronosWidgetEntryView : View {
                 Image(systemName: entry.counter.symbolName)
                     .foregroundColor(entry.counter.color)
                     .widgetAccentable()
+                    .symbolVariant(.fill)
                 Text("\(entry.counter.getCounterComponents(type: .showOnlyDays).days) days")
             }
 #if os (watchOS)
@@ -133,6 +134,7 @@ struct ChronosWidgetEntryView : View {
                 .font(.system(size: 30))
                 .foregroundColor(entry.counter.color)
                 .widgetAccentable()
+                .symbolVariant(.fill)
             
                 .widgetLabel{
                     Text("\(entry.counter.getCounterComponents(type: .showOnlyDays).days) days")

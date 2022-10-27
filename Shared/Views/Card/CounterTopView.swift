@@ -35,20 +35,28 @@ struct CounterTopView: View {
     //MARK: body
     var body: some View {
         HStack(spacing: 20) {
-            DaysView(components.days, "DAYS", isToday: counter.isToday, leadingAlignment: type == .showOnlyDays)
+            
+            let days = components.days
+            
+            if counter.isToday || days != 0 {
+                DaysView(days, days == 1 ? "DAY" : "DAYS", isToday: counter.isToday, leadingAlignment: type == .showOnlyDays)
+            }
             
             if showWeeks {
-                DaysView(components.weeks, "WEEKS")
+                let weeks = components.weeks
+                DaysView(weeks, weeks == 1 ? "WEEK" : "WEEKS")
 
             }
             
             if showMonths {
-                DaysView(components.months, "MONTHS")
+                let months = components.months
+                DaysView(months, months == 1 ? "MONTH" : "MONTHS")
 
             }
             
             if type == .showYears {
-                DaysView(components.years, "YEARS")
+                let years = components.years
+                DaysView(years, years == 1 ? "YEAR" : "YEARS")
 
             }
         }

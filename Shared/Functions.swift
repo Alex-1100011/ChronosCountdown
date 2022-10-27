@@ -126,9 +126,19 @@ var testColours: [Color] = [
     Color(hex: "E02020"), Color(hex: "FF7100")]
 
 var testCounters: [Counter] = [
+    Counter(name: "Diabolik", date: diabolikDate, color: testColours[8], symbolName: "ticket"),
     Counter(name: "Hello World", date: Date() + 60 * 60 * 24 * 3, color: testColours[3], symbolName: "globe"),
     Counter(name: "Testing", date: Date() + 60 * 60 * 24 * 9, color: testColours[0], symbolName: "hammer"),
     Counter(name: "Coding", date: Date() + 60 * 60 * 24 * 6, color: testColours[4], symbolName: "keyboard")
 ]
 
+var diabolikDate: Date {
+    var dateComponents = DateComponents()
+    dateComponents.year = 2022
+    dateComponents.month = 11
+    dateComponents.day = 17
 
+    // Create date from components
+    let userCalendar = Calendar(identifier: .gregorian)
+    return userCalendar.date(from: dateComponents) ?? Date()
+}
