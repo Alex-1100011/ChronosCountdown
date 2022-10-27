@@ -65,7 +65,6 @@ struct CircleElementView<S: ShapeStyle>: View {
                         .padding(-10)
                 }
             }
-        
     }
 }
 
@@ -89,6 +88,7 @@ struct CircleElementButton<S: ShapeStyle>: View {
             .tint(color)
         }
         .buttonStyle(.plain)
+        .hoverEffect(.lift)
     }
 }
 

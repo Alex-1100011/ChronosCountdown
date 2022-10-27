@@ -23,7 +23,7 @@ struct DaysView: View {
     
     ///This `init` lets initialise the `view` without specifying the `parameter`'s name
     init(_ days: Int, _ subtitle: String, isToday: Bool = false, leadingAlignment: Bool = false){
-        self.days = days
+        self.days = abs(days)
         self.subtitle = subtitle
         self.isToday = isToday
         self.leadingAlignment = leadingAlignment
@@ -41,6 +41,7 @@ struct DaysView: View {
             if !isToday {
                 Text(subtitle)
                     .font(Font.system(size: textSize.h2, weight: .medium))
+                    .lineLimit(1)
             }
         }
         

@@ -15,6 +15,7 @@ struct CounterCardView: View {
     var isSmall = false
     ///When shown in the ``CreateTopView`` certain elements are hidden
     var editMode = false
+    @ScaledMetric var nameSize: CGFloat = 25
  
     
     //MARK: body
@@ -30,7 +31,7 @@ struct CounterCardView: View {
             
             //MARK: Name
             Text(counter.name)
-                .font(Font.system(size: 25, weight: .semibold, design: .rounded))
+                .font(Font.system(size: nameSize, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
                 .opacity(editMode ? 0 : 1)
         }

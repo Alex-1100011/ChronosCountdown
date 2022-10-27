@@ -28,6 +28,7 @@ struct MainView: View {
                         Button(action: {showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))}) {
                             CounterCardView(counter: counter, isSmall: isAspectSmall)
                                 .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .hoverEffect()
                             //MARK: contextMenu
                                 .contextMenu{
                                     
@@ -48,6 +49,7 @@ struct MainView: View {
                             color: .black.opacity(0.2),
                             radius: 5,
                             y: 5)
+                        
                         
                         
                     }

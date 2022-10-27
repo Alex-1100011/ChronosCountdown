@@ -25,6 +25,7 @@ struct AppIconView: View {
                     .resizable()
                     .frame(width: size, height: size)
                     .clipShape(RoundedRectangle(cornerRadius: size / 4.5))
+                    .hoverEffect(.lift)
                 Text(name)
             }
         }

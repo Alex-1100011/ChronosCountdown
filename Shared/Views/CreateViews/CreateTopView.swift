@@ -50,12 +50,14 @@ struct CreateTopView: View {
                     .foregroundStyle(colorStyle)
                     .brightness(-0.2)
                     .font(.largeTitle)
-                    .padding()
                     .overlay{
                         Image(systemName: "xmark")
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                     }
+                    .contentShape(Circle())
+                    .hoverEffect(.lift)
+                    .padding()
             }
             .buttonStyle(.plain)
             

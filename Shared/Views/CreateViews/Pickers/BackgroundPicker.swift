@@ -42,12 +42,12 @@ struct BackgroundPicker: View {
                 symbolColor: .thinMaterial,
                 bgImage: UIImage(named: "multicolor"))
             .tint(color)
+            .hoverEffect(.lift)
             .overlay{
                 ColorPicker("color picker", selection: $color, supportsOpacity: false)
                     .labelsHidden()
                     .opacity(0.015)
             }
-            
             
             //MARK: Image
             PhotosPicker(
@@ -70,6 +70,7 @@ struct BackgroundPicker: View {
                     }
                     
                 }
+                .hoverEffect(.lift)
                 .buttonStyle(PlainButtonStyle())
                 ///Update the ``image`` variable  with the picker's selection
                 .onChange(of: selectedPhotoItem) { photo in
