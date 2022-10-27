@@ -47,10 +47,37 @@ struct RectangularWidget: View {
     }
 }
 
+struct CircularWidget: View{
+    var counter: Counter
+    var body: some View{
+        ZStack {
+            AccessoryWidgetBackground()
+        
+            VStack(spacing: -2) {
+                //Days
+                Text("\(counter.getCounterComponents(type: .showOnlyDays).days)")
+                    .font(Font.system(.title, design: .rounded))
+                //Symbol
+                Image(systemName: counter.symbolName)
+                    .symbolVariant(.fill)
+                    .foregroundColor(counter.color)
+                    .widgetAccentable()
+            }
+        }
+    }
+}
+
 struct WidgetViews_Previews: PreviewProvider {
+    static var counter = Counter(name: "Trip to SF", date: Date() + 96 * 24 * 60 * 60, color: .blue, symbolName: "airplane")
+    
     static var previews: some View {
-        RectangularWidget(counter: Counter())
+        
+        RectangularWidget(counter: counter)
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
-            .previewDisplayName("accessoryRectangular")
+            .previewDisplayName("RectangularWidget")
+        
+        CircularWidget(counter: counter)
+            .previewContext(WidgetPreviewContext(family: .accessoryCircular))
+            .previewDisplayName("CircularWidget")
     }
 }

@@ -54,6 +54,9 @@ class DataController: ObservableObject{
     //MARK: Read
     ///A function that fetches ``counters`` from the Core Data ``container``
     func fetchCounters(){
+        #if os(watchOS)
+        counters = testCounters
+        #else
         //Making the fetch request
         let request = NSFetchRequest<CounterDataEntity>(entityName: "CounterDataEntity")
         entities = (try? container.viewContext.fetch(request)) ?? []
@@ -62,6 +65,7 @@ class DataController: ObservableObject{
         counters = entities.map{
             Counter(from: $0)
         }
+        #endif
         
     }
     

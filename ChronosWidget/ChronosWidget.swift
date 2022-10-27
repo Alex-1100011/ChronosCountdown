@@ -91,32 +91,29 @@ struct ChronosWidgetEntryView : View {
     var body: some View {
         
         switch family {
+        //MARK: Small
         case .systemSmall:
             CounterCardView(counter: entry.counter, isSmall: true)
             
+        //MARK: Medium
         case .systemMedium:
             CounterCardView(counter: entry.counter)
             
+        //MARK: Large
         case .systemLarge:
             CounterCardView(counter: entry.counter)
             
+        //MARK: XL
         case .systemExtraLarge:
             CounterCardView(counter: entry.counter)
             
         //MARK: circular
         case .accessoryCircular:
-            ZStack {
-                AccessoryWidgetBackground()
-                VStack(spacing: -2) {
-                    Text("\(entry.counter.getCounterComponents(type: .showOnlyDays).days)")
-                        .font(Font.system(.title, design: .rounded))
-                        
-                    Image(systemName: entry.counter.symbolName)
-                        .symbolVariant(.fill)
-                        .foregroundColor(entry.counter.color)
-                        .widgetAccentable()
+            CircularWidget(counter: entry.counter)
+                .widgetLabel{
+                    Text("\(entry.counter.name)")
                 }
-            }
+            
         //MARK: rectangular
         case .accessoryRectangular:
             RectangularWidget(counter: entry.counter)
@@ -129,7 +126,18 @@ struct ChronosWidgetEntryView : View {
                     .widgetAccentable()
                 Text("\(entry.counter.getCounterComponents(type: .showOnlyDays).days) days")
             }
-             
+#if os (watchOS)
+        //MARK: corner
+        case .accessoryCorner:
+            Image(systemName: entry.counter.symbolName)
+                .font(.system(size: 30))
+                .foregroundColor(entry.counter.color)
+                .widgetAccentable()
+            
+                .widgetLabel{
+                    Text("\(entry.counter.getCounterComponents(type: .showOnlyDays).days) days")
+                }
+#endif
         @unknown default:
             Text("Error")
         }
@@ -148,7 +156,7 @@ struct ChronosWidget: Widget {
         .configurationDisplayName("Single Counter")
         .description("Displays a single counter.")
 #if os (watchOS)
-        .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline])
+        .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline, .accessoryCorner])
 #else
         .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline, .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
 #endif
