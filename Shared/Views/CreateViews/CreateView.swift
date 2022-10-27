@@ -33,7 +33,7 @@ struct CreateView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            CreateTopView(counter: $counter)
+            CreateTopView(counter: $counter, showSheet: $showSheet)
             List {
                 Section("Background"){
                     BackgroundPicker(color: $counter.color, image: $counter.image)
@@ -55,6 +55,7 @@ struct CreateView: View {
             
             //MARK: - Save
             .safeAreaInset(edge: .bottom){
+                
                 Button(action: save) {
                     //Save Button
                     HStack {
@@ -66,15 +67,21 @@ struct CreateView: View {
                     .foregroundColor(.white)
                     .padding(10.0)
                     .background(counter.color.cornerRadius(15))
-                    .padding([.top, .leading, .trailing])
+                    .padding([.top, .horizontal])
+                    //Add extra padding on iPad
+                    .if(UIDevice.current.userInterfaceIdiom == .pad){ view in
+                        view
+                            .padding(.bottom)
+                    }
+                    
                     .background(
                         counter.color
-                            .edgesIgnoringSafeArea(.bottom)
+                            .edgesIgnoringSafeArea([.bottom, .horizontal])
                             .opacity(0.1)
                     )
                     .background(.ultraThinMaterial)
                 }
-        }
+            }
         }
         .sheet(isPresented: $showSymbolSearch){
             SymbolsView(
