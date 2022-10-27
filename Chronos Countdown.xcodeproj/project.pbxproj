@@ -56,6 +56,8 @@
 		9BDC827A28C510310032A49E /* CreateTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateTopView.swift */; };
 		9BDC827C28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9BDC827D28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
+		9BDDDB6D29097BBA00912066 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDDDB6B29097B9A00912066 /* WidgetViews.swift */; };
+		9BDDDB6E29097BBB00912066 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDDDB6B29097B9A00912066 /* WidgetViews.swift */; };
 		9BF3935D28D489510060DFC0 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF3935C28D489510060DFC0 /* Intents.framework */; };
 		9BF3936028D489510060DFC0 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3935F28D489510060DFC0 /* IntentHandler.swift */; };
 		9BF3937528D489510060DFC0 /* CounterIntentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -192,6 +194,7 @@
 		9BBA6793284A26BD00BF688C /* CounterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCardView.swift; sourceTree = "<group>"; };
 		9BDC827828C510310032A49E /* CreateTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopView.swift; sourceTree = "<group>"; };
 		9BDC827B28C515330032A49E /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		9BDDDB6B29097B9A00912066 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
 		9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CounterIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BF3935C28D489510060DFC0 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		9BF3935F28D489510060DFC0 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -331,6 +334,7 @@
 			children = (
 				9B9F0FFC28D86F2F0093458D /* ChronosWidgetExtension.entitlements */,
 				9BA3E2CE28CE6E2900C2E75C /* ChronosWidget.swift */,
+				9BDDDB6B29097B9A00912066 /* WidgetViews.swift */,
 				9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */,
 				9BA3E2D328CE6E2A00C2E75C /* Info.plist */,
 			);
@@ -746,6 +750,7 @@
 			files = (
 				9BA3E2E228CE704F00C2E75C /* Chronos.xcdatamodeld in Sources */,
 				9BA3E2CF28CE6E2900C2E75C /* ChronosWidget.swift in Sources */,
+				9BDDDB6D29097BBA00912066 /* WidgetViews.swift in Sources */,
 				9B9F100028D872800093458D /* CounterTopView.swift in Sources */,
 				9BA3E2E328CE708100C2E75C /* Functions.swift in Sources */,
 				9BA3E2E028CE704C00C2E75C /* DataController.swift in Sources */,
@@ -865,6 +870,7 @@
 			files = (
 				9BFCC23228D8DD5500FC2CED /* Chronos.xcdatamodeld in Sources */,
 				9BFCC23328D8DD5500FC2CED /* ChronosWidget.swift in Sources */,
+				9BDDDB6E29097BBB00912066 /* WidgetViews.swift in Sources */,
 				9BFCC23428D8DD5500FC2CED /* Functions.swift in Sources */,
 				9BFCC23528D8DD5500FC2CED /* DataController.swift in Sources */,
 				9BFCC23628D8DD5500FC2CED /* DaysView.swift in Sources */,

@@ -119,16 +119,8 @@ struct ChronosWidgetEntryView : View {
             }
         //MARK: rectangular
         case .accessoryRectangular:
-            VStack(alignment: .leading, spacing: 0) {
-                Label(entry.counter.name,systemImage: entry.counter.symbolName)
-                    .symbolVariant(.fill)
-                    .fontWeight(.medium)
-                    .foregroundColor(entry.counter.color)
-                    .widgetAccentable()
-                
-                CounterTopView(counter: entry.counter, type: .showWeeks, daysSize: 30, subtitleSize: 10)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+            RectangularWidget(counter: entry.counter)
+            
         //MARK: inline
         case .accessoryInline:
             HStack {
