@@ -157,12 +157,12 @@ var symbols: [Symbol] = [
     Symbol("map", .leisure),
     Symbol("building.columns", "museum", .leisure),
     Symbol("party.popper", "party popper", .leisure, kw: "birthday"),
-    Symbol("popcorn", .leisure, kw: "movie cinema theater food"),
+    Symbol("popcorn", .leisure, kw: "movie cinema theater food film"),
     Symbol("puzzlepiece", .leisure, kw: "game"),
     Symbol("radio", .leisure),
     Symbol("tent", .leisure),
     Symbol("theatermasks", "theater", .leisure, kw: "movie cinema film"),
-    Symbol("ticket", .leisure, kw: "movie cinema theater"),
+    Symbol("ticket", .leisure, kw: "movie cinema theater film"),
     Symbol("tv.inset.filled", "tv", .leisure, kw: "movie cinema theater film"),
 
     //MARK: transportation
