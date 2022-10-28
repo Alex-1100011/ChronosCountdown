@@ -39,21 +39,21 @@ enum symbolsCategory: String, CaseIterable{
         case .objects:
             return ""
         case .music:
-            return ""
+            return "song singing concert playing listening"
         case .transportation:
-            return "trip travel road"
+            return "trip travel road vacation"
         case .people:
-            return ""
+            return "person figure friends"
         case .fitness:
-            return ""
+            return "sport game gym workout activity playing"
         case .leisure:
             return "freetime fun relax"
         case .tools:
-            return ""
+            return "construction building diy"
         case .school:
-            return ""
+            return "university study"
         case .stationery:
-            return ""
+            return "school job work study"
         }
     }
 }
@@ -84,6 +84,13 @@ struct Symbol: Hashable{
     /// An init to use when there are additional keywords specific to the symbol to add
     /// - Parameters:
     ///   - keywords: Additional keywords specific to the symbol
+    init(_ symbolName: String, _ category: symbolsCategory, kw keywords: String) {
+        self.init(symbolName, symbolName, category, kw: keywords)
+    }
+    
+    /// An init to use when there are additional keywords specific to the symbol to add
+    /// - Parameters:
+    ///   - keywords: Additional keywords specific to the symbol
     init(_ symbolName: String, _ displayName: String, _ category: symbolsCategory, kw keywords: String) {
         self.symbolName = symbolName
         self.displayName = displayName
@@ -96,29 +103,28 @@ struct Symbol: Hashable{
 var symbols: [Symbol] = [
     
     //MARK: objects
-    Symbol("photo.artframe", "artframe", .objects),
-    Symbol("bag", .objects),
-    Symbol("basket", .objects),
-    Symbol("briefcase", .objects),
+    Symbol("photo.artframe", "artframe", .objects, kw: "museum"),
+    Symbol("bag", .objects, kw: "shopping buy"),
+    Symbol("basket", .objects, kw: "shopping buy"),
+    Symbol("briefcase", .objects, kw: "work"),
     Symbol("building.2", "buildings", .objects),
-    Symbol("calendar", .objects),
-    Symbol("camera", .objects),
-    Symbol("cart", .objects),
-    Symbol("creditcard", .objects),
-    Symbol("creditcard", .objects),
-    Symbol("eyedropper", .objects),
+    Symbol("calendar", .objects, kw: "event"),
+    Symbol("camera", .objects, kw: "photography"),
+    Symbol("cart", .objects, kw: "shopping buy"),
+    Symbol("creditcard", .objects, kw: "shopping buy"),
+    Symbol("eyedropper", .objects, kw: "color design"),
     Symbol("flashlight.on.fill", "flashlight", .objects),
-    Symbol("hourglass", .objects),
+    Symbol("hourglass", .objects, kw: "time event"),
     Symbol("megaphone", .objects),
     Symbol("newspaper", .objects),
     Symbol("note.text", "note", .objects),
-    Symbol("paintbrush", .objects),
+    Symbol("paintbrush", .objects, kw: "color art design"),
     Symbol("paintbrush.pointed", "paintbrush", .objects),
     Symbol("scroll", .objects),
-    Symbol("suitcase", .objects),
-    Symbol("trash", .objects),
-    Symbol("umbrella", .objects),
-    Symbol("wand.and.rays", "wand", .objects),
+    Symbol("suitcase", .objects, kw: "trip travel vacation"),
+    Symbol("trash", .objects, kw: "delete"),
+    Symbol("umbrella", .objects, kw: "weather rain"),
+    Symbol("wand.and.rays", "wand", .objects, kw: "magic"),
 
     //MARK: music
     Symbol("amplifier", .music),
@@ -141,23 +147,23 @@ var symbols: [Symbol] = [
     Symbol("balloon.2", "balloons", .leisure),
     Symbol("beach.umbrella", "beach umbrella", .leisure),
     Symbol("binoculars", .leisure),
-    Symbol("birthday.cake", "birthday cake", .leisure),
-    Symbol("checkerboard.rectangle", "chessboard", .leisure),
-    Symbol("die.face.5", "die", .leisure),
-    Symbol("film.stack", "film", .leisure),
+    Symbol("birthday.cake", "birthday cake", .leisure, kw: "food"),
+    Symbol("checkerboard.rectangle", "chessboard", .leisure, kw: "game"),
+    Symbol("die.face.5", "die", .leisure, kw: "game"),
+    Symbol("film.stack", "film", .leisure, kw: "movie cinema theater"),
     Symbol("fireplace", .leisure),
     Symbol("gamecontroller", .leisure),
-    Symbol("app.gift", "gift", .leisure),
+    Symbol("app.gift", "gift", .leisure, kw: "party birthday"),
     Symbol("map", .leisure),
     Symbol("building.columns", "museum", .leisure),
-    Symbol("party.popper", "party popper", .leisure),
-    Symbol("popcorn", .leisure),
-    Symbol("puzzlepiece", .leisure),
+    Symbol("party.popper", "party popper", .leisure, kw: "birthday"),
+    Symbol("popcorn", .leisure, kw: "movie cinema theater food"),
+    Symbol("puzzlepiece", .leisure, kw: "game"),
     Symbol("radio", .leisure),
     Symbol("tent", .leisure),
-    Symbol("theatermasks", "theater", .leisure),
-    Symbol("ticket", .leisure),
-    Symbol("tv.inset.filled", "tv", .leisure),
+    Symbol("theatermasks", "theater", .leisure, kw: "movie cinema film"),
+    Symbol("ticket", .leisure, kw: "movie cinema theater"),
+    Symbol("tv.inset.filled", "tv", .leisure, kw: "movie cinema theater film"),
 
     //MARK: transportation
     Symbol("airplane", .transportation),
@@ -227,7 +233,7 @@ var symbols: [Symbol] = [
     Symbol("cross.vial", "vial", .health),
 
     //MARK: fitness
-    Symbol("figure.highintensity.intervaltraining", "HIT", .fitness),
+    Symbol("figure.highintensity.intervaltraining", "HIIT", .fitness),
     Symbol("figure.american.football", "american football", .fitness),
     Symbol("figure.archery", "archery", .fitness),
     Symbol("figure.australian.football", "australian football", .fitness),

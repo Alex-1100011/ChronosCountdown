@@ -160,7 +160,7 @@ struct ChronosWidget: Widget {
 #if os (watchOS)
         .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline, .accessoryCorner])
 #else
-        .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline, .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
+        .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline, .systemSmall, .systemMedium])
 #endif
     }
 }
