@@ -23,7 +23,7 @@ struct DaysView: View {
     
     ///This `init` lets initialise the `view` without specifying the `parameter`'s name
     init(_ days: Int, _ subtitle: String, isToday: Bool = false, leadingAlignment: Bool = false){
-        self.days = abs(days)
+        self.days = days
         self.subtitle = subtitle
         self.isToday = isToday
         self.leadingAlignment = leadingAlignment

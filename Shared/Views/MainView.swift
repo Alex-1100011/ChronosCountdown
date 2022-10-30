@@ -46,8 +46,8 @@ struct MainView: View {
                         .buttonStyle(.plain)
                         .frame(width: isAspectSmall ? counterHeight : counterWidth, height: counterHeight)
                         .shadow(
-                            color: .black.opacity(0.2),
-                            radius: 5,
+                            color: counter.color.opacity(0.3),
+                            radius: 10,
                             y: 5)
                         
                         
@@ -56,7 +56,15 @@ struct MainView: View {
                 }
                 .padding([.top, .leading, .trailing])
             }
-            .navigationBarTitle("Counters")
+            .overlay{
+                if dataController.counters.isEmpty{
+                    Image("Placeholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 150)
+                }
+            }
+            .navigationBarTitle("Countdowns")
             //MARK: navigationBarItems
             .toolbar {
                 //MARK: Settings button

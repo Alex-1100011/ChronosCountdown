@@ -36,26 +36,26 @@ struct CounterTopView: View {
     var body: some View {
         HStack(spacing: 20) {
             
-            let days = components.days
+            let days = abs(components.days)
             
             if counter.isToday || days != 0 {
                 DaysView(days, days == 1 ? "DAY" : "DAYS", isToday: counter.isToday, leadingAlignment: type == .showOnlyDays)
             }
             
             if showWeeks {
-                let weeks = components.weeks
+                let weeks = abs(components.weeks)
                 DaysView(weeks, weeks == 1 ? "WEEK" : "WEEKS")
 
             }
             
             if showMonths {
-                let months = components.months
+                let months = abs(components.months)
                 DaysView(months, months == 1 ? "MONTH" : "MONTHS")
 
             }
             
             if type == .showYears {
-                let years = components.years
+                let years = abs(components.years)
                 DaysView(years, years == 1 ? "YEAR" : "YEARS")
 
             }
