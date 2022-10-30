@@ -41,27 +41,34 @@ struct Counter: Identifiable{
     /// This function returns the components of the countdown from ``date``
     /// - Parameter type: the type of components to be included
     /// - Returns: A tuple with all the components as `Integers`
-    func getCounterComponents(type: Types) -> counterComponents{
+    func getCounterComponents(type: Types) -> CounterComponents{
         let calendar = Calendar.current
         
+        //Excluding time from the dates
+        let todayComponents = Calendar.current.dateComponents([.year,.month,.day], from: todayDate)
+        let today = Calendar.current.date(from: todayComponents)!
         
-        ///Difference between `todayDate` and `date`
-        let components = calendar.dateComponents([.day, .month, .year], from: todayDate, to: date)
+        let eventComponents = Calendar.current.dateComponents([.year,.month,.day], from: date)
+        let event = Calendar.current.date(from: eventComponents)!
+        
+        
+        ///Difference between `today` and `event`
+        let components = calendar.dateComponents([.day, .month, .year], from: today, to: event)
         
         switch type {
         //Days
         case .showOnlyDays:
-            let days = calendar.dateComponents([.day], from: todayDate, to: date).day!
-            return (days: days, weeks: 0, months: 0, years: 0)
+            let days = calendar.dateComponents([.day], from: today, to: event).day!
+            return CounterComponents(days: days, weeks: 0, months: 0, years: 0)
         //Weeks
         case .showWeeks:
             var days = components.day!
             let weeks = Int(days/7)
             days -= weeks*7
-            return (days: days, weeks: weeks, months: components.month!, years: components.year!)
+            return CounterComponents(days: days, weeks: weeks, months: components.month!, years: components.year!)
         //Years
         case .showYears:
-            return (days: components.day!, weeks: 0, months: components.month!, years: components.year!)
+            return CounterComponents(days: components.day!, weeks: 0, months: components.month!, years: components.year!)
         }
     }
     
@@ -118,5 +125,10 @@ struct Counter: Identifiable{
 
 }
 
-///A tuple containing all the components of the ``Counter``
-typealias counterComponents = (days: Int, weeks: Int, months: Int, years: Int)
+///A struct containing all the components of the ``Counter``
+struct CounterComponents: Equatable{
+    var days: Int
+    var weeks: Int
+    var months: Int
+    var years: Int
+}

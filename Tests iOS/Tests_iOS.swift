@@ -30,67 +30,87 @@ class Tests_iOS: XCTestCase {
         counter.date = Date() + 60 * 60 * 24 * 7
         
         //Testing showOnlyDays
-        var components = counter.getCounterComponents(type: .showOnlyDays)
-        XCTAssert(
-            components == (days: 7, weeks: 0, months: 0, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showOnlyDays),
+            CounterComponents(days: 7, weeks: 0, months: 0, years: 0)
         )
         //Testing showWeeks
-        components = counter.getCounterComponents(type: .showWeeks)
-        XCTAssert(
-            components == (days: 0, weeks: 1, months: 0, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showWeeks),
+            CounterComponents(days: 0, weeks: 1, months: 0, years: 0)
         )
         //Testing showYears
-        components = counter.getCounterComponents(type: .showYears)
-        XCTAssert(
-            components == (days: 7, weeks: 0, months: 0, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showYears),
+            CounterComponents(days: 7, weeks: 0, months: 0, years: 0)
         )
         
         //MARK: 4 Weeks -
         counter.date = Date() + 60 * 60 * 24 * 7 * 4
         
         //Testing showOnlyDays
-        components = counter.getCounterComponents(type: .showOnlyDays)
-        XCTAssert(
-            components == (days: 28, weeks: 0, months: 0, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showOnlyDays),
+            CounterComponents(days: 28, weeks: 0, months: 0, years: 0)
         )
         //Testing showWeeks
-        components = counter.getCounterComponents(type: .showWeeks)
-        XCTAssert(
-            components == (days: 0, weeks: 4, months: 0, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showWeeks),
+            CounterComponents(days: 0, weeks: 4, months: 0, years: 0)
         )
         //Testing showYears
-        components = counter.getCounterComponents(type: .showYears)
-        XCTAssert(
-            components == (days: 28, weeks: 0, months: 0, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showYears),
+            CounterComponents(days: 28, weeks: 0, months: 0, years: 0)
         )
         
         //MARK: 1 Month -
         counter.date = Date() + 60 * 60 * 24 * 31
         
         //Testing showOnlyDays
-        components = counter.getCounterComponents(type: .showOnlyDays)
-        XCTAssert(
-            components == (days: 31, weeks: 0, months: 0, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showOnlyDays),
+            CounterComponents(days: 31, weeks: 0, months: 0, years: 0)
         )
         //Testing showWeeks
-        components = counter.getCounterComponents(type: .showWeeks)
-        XCTAssert(
-            components == (days: 0, weeks: 0, months: 1, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showWeeks),
+            CounterComponents(days: 0, weeks: 0, months: 1, years: 0)
         )
         //Testing showYears
-        components = counter.getCounterComponents(type: .showYears)
-        XCTAssert(
-            components == (days: 0, weeks: 0, months: 1, years: 0)
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showYears),
+            CounterComponents(days: 0, weeks: 0, months: 1, years: 0)
         )
         
+       
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    
+    func testNegativeComponents() throws {
+        counter.date = Date() - 60 * 60 * 24 * 7
+        
+        // 7 days
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showOnlyDays),
+            CounterComponents(days: -7, weeks: 0, months: 0, years: 0)
+        )
+        // 1 week
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showWeeks),
+            CounterComponents(days: 0, weeks: -1, months: 0, years: 0)
+        )
+        
+        // Today
+        counter.date = Date()
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showWeeks),
+            CounterComponents(days: 0, weeks: 0, months: 0, years: 0)
+        )
+        // Yesterday
+        counter.date = Date() - 60 * 60 * 24 * 1
+        XCTAssertEqual(
+            counter.getCounterComponents(type: .showWeeks),
+            CounterComponents(days: -1, weeks: 0, months: 0, years: 0)
+        )
     }
 }

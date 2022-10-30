@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-///This `view` displays the ``counterComponents`` for the ``CounterCardView`` and the `rectangular widget` 
+///This `view` displays the ``CounterComponents`` for the ``CounterCardView`` and the `rectangular widget` 
 struct CounterTopView: View {
     var counter: Counter
     ///The type of components to show
     var type: Counter.Types
     
-    var components: counterComponents {
+    var components: CounterComponents {
         counter.getCounterComponents(type: type)
     }
     
