@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 ///This `View` lets users **create** and **edit** a ``Counter``
 struct CreateView: View {
@@ -102,10 +103,14 @@ struct CreateView: View {
         if isEditing {
             //Modify an existing counter
             dataController.update(counter)
-            
+            WidgetCenter.shared.reloadAllTimelines()
         } else {
             //Add a new counter
             dataController.add(counter)
+            //If the new counter is the first to be added
+            if dataController.counters.count == 1 {
+                WidgetCenter.shared.reloadAllTimelines()
+            }
         }
         //Dismiss
         showSheet = false

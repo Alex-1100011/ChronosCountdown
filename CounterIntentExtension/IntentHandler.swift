@@ -21,10 +21,11 @@ class IntentHandler: INExtension, SelectCounterIntentHandling {
         //Convert counters into [CounterSelection]
         let counters: [CounterSelection] = data.counters.map { counter in
             let counterSelection = CounterSelection(
-                identifier: counter.name,
+                identifier: counter.id.uuidString,
                 display: counter.name)
+            
             counterSelection.name = counter.name
-            counterSelection.symbolName = counter.symbolName
+            counterSelection.id = counter.id.uuidString
             
             return counterSelection
         }
@@ -46,10 +47,11 @@ class IntentHandler: INExtension, SelectCounterIntentHandling {
             
             //Convert the first counter into CounterSelection
             let counterSelection = CounterSelection(
-                identifier: counter.name,
+                identifier: counter.id.uuidString,
                 display: counter.name)
+            
             counterSelection.name = counter.name
-            counterSelection.symbolName = counter.symbolName
+            counterSelection.id = counter.id.uuidString
             
             return counterSelection
         }

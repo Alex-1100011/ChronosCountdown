@@ -9,7 +9,7 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>88xZPY</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>21G83</string>
+	<string>22A380</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
 	<string>14A309</string>
 	<key>INIntentDefinitionToolsVersion</key>
@@ -103,7 +103,7 @@
 			<key>INTypeDisplayNameID</key>
 			<string>XH3qVh</string>
 			<key>INTypeLastPropertyTag</key>
-			<integer>101</integer>
+			<integer>102</integer>
 			<key>INTypeName</key>
 			<string>CounterSelection</string>
 			<key>INTypeProperties</key>
@@ -174,15 +174,15 @@
 				</dict>
 				<dict>
 					<key>INTypePropertyDisplayName</key>
-					<string>Symbol Name</string>
+					<string>Id</string>
 					<key>INTypePropertyDisplayNameID</key>
-					<string>W8Bqmj</string>
+					<string>srmmeE</string>
 					<key>INTypePropertyDisplayPriority</key>
 					<integer>6</integer>
 					<key>INTypePropertyName</key>
-					<string>symbolName</string>
+					<string>id</string>
 					<key>INTypePropertyTag</key>
-					<integer>101</integer>
+					<integer>102</integer>
 					<key>INTypePropertyType</key>
 					<string>String</string>
 				</dict>

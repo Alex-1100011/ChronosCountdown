@@ -18,11 +18,11 @@ struct Provider: IntentTimelineProvider {
         let recommendations: [IntentRecommendation<SelectCounterIntent>] = data.counters.map { counter in
             let intent = SelectCounterIntent()
             intent.counter = CounterSelection(
-                identifier: counter.name,
+                identifier: counter.id.uuidString,
                 display: counter.name)
             
             intent.counter?.name = counter.name
-            intent.counter?.symbolName = counter.symbolName
+            intent.counter?.id = counter.id.uuidString
             
             return IntentRecommendation(intent: intent, description: counter.name)
         }
@@ -67,8 +67,8 @@ struct CounterTimelineEntry: TimelineEntry {
         
         //Retrieves the intent configuration counter from the CoreData Persistent Store
         let data = DataController()
-        let counterName = configuration.counter?.name
-        self.counter = data.getCounterNamed(counterName) ?? Counter(days: 3)
+        let counterID = UUID(uuidString: (configuration.counter?.id) ?? "") ?? UUID()
+        self.counter = data.getCounter(from: counterID) ?? Counter(days: 3)
         
         //Adjust the date to count from with the Intent date
         self.counter.referenceDate = date

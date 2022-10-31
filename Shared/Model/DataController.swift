@@ -111,8 +111,8 @@ class DataController: ObservableObject{
     /// This function ...
     /// - Parameter name: name description
     /// - Returns: description
-    func getCounterNamed(_ name: String?)-> Counter? {
-        counters.first(where: {$0.name == name})
+    func getCounter(from id: UUID)-> Counter? {
+        counters.first(where: {$0.id == id})
     }
     
     ///The `index of the specified counter in the ``DataController/counters`` list
