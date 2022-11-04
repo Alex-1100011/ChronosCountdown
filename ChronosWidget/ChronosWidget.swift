@@ -87,17 +87,18 @@ struct CounterTimelineEntry: TimelineEntry {
 struct ChronosWidgetEntryView : View {
     var entry: Provider.Entry
     @Environment (\.widgetFamily) var family
+    @ScaledMetric var padding: CGFloat = 14
     
     var body: some View {
         
         switch family {
         //MARK: Small
         case .systemSmall:
-            CounterCardView(counter: entry.counter, isSmall: true)
+            CounterCardView(counter: entry.counter, isSmall: true, padding: padding)
             
         //MARK: Medium
         case .systemMedium:
-            CounterCardView(counter: entry.counter)
+            CounterCardView(counter: entry.counter, padding: padding)
             
         //MARK: Large
         case .systemLarge:
@@ -155,8 +156,8 @@ struct ChronosWidget: Widget {
         IntentConfiguration(kind: kind, intent: SelectCounterIntent.self, provider: Provider()) { entry in
             ChronosWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Single Counter")
-        .description("Displays a single counter.")
+        .configurationDisplayName("Single Countdown")
+        .description("Displays a single countdown.")
 #if os (watchOS)
         .supportedFamilies([.accessoryRectangular,.accessoryCircular,.accessoryInline, .accessoryCorner])
 #else

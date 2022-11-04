@@ -16,6 +16,10 @@ struct CounterCardView: View {
     ///When shown in the ``CreateTopView`` certain elements are hidden
     var editMode = false
     @ScaledMetric var nameSize: CGFloat = 25
+    ///To override the default padding
+    ///
+    ///Used to provide less padding in widgets
+    var padding: CGFloat? = nil
  
     
     //MARK: body
@@ -32,12 +36,13 @@ struct CounterCardView: View {
             //MARK: Name
             Text(counter.name)
                 .font(Font.system(size: nameSize, weight: .semibold, design: .rounded))
+                .minimumScaleFactor(0.01)
                 .foregroundColor(.white)
                 .opacity(editMode ? 0 : 1)
         }
         //Adding a shadow for better readability on images
         .shadow(radius: counter.image != nil ? 10 : 0)
-        .padding()
+        .padding(.all, padding)
         
         
         //MARK: Background

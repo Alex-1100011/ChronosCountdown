@@ -95,7 +95,7 @@ struct MainView: View {
                     Button{
                         showCreateView()
                     } label: {
-                        Label("Add new counter", systemImage: "plus")
+                        Label("Add new countdown", systemImage: "plus")
                     }
                     //For better tappable area
                     .contentShape(Rectangle())
