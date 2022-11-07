@@ -79,7 +79,11 @@ struct CircleElementButton<S: ShapeStyle>: View {
     var action: ()->Void
     
     var body: some View{
-        Button(action: action){
+        Button(action: {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+            action()
+        }){
             CircleElementView(
                 isSelected: isSelected,
                 symbolName: symbolName,

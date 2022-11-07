@@ -25,7 +25,12 @@ struct MainView: View {
                     
                     ForEach(dataController.counters){ counter in
                         //MARK: Counter
-                        Button(action: {showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))}) {
+                        Button(action: {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.impactOccurred()
+                            
+                            showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))
+                        }) {
                             CounterCardView(counter: counter, isSmall: isAspectSmall)
                                 .clipShape(RoundedRectangle(cornerRadius: 30))
                                 .hoverEffect()
@@ -61,6 +66,7 @@ struct MainView: View {
                 }
                 .padding([.top, .leading, .trailing])
             }
+            //Placeholder
             .overlay{
                 if dataController.counters.isEmpty{
                     Image("Placeholder")
