@@ -28,7 +28,7 @@ struct CounterCardView: View {
         
         //Reducing Image size when not in editMode
         if !editMode{
-            return image?.preparingThumbnail(of: CGSize(width: 1000, height: 1000))
+            return image?.preparingThumbnail(of: CGSize(width: 700, height: 700))
         }
         return image
     }
