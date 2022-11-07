@@ -20,6 +20,18 @@ struct CounterCardView: View {
     ///
     ///Used to provide less padding in widgets
     var padding: CGFloat? = nil
+    ///The image to display as a background
+    ///
+    ///When not in edit mode the image will have a smaller resolution
+    private var image: UIImage? {
+        let image = counter.image
+        
+        //Reducing Image size when not in editMode
+        if !editMode{
+            return image?.preparingThumbnail(of: CGSize(width: 1000, height: 1000))
+        }
+        return image
+    }
  
     
     //MARK: body
@@ -45,18 +57,19 @@ struct CounterCardView: View {
         .padding(.all, padding)
         
         
-        //MARK: Background
+        
         .background(
             ZStack {
                 
-                //Image
-                if let image = counter.image {
+                //MARK: Image Background
+                if let image {
+                    
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFill()
                         .opacity(isLuminanceReduced ? 0.2 : 1)
                     
-                //Color Background
+                //MARK: Color Background
                 } else {
                     ZStack(alignment: .trailing) {
                         
