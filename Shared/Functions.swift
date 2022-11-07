@@ -74,6 +74,27 @@ extension String {
     }
 }
 
+//MARK: + and - for Color
+
+///The + operator to make a ``Color`` **lighter** by  a ``Double`` amount
+func +(left: Color, right: Double) -> Color? {
+    if let components = left.cgColor?.components, components.count >= 3 {
+        
+        ///Adding the ``Double`` amount to each rgb component in a range btw 0...1
+        let r = max(0, min(1,Double(components[0]) + right))
+        let g = max(0, min(1,Double(components[1]) + right))
+        let b = max(0, min(1,Double(components[2]) + right))
+        
+        return Color(red: r, green: g, blue: b)
+    }
+    return nil
+}
+
+///The - operator to make a ``Color`` **darker** by  a ``Double`` amount
+func -(left: Color, right: Double) -> Color? {
+    return left + (-1*right)
+}
+
 #if canImport(CoreImage)
 //MARK: Color from Image
 /// Get the average Color of an Image

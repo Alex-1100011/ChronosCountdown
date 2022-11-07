@@ -32,15 +32,23 @@ struct MainView: View {
                             //MARK: contextMenu
                                 .contextMenu{
                                     
+                                    //Share
+                                    Button(action: {
+                                        shareToStory(counter: counter)
+                                    }){
+                                        Text("Share story")
+                                        Image(systemName: "camera.circle.fill")
+                                    }
+                                    
                                     //Delete
                                     Button(role: .destructive, action: {
                                         withAnimation{
                                             dataController.delete(counter)
+                                        }
+                                    }){
+                                        Text("Delete")
+                                        Image(systemName: "trash")
                                     }
-                                }){
-                                    Text("Delete")
-                                    Image(systemName: "trash")
-                                }
                             }
                         }
                         .buttonStyle(.plain)
@@ -49,9 +57,6 @@ struct MainView: View {
                             color: counter.color.opacity(0.3),
                             radius: 10,
                             y: 5)
-                        
-                        
-                        
                     }
                 }
                 .padding([.top, .leading, .trailing])

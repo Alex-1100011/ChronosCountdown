@@ -6,5 +6,10 @@
 	<array>
 		<string>SelectCounterIntent</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>instagram</string>
+		<string>instagram-stories</string>
+	</array>
 </dict>
 </plist>

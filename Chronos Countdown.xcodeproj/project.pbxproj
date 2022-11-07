@@ -17,6 +17,8 @@
 		9B5E5AEF28C15583002E8056 /* BackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */; };
 		9B5E5AF128C1627F002E8056 /* CircleElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AF028C1627F002E8056 /* CircleElementView.swift */; };
 		9B5E5AF228C1627F002E8056 /* CircleElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AF028C1627F002E8056 /* CircleElementView.swift */; };
+		9B65BF4C2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B65BF4B2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist */; };
+		9B65BF4E2919563600B3F2CB /* ShareToIG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65BF4D2919563600B3F2CB /* ShareToIG.swift */; };
 		9B73E112283C0849009178A2 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E111283C0849009178A2 /* DaysView.swift */; };
 		9B73E113283C0849009178A2 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E111283C0849009178A2 /* DaysView.swift */; };
 		9B73E115283C09BE009178A2 /* CounterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E114283C09BE009178A2 /* CounterTopView.swift */; };
@@ -175,6 +177,8 @@
 		9B5E5AEA28C15370002E8056 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicker.swift; sourceTree = "<group>"; };
 		9B5E5AF028C1627F002E8056 /* CircleElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleElementView.swift; sourceTree = "<group>"; };
+		9B65BF4B2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Chronos-Countdown--iOS--Info.plist"; sourceTree = "<group>"; };
+		9B65BF4D2919563600B3F2CB /* ShareToIG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareToIG.swift; sourceTree = "<group>"; };
 		9B73E111283C0849009178A2 /* DaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
 		9B73E114283C09BE009178A2 /* CounterTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTopView.swift; sourceTree = "<group>"; };
 		9B87C973283A88B40019395E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -306,6 +310,14 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
+		9B65BF4F291957AC00B3F2CB /* ShareStory */ = {
+			isa = PBXGroup;
+			children = (
+				9B65BF4D2919563600B3F2CB /* ShareToIG.swift */,
+			);
+			path = ShareStory;
+			sourceTree = "<group>";
+		};
 		9B794AAD28C3C18D003F2DA8 /* CreateViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +387,7 @@
 				9BA3E2C828CE6E2900C2E75C /* Frameworks */,
 				9BFC81DD28377E8100219B51 /* Products */,
 				9BFCC24528D8DD5500FC2CED /* ChronosWidgetExtension copy-Info.plist */,
+				9B65BF4B2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -384,6 +397,7 @@
 				9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */,
 				9BDC827B28C515330032A49E /* Functions.swift */,
 				9B8F9B1528F1D0F700C506E0 /* Symbols.swift */,
+				9B65BF4F291957AC00B3F2CB /* ShareStory */,
 				9BFC821528377EFF00219B51 /* Views */,
 				9BFC821628377F2100219B51 /* Model */,
 				9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */,
@@ -697,6 +711,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BFC820528377E8100219B51 /* Assets.xcassets in Resources */,
+				9B65BF4C2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +800,7 @@
 				9B9F0FFE28D872560093458D /* SettingsView.swift in Sources */,
 				9BFC81FF28377E8100219B51 /* ChronosCountdownApp.swift in Sources */,
 				9BA3E2D528CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
+				9B65BF4E2919563600B3F2CB /* ShareToIG.swift in Sources */,
 				9BA5F43C28F46EDB0015F429 /* AppIconView.swift in Sources */,
 				9B5E5AF128C1627F002E8056 /* CircleElementView.swift in Sources */,
 				9B8F9B1628F1D0F700C506E0 /* Symbols.swift in Sources */,
