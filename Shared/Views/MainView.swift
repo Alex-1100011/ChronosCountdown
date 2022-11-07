@@ -37,6 +37,7 @@ struct MainView: View {
                             //MARK: contextMenu
                                 .contextMenu{
                                     
+                                    #if os(iOS)
                                     //Share
                                     Button(action: {
                                         shareToStory(counter: counter)
@@ -44,6 +45,7 @@ struct MainView: View {
                                         Text("Share story")
                                         Image(systemName: "camera.circle.fill")
                                     }
+                                    #endif
                                     
                                     //Delete
                                     Button(role: .destructive, action: {

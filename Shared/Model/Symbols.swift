@@ -10,12 +10,12 @@ import SwiftUI
 ///
 ///This type is used for the ``SymbolsListView``
 enum symbolsCategory: String, CaseIterable{
+    case leisure = "theatermasks"
     case stationery = "doc.text"
     case school = "backpack"
     case tools = "hammer"
     case objects = "text.book.closed.fill"
     case music = "music.note"
-    case leisure = "theatermasks"
     case transportation = "car.fill"
     case health = "stethoscope"
     case fitness = "figure.run"

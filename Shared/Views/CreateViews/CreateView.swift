@@ -49,7 +49,7 @@ struct CreateView: View {
                 
                 Section("Symbol"){
                     SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName, showSearch: $showSymbolSearch)
-                        .padding(.vertical)
+                        .listRowInsets(EdgeInsets())
                 }
             }
             .listStyle(.insetGrouped)
