@@ -14,9 +14,10 @@ struct BackgroundPicker: View {
     @Binding var image: UIImage?
     ///The selected item of the photoPicker
     @State private var selectedPhotoItem: PhotosPickerItem? = nil
+    @ScaledMetric var gridSize: CGFloat = 45
     
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 15){
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: gridSize))], spacing: gridSize/3){
             
             //MARK: Colors
             ForEach(colours, id: \.self) { elementColor in

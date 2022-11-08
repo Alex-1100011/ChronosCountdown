@@ -17,6 +17,7 @@ struct SymbolPicker: View {
     ///When the search button is tapped this variable turns to `true` and the ``SymbolsView`` should be displayed by the `parent view`
     @Binding var showSearch: Bool
     @State private var tabSelection = symbolsCategory.allCases[0]
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         
@@ -25,6 +26,16 @@ struct SymbolPicker: View {
                 
                 ScrollView {
                     SymbolGrid(color: color, selectedSymbol: $selectedSymbol, showSearch: $showSearch, category: category)
+                }
+                //Fading effect
+                .overlay(){
+                    let color: Color = colorScheme == .dark ?
+                    Color(UIColor.secondarySystemGroupedBackground) : .white
+                    
+                    Rectangle()
+                        .foregroundStyle(Gradient(colors: [color.opacity(0), color.opacity(0.9)]))
+                        .frame(height: 70)
+                        .frame(maxHeight: .infinity, alignment: .bottom)
                 }
                 .tabItem({Label(category.name, systemImage: category.symbol)})
                 .tag(category)
@@ -53,7 +64,7 @@ struct SymbolPicker: View {
         
         //Set the page indicator color and selection
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.secondaryLabel
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.tertiaryLabel
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.quaternaryLabel
         updateTabSelection(with: selectedSymbol.wrappedValue)
     }
 }
@@ -64,9 +75,10 @@ struct SymbolGrid: View {
     @Binding var selectedSymbol: String
     @Binding var showSearch: Bool
     var category: symbolsCategory
+    @ScaledMetric var gridSize: CGFloat = 45
     
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 45))], spacing: 15){
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: gridSize))], spacing: 15){
             
             //Show the search for the first page
             if category == symbolsCategory.allCases[0] {

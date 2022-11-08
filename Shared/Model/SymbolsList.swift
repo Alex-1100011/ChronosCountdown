@@ -26,11 +26,12 @@ var symbols: [Symbol] = [
     Symbol("party.popper", "party popper", .leisure, kw: "birthday"),
     Symbol("popcorn", .leisure, kw: "movie cinema theater food film"),
     Symbol("puzzlepiece", .leisure, kw: "game"),
-    Symbol("radio", .leisure),
     Symbol("tent", .leisure),
     Symbol("theatermasks", "theater", .leisure, kw: "movie cinema film"),
     Symbol("ticket", .leisure, kw: "movie cinema theater film"),
     Symbol("tv.inset.filled", "tv", .leisure, kw: "movie cinema theater film"),
+    Symbol("photo.on.rectangle.angled", "photos", .leisure, kw: "memories"),
+    
 
     //MARK: music
     Symbol("amplifier", .music),
@@ -48,6 +49,9 @@ var symbols: [Symbol] = [
     Symbol("music.quarternote.3", "quarternote", .music),
     Symbol("speaker.wave.2", "speaker", .music),
     Symbol("tuningfork", .music),
+    Symbol("playpause", .music),
+    Symbol("opticaldisc", "CD", .music),
+    Symbol("radio", .music),
 
     //MARK: transportation
     Symbol("airplane", .transportation),
@@ -91,7 +95,6 @@ var symbols: [Symbol] = [
     Symbol("cloud.snow", .nature),
     Symbol("cloud.sun", .nature),
     Symbol("cloud.sun.rain", .nature),
-    Symbol("drop", .nature),
     Symbol("fish", .nature),
     Symbol("flame", .nature),
     Symbol("fossil.shell", .nature),
@@ -159,6 +162,12 @@ var symbols: [Symbol] = [
     Symbol("testtube.2", "testtubes", .health),
     Symbol("medical.thermometer", "thermometer", .health),
     Symbol("cross.vial", "vial", .health),
+    Symbol("lungs", .health),
+    Symbol("eye", .health),
+    Symbol("brain", .health),
+    Symbol("ear", .health),
+    Symbol("drop", "blood", .health),
+    
 
     //MARK: stationery
     Symbol("doc.text", "document", .stationery),
@@ -187,6 +196,13 @@ var symbols: [Symbol] = [
     Symbol("graduationcap", "graduation cap", .school),
     Symbol("paperplane", .school),
     Symbol("text.book.closed", "textbook", .school),
+    Symbol("x.squareroot", "squareroot", .school),
+    Symbol("angle", .school),
+    Symbol("compass.drawing", "compass", .school),
+    Symbol("sum", "sum", .school),
+    Symbol("percent", "percent", .school),
+    Symbol("function", "function", .school),
+    Symbol("plus.forwardslash.minus", "plus/minus", .school),
 
     //MARK: tools
     Symbol("gearshape", "gear", .tools),
@@ -194,6 +210,7 @@ var symbols: [Symbol] = [
     Symbol("hammer", .tools),
     Symbol("level", .tools),
     Symbol("lock", .tools),
+    Symbol("key", .tools),
     Symbol("screwdriver", .tools),
     Symbol("wrench.adjustable", "wrench", .tools),
 
@@ -268,11 +285,21 @@ struct SymbolsList_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
             ForEach(symbolsCategory.allCases, id: \.self) { category in
-                Label(category.name, systemImage: category.symbol)
-                    .symbolVariant(.fill)
-                    .font(.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
+                HStack {
+                    Image(systemName: category.symbol)
+                    Text(category.name)
+                    Spacer()
+                    
+                    let filteredSymbols = symbols.filter{
+                        $0.category == category
+                    }
+                    
+                    Text(String(filteredSymbols.count))
+                }
+                .symbolVariant(.fill)
+                .font(.title)
+                .padding(.horizontal)
+                
                 SymbolGrid(color: .black, selectedSymbol: .constant(""), showSearch: .constant(false), category: category)
                     
             }
