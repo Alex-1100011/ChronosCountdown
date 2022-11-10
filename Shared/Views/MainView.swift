@@ -15,13 +15,13 @@ struct MainView: View {
     ///This state controls the size of the ``CounterCardView``
     @State var isAspectSmall = true
     @State var showSettings = false
-    @ScaledMetric var counterHeight = 180
-    @ScaledMetric var counterWidth = 360
+    @ScaledMetric var counterHeight = 170
+    @ScaledMetric var counterWidth = 340
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? counterHeight : counterWidth))],spacing: 15) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? counterHeight - 10 : counterWidth))],spacing: 15) {
                     
                     ForEach(dataController.counters){ counter in
                         //MARK: Counter

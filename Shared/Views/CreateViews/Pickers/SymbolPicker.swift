@@ -18,6 +18,7 @@ struct SymbolPicker: View {
     @Binding var showSearch: Bool
     @State private var tabSelection = symbolsCategory.allCases[0]
     @Environment(\.colorScheme) var colorScheme
+    @ScaledMetric var frameHeight = 300
     
     var body: some View {
         
@@ -42,7 +43,7 @@ struct SymbolPicker: View {
                 
             }
         }
-        .frame(height: 300)
+        .frame(height: frameHeight)
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .always))
         
@@ -78,7 +79,7 @@ struct SymbolGrid: View {
     @ScaledMetric var gridSize: CGFloat = 45
     
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: gridSize))], spacing: 15){
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: gridSize))], spacing: gridSize/3){
             
             //Show the search for the first page
             if category == symbolsCategory.allCases[0] {
