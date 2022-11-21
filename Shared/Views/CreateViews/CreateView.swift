@@ -38,7 +38,7 @@ struct CreateView: View {
         ScrollView {
             VStack(spacing: 0){
                 
-                CreateTopView(counter: $counter, showSheet: $showSheet)
+                CreateHeaderView(counter: $counter, showSheet: $showSheet, offset: $scrollOffset)
                     .frame(height: 180 + (scrollOffset > 0 ? scrollOffset : 0))
                     .clipped()
                     .zIndex(1)

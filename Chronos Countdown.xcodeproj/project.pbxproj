@@ -68,8 +68,8 @@
 		9BB93DDE28E21D720010CC4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
 		9BBA6794284A26BD00BF688C /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
 		9BBA6795284A26BD00BF688C /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
-		9BDC827928C510310032A49E /* CreateTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateTopView.swift */; };
-		9BDC827A28C510310032A49E /* CreateTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateTopView.swift */; };
+		9BDC827928C510310032A49E /* CreateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateHeaderView.swift */; };
+		9BDC827A28C510310032A49E /* CreateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateHeaderView.swift */; };
 		9BDC827C28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9BDC827D28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9BDDDB6D29097BBA00912066 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDDDB6B29097B9A00912066 /* WidgetViews.swift */; };
@@ -211,7 +211,7 @@
 		9BA3E2D328CE6E2A00C2E75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BA5F43B28F46EDB0015F429 /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
 		9BBA6793284A26BD00BF688C /* CounterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCardView.swift; sourceTree = "<group>"; };
-		9BDC827828C510310032A49E /* CreateTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopView.swift; sourceTree = "<group>"; };
+		9BDC827828C510310032A49E /* CreateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHeaderView.swift; sourceTree = "<group>"; };
 		9BDC827B28C515330032A49E /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		9BDDDB6B29097B9A00912066 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
 		9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CounterIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				9B5E5AEA28C15370002E8056 /* CreateView.swift */,
-				9BDC827828C510310032A49E /* CreateTopView.swift */,
+				9BDC827828C510310032A49E /* CreateHeaderView.swift */,
 				9B206CCA28F1BA6C00C50624 /* Pickers */,
 				9B206CC728F191E500C50624 /* SymbolsView.swift */,
 				9B5E5AF028C1627F002E8056 /* CircleElementView.swift */,
@@ -820,7 +820,7 @@
 			files = (
 				9B87C978283A93E40019395E /* Counter.swift in Sources */,
 				9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */,
-				9BDC827928C510310032A49E /* CreateTopView.swift in Sources */,
+				9BDC827928C510310032A49E /* CreateHeaderView.swift in Sources */,
 				9B87C974283A88B40019395E /* DataController.swift in Sources */,
 				9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */,
 				9B9F0FFE28D872560093458D /* SettingsView.swift in Sources */,
@@ -853,7 +853,7 @@
 				9B87C975283A88B40019395E /* DataController.swift in Sources */,
 				9BDC827D28C515330032A49E /* Functions.swift in Sources */,
 				9B5E5AEF28C15583002E8056 /* BackgroundPicker.swift in Sources */,
-				9BDC827A28C510310032A49E /* CreateTopView.swift in Sources */,
+				9BDC827A28C510310032A49E /* CreateHeaderView.swift in Sources */,
 				9BFC820028377E8100219B51 /* ChronosCountdownApp.swift in Sources */,
 				9B5E5AF228C1627F002E8056 /* CircleElementView.swift in Sources */,
 				9B73E113283C0849009178A2 /* DaysView.swift in Sources */,
