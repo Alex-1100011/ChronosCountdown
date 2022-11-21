@@ -86,7 +86,7 @@ struct Counter: Identifiable{
     ///
     ///Used when creating new counters in the ``CreateView``
     init(days: Double = 0, referenceDate: Date = Date()){
-        self.name = "Title"
+        self.name = ""
         self.date = Date() + (days * 24 * 60 * 60)
         self.color = Color(hex: "027AFF")
         self.symbolName = symbols[0].symbolName
