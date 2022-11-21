@@ -44,7 +44,7 @@ struct Provider: IntentTimelineProvider {
         var entries: [CounterTimelineEntry] = []
         let currentDate = Date()
         //Generate a timeline consisting of seven entries a day apart, starting from the current date.
-        for dayOffset in 0 ..< 7 {
+        for dayOffset in 0 ..< 2 {
             var entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
             //Change the date's time to the start of the date
             entryDate = Calendar.current.startOfDay(for: entryDate)
