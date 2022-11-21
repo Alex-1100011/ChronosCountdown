@@ -23,32 +23,29 @@ struct CreateHeaderView: View {
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            
-            ZStack(alignment: .bottom) {
-                
                     
                 VStack(alignment: .leading){
+                    //MARK: Counter
                     CounterTopView(counter: counter, type: .showWeeks)
-                        .padding()
+                        .frame(height: 50)
+                        .padding(.top)
                     Spacer()
-                    //Textfield
+                    //MARK: Textfield
                     TextField("Title", text: $counter.name)
                         .font(Font.system(size: 30, weight: .semibold, design: .rounded))
                         .foregroundColor(.white)
-                        .padding()
                         .padding(.leading, 5)
                         .padding(3)
-                    
                         .background(
                             //Textfield Background
                             RoundedRectangle(cornerRadius: 9)
                                 .foregroundStyle(colorStyle)
                                 .brightness(-0.2)
-                                .padding()
-                            
-                            
+                                .padding(.trailing, 50)
                         )
                 }
+                .padding()
+                //MARK: Background
                 .background(){
                         if let image = counter.image {
                             
@@ -66,10 +63,8 @@ struct CreateHeaderView: View {
                                 .foregroundStyle(counter.color.gradient)
                         }
                     }
-                    
-                
-            }
             
+            //MARK: Close Button
             Button(action: {showSheet = false}) {
                 Image(systemName: "circle.fill")
                     .foregroundStyle(colorStyle)
@@ -85,7 +80,12 @@ struct CreateHeaderView: View {
                     .padding()
             }
             .buttonStyle(.plain)
-            
+            .padding(.top, 7)
+            .offset(y:
+                //Header expanding
+                offset > 0 ? 0 :
+                //Header getting smaller
+                (offset > -100 ? -offset : 100))
                 
             
         }

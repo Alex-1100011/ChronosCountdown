@@ -68,6 +68,10 @@
 		9BB93DDE28E21D720010CC4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
 		9BBA6794284A26BD00BF688C /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
 		9BBA6795284A26BD00BF688C /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
+		9BBF01D8292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */; };
+		9BBF01D9292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */; };
+		9BBF01DA292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */; };
+		9BBF01DB292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */; };
 		9BDC827928C510310032A49E /* CreateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateHeaderView.swift */; };
 		9BDC827A28C510310032A49E /* CreateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateHeaderView.swift */; };
 		9BDC827C28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
@@ -211,6 +215,7 @@
 		9BA3E2D328CE6E2A00C2E75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BA5F43B28F46EDB0015F429 /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
 		9BBA6793284A26BD00BF688C /* CounterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCardView.swift; sourceTree = "<group>"; };
+		9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetGroupedStyle.swift; sourceTree = "<group>"; };
 		9BDC827828C510310032A49E /* CreateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHeaderView.swift; sourceTree = "<group>"; };
 		9BDC827B28C515330032A49E /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		9BDDDB6B29097B9A00912066 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
@@ -338,6 +343,7 @@
 			children = (
 				9B5E5AEA28C15370002E8056 /* CreateView.swift */,
 				9BDC827828C510310032A49E /* CreateHeaderView.swift */,
+				9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */,
 				9B206CCA28F1BA6C00C50624 /* Pickers */,
 				9B206CC728F191E500C50624 /* SymbolsView.swift */,
 				9B5E5AF028C1627F002E8056 /* CircleElementView.swift */,
@@ -790,6 +796,7 @@
 				9BA3E2E328CE708100C2E75C /* Functions.swift in Sources */,
 				9BA3E2E028CE704C00C2E75C /* DataController.swift in Sources */,
 				9BA3E2DE28CE703B00C2E75C /* DaysView.swift in Sources */,
+				9BBF01DA292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */,
 				9BA3E2D428CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
 				9BA3E2DD28CE703B00C2E75C /* CounterCardView.swift in Sources */,
 				9BA3E2E128CE704C00C2E75C /* Counter.swift in Sources */,
@@ -808,6 +815,7 @@
 				9BF3937D28D48F2C0060DFC0 /* DataController.swift in Sources */,
 				9B658498291A71FF00C48B29 /* SymbolsList.swift in Sources */,
 				9BF3937C28D48A180060DFC0 /* ChronosWidget.intentdefinition in Sources */,
+				9BBF01DB292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */,
 				9BF3938028D491000060DFC0 /* Functions.swift in Sources */,
 				9B65BF532919974300B3F2CB /* Symbol.swift in Sources */,
 				9B658495291A71E800C48B29 /* SymbolsView.swift in Sources */,
@@ -834,6 +842,7 @@
 				9B73E112283C0849009178A2 /* DaysView.swift in Sources */,
 				9B206CC828F191E500C50624 /* SymbolsView.swift in Sources */,
 				9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
+				9BBF01D8292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */,
 				9B658487291A6DE700C48B29 /* SymbolsList.swift in Sources */,
 				9BBA6794284A26BD00BF688C /* CounterCardView.swift in Sources */,
 				9B9CECE328C1FC04008ADF1E /* SymbolPicker.swift in Sources */,
@@ -846,6 +855,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BBF01D9292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */,
 				9B9F0FFF28D872560093458D /* SettingsView.swift in Sources */,
 				9B87C979283A93E40019395E /* Counter.swift in Sources */,
 				9B8F9B1728F1D0F700C506E0 /* Symbol.swift in Sources */,

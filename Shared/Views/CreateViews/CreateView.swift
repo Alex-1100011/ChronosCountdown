@@ -52,27 +52,33 @@ struct CreateView: View {
                     .frame(height: 180)
                     
                 
-                Text("Background")
                 BackgroundPicker(color: $counter.color, image: $counter.image)
-                    .padding(.vertical)
+                    .insetGroupedStyle("Background")
+                    
                 
                 
                 
                 
-                Text("Date")
+                    
                 DatePicker("Date", selection: $counter.date, displayedComponents: .date)
                     .accentColor(counter.color)
                     .datePickerStyle(.graphical)
+                    .insetGroupedStyle("Date")
                 
                 
-                Text("Symbol")
+                    
                 SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName, showSearch: $showSymbolSearch)
+                    .insetGroupedStyle("Symbol", padding: 0)
                 
             }
             .offset(coordinateSpace: .named("Scroll")){ offset in
                 scrollOffset = offset
             }
             
+        }
+        .background{
+            Color(uiColor: UIColor.systemGroupedBackground)
+                .edgesIgnoringSafeArea(.all)
         }
         .coordinateSpace(name: "Scroll")
             //MARK: - Save
