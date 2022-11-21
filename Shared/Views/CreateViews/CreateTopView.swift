@@ -43,7 +43,6 @@ struct CreateTopView: View {
                         
                     )
             }
-            .frame(height: 180)
             
             Button(action: {showSheet = false}) {
                 Image(systemName: "circle.fill")

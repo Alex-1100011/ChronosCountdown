@@ -31,29 +31,50 @@ struct CreateView: View {
         editingIndex != nil
     }
     
+    @State var scrollOffset:CGFloat = 0
+    let headerCompactSize: CGFloat = 100
     
     var body: some View {
-        VStack(spacing: 0) {
-            CreateTopView(counter: $counter, showSheet: $showSheet)
-            List {
-                Section("Background"){
-                    BackgroundPicker(color: $counter.color, image: $counter.image)
-                        .padding(.vertical)
-                }
+        ScrollView {
+            VStack(spacing: 0){
                 
-                Section("Date"){
-                    DatePicker("Date", selection: $counter.date, displayedComponents: .date)
-                        .accentColor(counter.color)
-                        .datePickerStyle(.graphical)
-                }
+                CreateTopView(counter: $counter, showSheet: $showSheet)
+                    .frame(height: 180 + (scrollOffset > 0 ? scrollOffset : 0))
+                    .clipped()
+                    .zIndex(1)
+                    .offset(y:
+                            //Compact header
+                            scrollOffset < -headerCompactSize ? (-scrollOffset - headerCompactSize) :
+                            //Large header
+                            (scrollOffset > 0 ? -scrollOffset/2 : 0)
+                    )
+                    //For the spacing in the list
+                    .frame(height: 180)
+                    
                 
-                Section("Symbol"){
-                    SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName, showSearch: $showSymbolSearch)
-                        .listRowInsets(EdgeInsets())
-                }
+                Text("Background")
+                BackgroundPicker(color: $counter.color, image: $counter.image)
+                    .padding(.vertical)
+                
+                
+                
+                
+                Text("Date")
+                DatePicker("Date", selection: $counter.date, displayedComponents: .date)
+                    .accentColor(counter.color)
+                    .datePickerStyle(.graphical)
+                
+                
+                Text("Symbol")
+                SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName, showSearch: $showSymbolSearch)
+                
             }
-            .listStyle(.insetGrouped)
+            .offset(coordinateSpace: .named("Scroll")){ offset in
+                scrollOffset = offset
+            }
             
+        }
+        .coordinateSpace(name: "Scroll")
             //MARK: - Save
             .safeAreaInset(edge: .bottom){
                 
@@ -83,7 +104,6 @@ struct CreateView: View {
                     .background(.ultraThinMaterial)
                 }
             }
-        }
         .sheet(isPresented: $showSymbolSearch){
             SymbolsView(
                 symbol: $counter.symbolName,
@@ -128,3 +148,33 @@ struct CreateView_Previews: PreviewProvider {
         CreateView(showSheet: .constant(true))
     }
 }
+
+
+// MARK: Offset Preference Key
+struct OffsetKey: PreferenceKey{
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
+
+// Offset View Extension
+extension View{
+    @ViewBuilder
+    func offset(coordinateSpace: CoordinateSpace, completion: @escaping (CGFloat) -> ()) -> some View {
+        self.overlay {
+            GeometryReader{ proxy in
+                let minY = proxy.frame(in: coordinateSpace).minY
+                Color.clear
+                    .preference(key: OffsetKey.self, value: minY)
+                    .onPreferenceChange (OffsetKey.self) { value in
+                        completion (value)
+                    }
+            }
+        }
+    }
+}
+
+
+
+//.coordinateSpace(name: "Scroll")
