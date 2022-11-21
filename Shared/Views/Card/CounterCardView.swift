@@ -99,8 +99,6 @@ struct CounterCardView: View {
                         .strokeBorder(counter.color, lineWidth: 5)
                 }
             }
-            ///For when the iPhone is in landscape mode in the ``CreateView``
-                .edgesIgnoringSafeArea(.horizontal)
            
         )
         

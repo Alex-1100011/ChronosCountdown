@@ -68,9 +68,11 @@ struct CreateHeaderView: View {
                                         //Header getting smaller
                                         (offset > -100 ? -offset/2 : 50)
                                 )
+                                .edgesIgnoringSafeArea(.horizontal)
                         } else {
                             Rectangle()
                                 .foregroundStyle(counter.color.gradient)
+                                .edgesIgnoringSafeArea(.horizontal)
                         }
                     }
             
