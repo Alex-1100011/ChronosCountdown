@@ -13,13 +13,13 @@ struct CounterCardView: View {
     @Environment(\.isLuminanceReduced) private var isLuminanceReduced
     var counter: Counter
     var isSmall = false
-    ///When shown in the ``CreateTopView`` certain elements are hidden
-    var editMode = false
     @ScaledMetric var nameSize: CGFloat = 25
     ///To override the default padding
     ///
     ///Used to provide less padding in widgets
     var padding: CGFloat? = nil
+    
+    var reducedImageResolution:Bool = true
     ///The image to display as a background
     ///
     ///When not in edit mode the image will have a smaller resolution
@@ -27,7 +27,7 @@ struct CounterCardView: View {
         let image = counter.image
         
         //Reducing Image size when not in editMode
-        if !editMode{
+        if reducedImageResolution{
             return image?.preparingThumbnail(of: CGSize(width: 700, height: 700))
         }
         return image
@@ -41,7 +41,6 @@ struct CounterCardView: View {
             CounterTopView(counter: counter, type: isSmall ? .showOnlyDays : .showWeeks)
             //To extend horizontally the card
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, editMode ? 10 : 0)
                 
             Spacer()
             
@@ -50,7 +49,6 @@ struct CounterCardView: View {
                 .font(Font.system(size: nameSize, weight: .semibold, design: .rounded))
                 .minimumScaleFactor(0.01)
                 .foregroundColor(.white)
-                .opacity(editMode ? 0 : 1)
         }
         //Adding a shadow for better readability on images
         .shadow(radius: counter.image != nil ? 10 : 0)
@@ -89,7 +87,6 @@ struct CounterCardView: View {
                                 .brightness(-0.2)
                                 .rotationEffect(Angle(degrees: -20))
                                 .offset(x: 10, y: 30)
-                                .opacity(editMode ? 0 : 1)
                         }
                     }
                      

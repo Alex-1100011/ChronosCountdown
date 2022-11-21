@@ -76,6 +76,7 @@ struct CreateView: View {
             }
             
         }
+        .scrollIndicators(.hidden)
         .background{
             Color(uiColor: UIColor.systemGroupedBackground)
                 .edgesIgnoringSafeArea(.all)
