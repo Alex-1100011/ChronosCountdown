@@ -40,7 +40,7 @@ struct MainView: View {
                                     #if os(iOS)
                                     //Share
                                     Button(action: {
-                                        shareToStory(counter: counter)
+                                        shareToStory(counter: counter, pattern: true)
                                     }){
                                         Text("Share story")
                                         Image(systemName: "camera.circle.fill")

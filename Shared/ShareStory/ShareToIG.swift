@@ -11,23 +11,39 @@ import SwiftUI
 
 
 
-@MainActor func shareToStory(counter: Counter){
+@MainActor func shareToStory(counter: Counter, pattern: Bool){
     
-    let renderer = ImageRenderer(content: StickerView(counter: counter))
-    renderer.scale = 3.0
+    let stickerRenderer = ImageRenderer(content: StickerView(counter: counter))
+    stickerRenderer.scale = 3.0
     
-    let topColor = String((counter.color + 0.3)!)
-    let bottomColor = String((counter.color - 0.25)!)
+    
 
-    if let storiesUrl = URL(string: "instagram-stories://share"), let image = renderer.uiImage {
+    if let storiesUrl = URL(string: "instagram-stories://share") {
         
         if UIApplication.shared.canOpenURL(storiesUrl) {
-            guard let imageData = image.pngData() else { return }
-            let pasteboardItems: [String: Any] = [
-                "com.instagram.sharedSticker.stickerImage": imageData,
-                "com.instagram.sharedSticker.backgroundTopColor": "#\(topColor)",
-                "com.instagram.sharedSticker.backgroundBottomColor": "#\(bottomColor)"
+            guard let stickerImage = stickerRenderer.uiImage?.pngData() else { return }
+            
+            var pasteboardItems: [String: Any] = [
+                "com.instagram.sharedSticker.stickerImage": stickerImage,
             ]
+            
+            if pattern {
+                //MARK: Pattern background
+                let bgRenderer = ImageRenderer(content: StoryPatternView(counter: counter))
+                bgRenderer.scale = 3.0
+                
+                guard let bgImage = bgRenderer.uiImage?.pngData() else { return }
+                pasteboardItems["com.instagram.sharedSticker.backgroundImage"] = bgImage
+                
+            } else {
+                //MARK: Color background
+                let topColor = String((counter.color + 0.3)!)
+                let bottomColor = String((counter.color - 0.25)!)
+                
+                pasteboardItems["com.instagram.sharedSticker.backgroundTopColor"] = "#\(topColor)"
+                pasteboardItems["com.instagram.sharedSticker.backgroundBottomColor"] = "#\(bottomColor)"
+            }
+            
             if #available(iOS 10, *) {
                 let pasteboardOptions = [
                     UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(300)
@@ -35,6 +51,8 @@ import SwiftUI
                 UIPasteboard.general.setItems([pasteboardItems], options: pasteboardOptions)
                 UIApplication.shared.open(storiesUrl, options: [:], completionHandler: nil)
              }
+        } else {
+            //Error instagram not installed
         }
     }
 }

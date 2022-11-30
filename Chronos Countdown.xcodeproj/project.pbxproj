@@ -11,6 +11,7 @@
 		9B206CC928F191E500C50624 /* SymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolsView.swift */; };
 		9B27B23228E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B27B23328E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
+		9B3F30412937575B0097E0CB /* StoryPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F30402937575B0097E0CB /* StoryPatternView.swift */; };
 		9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEC28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */; };
@@ -192,6 +193,7 @@
 /* Begin PBXFileReference section */
 		9B16B3B028CE0275002B7DE2 /* Chronos Countdown (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chronos Countdown (iOS).entitlements"; sourceTree = "<group>"; };
 		9B206CC728F191E500C50624 /* SymbolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsView.swift; sourceTree = "<group>"; };
+		9B3F30402937575B0097E0CB /* StoryPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPatternView.swift; sourceTree = "<group>"; };
 		9B5E5AEA28C15370002E8056 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicker.swift; sourceTree = "<group>"; };
 		9B5E5AF028C1627F002E8056 /* CircleElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleElementView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				9B65BF4D2919563600B3F2CB /* ShareToIG.swift */,
+				9B3F30402937575B0097E0CB /* StoryPatternView.swift */,
 			);
 			path = ShareStory;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				9BA3E2D528CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
 				9B65BF4E2919563600B3F2CB /* ShareToIG.swift in Sources */,
 				9BA5F43C28F46EDB0015F429 /* AppIconView.swift in Sources */,
+				9B3F30412937575B0097E0CB /* StoryPatternView.swift in Sources */,
 				9B5E5AF128C1627F002E8056 /* CircleElementView.swift in Sources */,
 				9B8F9B1628F1D0F700C506E0 /* Symbol.swift in Sources */,
 				9BDC827C28C515330032A49E /* Functions.swift in Sources */,
