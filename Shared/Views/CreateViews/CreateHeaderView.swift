@@ -34,7 +34,7 @@ struct CreateHeaderView: View {
                     TextField("Title", text: $counter.name)
                         .font(Font.system(size: 30, weight: .semibold, design: .rounded))
                         .foregroundColor(.white)
-                        .overlay(){
+                        .background(){
                             if counter.name.isEmpty{
                                 Text("Title")
                                     .font(Font.system(size: 30, weight: .semibold, design: .rounded))
