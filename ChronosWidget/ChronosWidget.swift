@@ -95,18 +95,22 @@ struct ChronosWidgetEntryView : View {
         //MARK: Small
         case .systemSmall:
             CounterCardView(counter: entry.counter, isSmall: true, padding: padding)
+                .widgetBackground(Color.black)
             
         //MARK: Medium
         case .systemMedium:
             CounterCardView(counter: entry.counter, padding: padding)
+                .widgetBackground(Color.black)
             
         //MARK: Large
         case .systemLarge:
             CounterCardView(counter: entry.counter)
+                .widgetBackground(Color.black)
             
         //MARK: XL
         case .systemExtraLarge:
             CounterCardView(counter: entry.counter)
+                .widgetBackground(Color.black)
             
         //MARK: circular
         case .accessoryCircular:
@@ -156,6 +160,7 @@ struct ChronosWidget: Widget {
         IntentConfiguration(kind: kind, intent: SelectCounterIntent.self, provider: Provider()) { entry in
             ChronosWidgetEntryView(entry: entry)
         }
+        .contentMarginsDisabled()
         .configurationDisplayName("Single Countdown")
         .description("Displays a single countdown.")
 #if os (watchOS)
@@ -192,5 +197,17 @@ struct ChronosWidget_Previews: PreviewProvider {
         ChronosWidgetEntryView(entry: CounterTimelineEntry(date: Date(),counter: counter))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
             .previewDisplayName("accessoryRectangular")
+    }
+}
+
+extension View {
+    func widgetBackground(_ backgroundView: some View) -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                backgroundView
+            }
+        } else {
+            return background(backgroundView)
+        }
     }
 }

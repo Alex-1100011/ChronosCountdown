@@ -1,13 +1,13 @@
 {
   "images" : [
     {
-      "filename" : "Main App Icon.png",
+      "filename" : "Chronos.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
     },
     {
-      "filename" : " watch.png",
+      "filename" : "Chronos-Watch.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "size" : "1024x1024"

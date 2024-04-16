@@ -43,6 +43,7 @@ struct RectangularWidget: View {
                 
             }
         }
+        .widgetBackground(AccessoryWidgetBackground())
         
     }
 }
@@ -63,6 +64,7 @@ struct CircularWidget: View{
                     .foregroundColor(counter.color)
                     .widgetAccentable()
             }
+            .widgetBackground(AccessoryWidgetBackground())
         }
     }
 }
