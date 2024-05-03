@@ -37,7 +37,7 @@ struct StoryPatternView: View {
         .frame(width: 900, height: 1600)
     }
 }
-
+#if DEBUG
 struct IgStoryView_Previews: PreviewProvider {
     static var previews: some View {
         StoryPatternView(counter: Counter(name: "Hello", date: Date(), color: sampleColors[3], symbolName: symbols[9].symbolName))
@@ -50,3 +50,4 @@ struct IgStoryView_Previews: PreviewProvider {
         
     }
 }
+#endif

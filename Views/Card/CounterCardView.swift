@@ -39,6 +39,7 @@ struct CounterCardView: View {
         VStack(alignment: .leading) {
             //MARK: TopView
             CounterTopView(counter: counter, type: isSmall ? .showOnlyDays : .showWeeks)
+                .foregroundColor(.blue)
             //To extend horizontally the card
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -107,6 +108,7 @@ struct CounterCardView: View {
 }
 
 //MARK: Previews
+#if DEBUG
 struct CounterCardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -136,3 +138,4 @@ struct CounterCardView_Previews: PreviewProvider {
         .padding()
     }
 }
+#endif

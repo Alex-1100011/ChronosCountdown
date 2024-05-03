@@ -21,6 +21,7 @@ struct CreateView: View {
     @Binding var showSheet: Bool
     ///To display the search sheet
     @State private var showSymbolSearch = false
+    @State private var includeTime = false
     ///The index of the counter in the ``DataController/counters`` list to be modified
     ///
     ///If `nil` this view creates a new counter rather than editing one.
@@ -54,16 +55,20 @@ struct CreateView: View {
                 
                 BackgroundPicker(color: $counter.color, image: $counter.image)
                     .insetGroupedStyle("Background")
-                    
+                    .tint(counter.color)
                 
                 
                 
                 
                     
-                DatePicker("Date", selection: $counter.date, displayedComponents: .date)
-                    .accentColor(counter.color)
-                    .datePickerStyle(.graphical)
-                    .insetGroupedStyle("Date")
+                Group {
+                    DatePicker("Date", selection: $counter.date, displayedComponents: [.date, includeTime ? .hourAndMinute : .date])
+                        .accentColor(counter.color)
+                        .datePickerStyle(.graphical)
+                    Toggle("Include Time", isOn: $includeTime)
+                        .tint(counter.color)
+                }
+                .insetGroupedStyle("Date")
                 
                 
                     

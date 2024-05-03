@@ -61,6 +61,7 @@ struct DaysView_Previews: PreviewProvider {
         }
         .padding()
         .background(Color.blue)
+        .clipShape(.rect(cornerRadius: 30))
         .previewLayout(.sizeThatFits)
     }
 }

@@ -58,6 +58,8 @@
 		9B87C97A283A93E40019395E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
 		9B8F9B1628F1D0F700C506E0 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F9B1528F1D0F700C506E0 /* Symbol.swift */; };
 		9B8F9B1728F1D0F700C506E0 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F9B1528F1D0F700C506E0 /* Symbol.swift */; };
+		9B8FEF8F2BE4F7440043EA19 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FEF8E2BE4F7440043EA19 /* MainViewModel.swift */; };
+		9B8FEF902BE4F7440043EA19 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FEF8E2BE4F7440043EA19 /* MainViewModel.swift */; };
 		9B9CECE328C1FC04008ADF1E /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */; };
 		9B9CECE428C1FC05008ADF1E /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */; };
 		9B9F0FFE28D872560093458D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F0FFD28D872560093458D /* SettingsView.swift */; };
@@ -219,6 +221,7 @@
 		9B87C973283A88B40019395E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9B87C977283A93E40019395E /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		9B8F9B1528F1D0F700C506E0 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
+		9B8FEF8E2BE4F7440043EA19 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolPicker.swift; sourceTree = "<group>"; };
 		9B9F0FFB28D86F0E0093458D /* CounterIntentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CounterIntentExtension.entitlements; sourceTree = "<group>"; };
 		9B9F0FFC28D86F2F0093458D /* ChronosWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChronosWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -336,6 +339,14 @@
 			path = Pickers;
 			sourceTree = "<group>";
 		};
+		9B39D9132BE37FCB00404040 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		9B5E5AE928C15327002E8056 /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,7 +371,6 @@
 			children = (
 				9B5E5AEA28C15370002E8056 /* CreateView.swift */,
 				9BDC827828C510310032A49E /* CreateHeaderView.swift */,
-				9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */,
 				9B206CCA28F1BA6C00C50624 /* Pickers */,
 				9B206CC728F191E500C50624 /* SymbolsView.swift */,
 				9B5E5AF028C1627F002E8056 /* CircleElementView.swift */,
@@ -488,9 +498,11 @@
 			isa = PBXGroup;
 			children = (
 				9BFC81D528377E7F00219B51 /* MainView.swift */,
+				9B8FEF8E2BE4F7440043EA19 /* MainViewModel.swift */,
 				9BA5F43A28F46EC40015F429 /* Settings */,
 				9B794AAD28C3C18D003F2DA8 /* CreateViews */,
 				9B5E5AE928C15327002E8056 /* Card */,
+				9B39D9132BE37FCB00404040 /* ViewModifiers */,
 				9B65BF4F291957AC00B3F2CB /* ShareStory */,
 			);
 			path = Views;
@@ -856,6 +868,7 @@
 				9BDC827928C510310032A49E /* CreateHeaderView.swift in Sources */,
 				9B87C974283A88B40019395E /* DataController.swift in Sources */,
 				9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */,
+				9B8FEF8F2BE4F7440043EA19 /* MainViewModel.swift in Sources */,
 				9B9F0FFE28D872560093458D /* SettingsView.swift in Sources */,
 				9BFC81FF28377E8100219B51 /* ChronosCountdownApp.swift in Sources */,
 				9BA3E2D528CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
@@ -903,6 +916,7 @@
 				9B73E116283C09BE009178A2 /* CounterTopView.swift in Sources */,
 				9BFC820228377E8100219B51 /* MainView.swift in Sources */,
 				9BA5F43D28F46EDB0015F429 /* AppIconView.swift in Sources */,
+				9B8FEF902BE4F7440043EA19 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,7 +1259,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Chronos Countdown (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Preview\\ Data";
 				DEVELOPMENT_TEAM = 6MWN6EWBL2;
 				ENABLE_PREVIEWS = YES;
@@ -1262,7 +1276,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown";
 				PRODUCT_NAME = "Chronos Countdown";
 				SDKROOT = iphoneos;
@@ -1281,7 +1295,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Chronos Countdown (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Preview\\ Data";
 				DEVELOPMENT_TEAM = 6MWN6EWBL2;
 				ENABLE_PREVIEWS = YES;
@@ -1298,7 +1312,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown";
 				PRODUCT_NAME = "Chronos Countdown";
 				SDKROOT = iphoneos;
