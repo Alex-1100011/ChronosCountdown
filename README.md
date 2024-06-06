@@ -4,6 +4,9 @@
 Chronos is a **personal project** to explore and demonstrate different frameworks and technologies. <br>
 The **multi-platform app** allows you to keep track of upcoming and past events with a visual countdown.
 
+[TestFlight Link](https://testflight.apple.com/join/DIQsmGYF)
+
+
 ## Features
 
 - Lock Screen and Home Screen Widgets
