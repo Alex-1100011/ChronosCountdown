@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 ///The main visual representation of a ``Counter``
 struct CounterCardView: View {
@@ -111,31 +112,32 @@ struct CounterCardView: View {
 #if DEBUG
 struct CounterCardView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        swiftDataPreview {
+            Group {
+                CounterCardView(
+                    counter: sampleCounters[0],
+                    isSmall: true
+                )
+                .frame(width: 150)
+                .previewDisplayName("Small")
+                
+                CounterCardView(
+                    counter: sampleCounters[1]
+                )
+                .previewDisplayName("Large")
+                
+                CounterCardView(
+                    counter: sampleCounters[2]
+                )
+                .previewDisplayName("Image")
+                
+            }
             
-            CounterCardView(
-                counter: sampleCounters[0],
-                isSmall: true
-            )
-            .frame(width: 150)
-            .previewDisplayName("Small")
-            
-            CounterCardView(
-                counter: sampleCounters[1]
-            )
-            .previewDisplayName("Large")
-            
-            CounterCardView(
-                counter: sampleCounters[2]
-            )
-            .previewDisplayName("Image")
-            
+            .previewLayout(.sizeThatFits)
+            .frame(height: 150)
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            .padding()
         }
-        
-        .previewLayout(.sizeThatFits)
-        .frame(height: 150)
-        .clipShape(RoundedRectangle(cornerRadius: 30))
-        .padding()
     }
 }
 #endif

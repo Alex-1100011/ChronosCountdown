@@ -6,187 +6,107 @@
 //
 
 import SwiftUI
+import SwiftData
 import WidgetKit
 
-///This `View` lets users **create** and **edit** a ``Counter``
+
 struct CreateView: View {
-    ///Used to save the ``counter``
-    @EnvironmentObject var dataController: DataController
-    ///The temporary counter to be edited
-    ///
-    ///Changes are applied to this variable rather than directly on the list so that all the changes can be discarded.
-    ///It will be saved only when the ``CreateView/save()`` method gets called
-    @State private var counter = Counter()
-    ///To dismiss the current sheet
-    @Binding var showSheet: Bool
-    ///To display the search sheet
-    @State private var showSymbolSearch = false
-    @State private var includeTime = false
-    ///The index of the counter in the ``DataController/counters`` list to be modified
-    ///
-    ///If `nil` this view creates a new counter rather than editing one.
-    ///Must be a Binding otherwise .sheet in the ``MainView`` won't pass an updated value.
-    @Binding var editingIndex: Int?
-    ///When the `View` should save an existing counter rather than creating a new one
-    private var isEditing: Bool{
-        editingIndex != nil
-    }
-    
-    @State var scrollOffset:CGFloat = 0
-    let headerCompactSize: CGFloat = 100
+    @State private var viewModel: CreateViewModel
+    @Binding var isPresented: Bool
     
     var body: some View {
         ScrollView {
             VStack(spacing: 0){
                 
-                CreateHeaderView(counter: $counter, showSheet: $showSheet, offset: $scrollOffset)
-                    .frame(height: 180 + (scrollOffset > 0 ? scrollOffset : 0))
+                CreateHeaderView(counter: $viewModel.counter, showSheet: $isPresented, offset: $viewModel.scrollOffset)
+                    .frame(height: viewModel.headerHeight)
+                    /// To  clip the image in the view
                     .clipped()
-                    .zIndex(1)
-                    .offset(y:
-                            //Compact header
-                            scrollOffset < -headerCompactSize ? (-scrollOffset - headerCompactSize) :
-                            //Large header
-                            (scrollOffset > 0 ? -scrollOffset/2 : 0)
-                    )
-                    //For the spacing in the list
+                    .offset(y: viewModel.headerOffset)
+                    /// Give a constant height in the list placement
                     .frame(height: 180)
                     
+                    /// To bring it in front of the scrolling elements
+                    .zIndex(1)
                 
-                BackgroundPicker(color: $counter.color, image: $counter.image)
+                
+                BackgroundPicker(color: $viewModel.counter.color, image: $viewModel.counter.image)
                     .insetGroupedStyle("Background")
-                    .tint(counter.color)
+                    .tint(viewModel.color)
                 
-                
-                
-                
-                    
                 Group {
-                    DatePicker("Date", selection: $counter.date, displayedComponents: [.date, includeTime ? .hourAndMinute : .date])
-                        .accentColor(counter.color)
+                    DatePicker("Date", selection: $viewModel.counter.date, displayedComponents: viewModel.datePickerComponents)
+                        .accentColor(viewModel.color)
                         .datePickerStyle(.graphical)
-                    Toggle("Include Time", isOn: $includeTime)
-                        .tint(counter.color)
+                    Toggle("Include Time", isOn: $viewModel.includeTime)
+                        .tint(viewModel.color)
                 }
                 .insetGroupedStyle("Date")
                 
                 
-                    
-                SymbolPicker(color: counter.color, selectedSymbol: $counter.symbolName, showSearch: $showSymbolSearch)
-                    .insetGroupedStyle("Symbol", padding: 0)
+                SymbolPicker(
+                    color: viewModel.color,
+                    selectedSymbol: $viewModel.counter.symbolName,
+                    showSearch: $viewModel.showSymbolSearch
+                )
+                .insetGroupedStyle("Symbol", padding: 0)
                 
             }
             .offset(coordinateSpace: .named("Scroll")){ offset in
-                scrollOffset = offset
+                viewModel.scrollOffset = offset
             }
             
         }
         .scrollIndicators(.hidden)
-        .background{
+        .background {
             Color(uiColor: UIColor.systemGroupedBackground)
                 .edgesIgnoringSafeArea(.all)
         }
         .coordinateSpace(name: "Scroll")
-            //MARK: - Save
-            .safeAreaInset(edge: .bottom){
-                
-                Button(action: save) {
-                    //Save Button
-                    HStack {
-                        Spacer()
-                        Text("Save")
-                            .font(Font.system(size: 25, weight: .semibold, design: .rounded))
-                        Spacer()
-                    }
+        //MARK: - Save
+        .safeAreaInset(edge: .bottom){
+            
+            Button(action: viewModel.didTapSave) {
+                //Save Button
+                Text("Save")
+                    .font(Font.system(size: 25, weight: .semibold, design: .rounded))
+                    .frame(maxWidth: .infinity, alignment: .center)
                     .foregroundColor(.white)
                     .padding(10.0)
-                    .background(counter.color.cornerRadius(15))
+                    .background(viewModel.color.cornerRadius(15))
                     .padding([.top, .horizontal])
                     //Add extra padding on iPad
-                    .if(UIDevice.current.userInterfaceIdiom == .pad){ view in
-                        view
-                            .padding(.bottom)
-                    }
-                    
+//                    .if(UIDevice.current.userInterfaceIdiom == .pad){ view in
+//                        view
+//                            .padding(.bottom)
+//                    }
                     .background(
-                        counter.color
+                        viewModel.color
                             .edgesIgnoringSafeArea([.bottom, .horizontal])
                             .opacity(0.1)
                     )
                     .background(.ultraThinMaterial)
-                }
             }
-        .sheet(isPresented: $showSymbolSearch){
+        }
+        .sheet(isPresented: $viewModel.showSymbolSearch){
             SymbolsView(
-                symbol: $counter.symbolName,
-                showSymbolsView: $showSymbolSearch,
-                color: counter.color
+                symbol: $viewModel.counter.symbolName,
+                showSymbolsView: $viewModel.showSymbolSearch,
+                color: viewModel.color
             )
         }
-        .onAppear{
-            if let editingIndex {
-                self.counter = dataController.counters[editingIndex]
-            }
-        }
     }
     
-    func save(){
-        
-        if isEditing {
-            //Modify an existing counter
-            dataController.update(counter)
-            WidgetCenter.shared.reloadAllTimelines()
-        } else {
-            //Add a new counter
-            dataController.add(counter)
-            //If the new counter is the first to be added
-            if dataController.counters.count == 1 {
-                WidgetCenter.shared.reloadAllTimelines()
-            }
-        }
-        //Dismiss
-        showSheet = false
-    }
-    
-    init(showSheet: Binding<Bool>, editingIndex: Binding <Int?>? = nil) {
-        self._showSheet = showSheet
-        self._editingIndex = editingIndex ?? .constant(nil)
-    }
-    
-}
-
-struct CreateView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateView(showSheet: .constant(true))
+    //MARK: Init
+    init(startingFrom counter: Counter = Counter(), isPresented: Binding<Bool>, onSave: @escaping (Counter)->()) {
+        self.viewModel = CreateViewModel(counter: counter, onSave: onSave)
+        self._isPresented = isPresented
     }
 }
 
 
-// MARK: Offset Preference Key
-struct OffsetKey: PreferenceKey{
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
+#Preview {
+    swiftDataPreview {
+        CreateView(isPresented: .constant(false), onSave: { _ in })
     }
 }
-
-// Offset View Extension
-extension View{
-    @ViewBuilder
-    func offset(coordinateSpace: CoordinateSpace, completion: @escaping (CGFloat) -> ()) -> some View {
-        self.overlay {
-            GeometryReader{ proxy in
-                let minY = proxy.frame(in: coordinateSpace).minY
-                Color.clear
-                    .preference(key: OffsetKey.self, value: minY)
-                    .onPreferenceChange (OffsetKey.self) { value in
-                        completion (value)
-                    }
-            }
-        }
-    }
-}
-
-
-
-//.coordinateSpace(name: "Scroll")

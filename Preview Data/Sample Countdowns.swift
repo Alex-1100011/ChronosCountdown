@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-var sampleCounters: [Counter] = [
+var sampleCounters: [Counter] {
+    let counter1 =
     Counter(
         name: "Trip to SF",
         date:
@@ -16,8 +17,10 @@ var sampleCounters: [Counter] = [
                 value: 24,
                 to: Date()
             ) ?? Date(),
-        color: sampleColors[0],
-        symbolName: "airplane"),
+        symbolName: "airplane",
+        colorHex: sampleColors[0])
+    
+    let counter2 =
     Counter(
         name: "Train",
         date:
@@ -26,8 +29,10 @@ var sampleCounters: [Counter] = [
                 value: 24,
                 to: Date()
             ) ?? Date(),
-        color: sampleColors[1],
-        symbolName: "tram"),
+        symbolName: "tram",
+        colorHex: sampleColors[1])
+    
+    let counter3 =
     Counter(
         name: "Trip to Italy",
         date:
@@ -36,14 +41,16 @@ var sampleCounters: [Counter] = [
                 value: 180,
                 to: Date()
             ) ?? Date(),
-        color: sampleColors[2],
         symbolName: "tram",
-        image: UIImage(named: "sperlonga")
-        )
-]
+        colorHex: sampleColors[2]
+    )
+    counter3.image = UIImage(named: "sperlonga")
+    
+    return [counter1, counter2, counter3]
+}
 
-var sampleColors: [Color] = [
-    Color(hex: "027AFF"), Color(hex: "1DB2DF"), Color(hex: "44D7B6"),
-    Color(hex: "35C759"), Color(hex: "FFCC02"), Color(hex: "FFA700"), Color(hex: "A736FF"), Color(hex: "E020B8"),
-    Color(hex: "E02020"), Color(hex: "FF7100")
+var sampleColors: [String] = [
+    "027AFF", "1DB2DF", "44D7B6",
+    "35C759", "FFCC02", "FFA700", "A736FF", "E020B8",
+    "E02020", "FF7100"
 ]

@@ -104,20 +104,20 @@ struct CreateHeaderView: View {
     }
 }
 
-struct CreateTopView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        CreateHeaderView(
-            counter: .constant(Counter(name: "", date: Date(), color: .blue, symbolName: "car")), showSheet: .constant(true), offset: .constant(0))
-        .frame(height: 180)
-        .previewLayout(.sizeThatFits)
-        .previewDisplayName("Color")
-        
-        CreateHeaderView(
-            counter: .constant(Counter(name: "Hello", date: Date(), color: getColorFrom(image: UIImage(named: "sperlonga")) ?? .red, symbolName: "car", image: UIImage(named: "sperlonga"))), showSheet: .constant(true), offset: .constant(0))
-        
-        .previewLayout(.sizeThatFits)
-        .previewDisplayName("Image")
-       
-    }
-}
+//struct CreateTopView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        CreateHeaderView(
+//            counter: .constant(Counter(name: "", date: Date(), color: .blue, symbolName: "car")), showSheet: .constant(true), offset: .constant(0))
+//        .frame(height: 180)
+//        .previewLayout(.sizeThatFits)
+//        .previewDisplayName("Color")
+//        
+//        CreateHeaderView(
+//            counter: .constant(Counter(name: "Hello", date: Date(), color: getColorFrom(image: UIImage(named: "sperlonga")) ?? .red, symbolName: "car", image: UIImage(named: "sperlonga"))), showSheet: .constant(true), offset: .constant(0))
+//        
+//        .previewLayout(.sizeThatFits)
+//        .previewDisplayName("Image")
+//       
+//    }
+//}

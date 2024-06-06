@@ -78,35 +78,35 @@ private struct DaysElementSizeKey: EnvironmentKey {
 
 
 //MARK: Previews
-struct CounterTopView_Previews: PreviewProvider {
-
-    static var previews: some View {
-        Group {
-            //showWeeks
-            CounterTopView(counter:
-                Counter(
-                    name: "",
-                    date: Date() + 60 * 60 * 24 * 48,
-                    color: .blue,
-                    symbolName: ""
-                ), type: .showWeeks
-            )
-            .previewDisplayName("showWeeks")
-            //Today
-            CounterTopView(counter:
-                Counter(
-                    name: "",
-                    date: Date(),
-                    color: .blue,
-                    symbolName: ""
-                ), type: .showWeeks
-            )
-            .previewDisplayName("Today")
-        }
-        .padding()
-        .background(Color.red)
-        .clipShape(.rect(cornerRadius: 30))
-        .previewLayout(.sizeThatFits)
-    }
-}
+//struct CounterTopView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        Group {
+//            //showWeeks
+//            CounterTopView(counter:
+//                Counter(
+//                    name: "",
+//                    date: Date() + 60 * 60 * 24 * 48,
+//                    color: .blue,
+//                    symbolName: ""
+//                ), type: .showWeeks
+//            )
+//            .previewDisplayName("showWeeks")
+//            //Today
+//            CounterTopView(counter:
+//                Counter(
+//                    name: "",
+//                    date: Date(),
+//                    color: .blue,
+//                    symbolName: ""
+//                ), type: .showWeeks
+//            )
+//            .previewDisplayName("Today")
+//        }
+//        .padding()
+//        .background(Color.red)
+//        .clipShape(.rect(cornerRadius: 30))
+//        .previewLayout(.sizeThatFits)
+//    }
+//}
 

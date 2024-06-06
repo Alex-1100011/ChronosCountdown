@@ -40,7 +40,7 @@ struct StoryPatternView: View {
 #if DEBUG
 struct IgStoryView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryPatternView(counter: Counter(name: "Hello", date: Date(), color: sampleColors[3], symbolName: symbols[9].symbolName))
+        StoryPatternView(counter: Counter())
         
         StoryPatternView(counter: sampleCounters[1])
             .clipShape(RoundedRectangle(cornerRadius: 30))

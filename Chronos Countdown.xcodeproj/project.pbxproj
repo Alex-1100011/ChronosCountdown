@@ -12,6 +12,11 @@
 		9B27B23228E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B27B23328E343C8002DE045 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9B3F30412937575B0097E0CB /* StoryPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F30402937575B0097E0CB /* StoryPatternView.swift */; };
+		9B4C1D1E2BE938CD008B863A /* SwiftDataPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C1D1D2BE938CD008B863A /* SwiftDataPreview.swift */; };
+		9B4DBA2F2BE62CE6007AC629 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DBA2E2BE62CE6007AC629 /* ColorHex.swift */; };
+		9B4DBA322BE64B78007AC629 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DBA312BE64B78007AC629 /* CreateViewModel.swift */; };
+		9B4DBA332BE64B78007AC629 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DBA312BE64B78007AC629 /* CreateViewModel.swift */; };
+		9B4DBA342BE692A0007AC629 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DBA2E2BE62CE6007AC629 /* ColorHex.swift */; };
 		9B5E5AEB28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEC28C15370002E8056 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AEA28C15370002E8056 /* CreateView.swift */; };
 		9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */; };
@@ -21,35 +26,30 @@
 		9B658487291A6DE700C48B29 /* SymbolsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B658486291A6DE700C48B29 /* SymbolsList.swift */; };
 		9B658488291A6DE700C48B29 /* SymbolsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B658486291A6DE700C48B29 /* SymbolsList.swift */; };
 		9B658490291A716900C48B29 /* SymbolsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B658486291A6DE700C48B29 /* SymbolsList.swift */; };
-		9B658491291A71E700C48B29 /* CircleElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AF028C1627F002E8056 /* CircleElementView.swift */; };
-		9B658492291A71E700C48B29 /* SymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolsView.swift */; };
-		9B658493291A71E700C48B29 /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */; };
-		9B658494291A71E800C48B29 /* CircleElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E5AF028C1627F002E8056 /* CircleElementView.swift */; };
-		9B658495291A71E800C48B29 /* SymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206CC728F191E500C50624 /* SymbolsView.swift */; };
-		9B658496291A71E800C48B29 /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */; };
-		9B658497291A71FE00C48B29 /* SymbolsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B658486291A6DE700C48B29 /* SymbolsList.swift */; };
-		9B658498291A71FF00C48B29 /* SymbolsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B658486291A6DE700C48B29 /* SymbolsList.swift */; };
 		9B65BF4C2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B65BF4B2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist */; };
 		9B65BF4E2919563600B3F2CB /* ShareToIG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65BF4D2919563600B3F2CB /* ShareToIG.swift */; };
-		9B65BF522919974200B3F2CB /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F9B1528F1D0F700C506E0 /* Symbol.swift */; };
-		9B65BF532919974300B3F2CB /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F9B1528F1D0F700C506E0 /* Symbol.swift */; };
 		9B65BF542919974B00B3F2CB /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8F9B1528F1D0F700C506E0 /* Symbol.swift */; };
+		9B70AB132BE9077D007FAFBC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2C928CE6E2900C2E75C /* WidgetKit.framework */; };
+		9B70AB142BE9077D007FAFBC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2CB28CE6E2900C2E75C /* SwiftUI.framework */; };
+		9B70AB172BE9077D007FAFBC /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70AB162BE9077D007FAFBC /* WidgetsBundle.swift */; };
+		9B70AB192BE9077D007FAFBC /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70AB182BE9077D007FAFBC /* Widgets.swift */; };
+		9B70AB1B2BE9077D007FAFBC /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70AB1A2BE9077D007FAFBC /* AppIntent.swift */; };
+		9B70AB1D2BE9077F007FAFBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B70AB1C2BE9077F007FAFBC /* Assets.xcassets */; };
+		9B70AB222BE9077F007FAFBC /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9B70AB122BE9077D007FAFBC /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B70AB272BE90CDC007FAFBC /* ScrollOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70AB262BE90CDC007FAFBC /* ScrollOffset.swift */; };
+		9B70AB282BE90CDC007FAFBC /* ScrollOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B70AB262BE90CDC007FAFBC /* ScrollOffset.swift */; };
 		9B73E112283C0849009178A2 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E111283C0849009178A2 /* DaysView.swift */; };
 		9B73E113283C0849009178A2 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E111283C0849009178A2 /* DaysView.swift */; };
 		9B73E115283C09BE009178A2 /* CounterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E114283C09BE009178A2 /* CounterTopView.swift */; };
 		9B73E116283C09BE009178A2 /* CounterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E114283C09BE009178A2 /* CounterTopView.swift */; };
 		9B848B182BCD79E400059460 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B848B172BCD79E400059460 /* Preview Assets.xcassets */; };
 		9B848B192BCD79F100059460 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B848B172BCD79E400059460 /* Preview Assets.xcassets */; };
-		9B848B1A2BCD79F400059460 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B848B172BCD79E400059460 /* Preview Assets.xcassets */; };
 		9B848B1B2BCD79F700059460 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B848B172BCD79E400059460 /* Preview Assets.xcassets */; };
 		9B848B1D2BCD801800059460 /* Sample Countdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B848B1C2BCD801800059460 /* Sample Countdowns.swift */; };
 		9B848B1E2BCD801800059460 /* Sample Countdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B848B1C2BCD801800059460 /* Sample Countdowns.swift */; };
 		9B848B1F2BCD801800059460 /* Sample Countdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B848B1C2BCD801800059460 /* Sample Countdowns.swift */; };
 		9B848B202BCD801800059460 /* Sample Countdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B848B1C2BCD801800059460 /* Sample Countdowns.swift */; };
-		9B848B212BCD801800059460 /* Sample Countdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B848B1C2BCD801800059460 /* Sample Countdowns.swift */; };
-		9B848B222BCD801800059460 /* Sample Countdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B848B1C2BCD801800059460 /* Sample Countdowns.swift */; };
 		9B848B232BCD801800059460 /* Sample Countdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B848B1C2BCD801800059460 /* Sample Countdowns.swift */; };
-		9B848B242BCD801800059460 /* Sample Countdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B848B1C2BCD801800059460 /* Sample Countdowns.swift */; };
 		9B87C974283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
 		9B87C975283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
 		9B87C976283A88B40019395E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
@@ -64,20 +64,7 @@
 		9B9CECE428C1FC05008ADF1E /* SymbolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9CECE228C1FC04008ADF1E /* SymbolPicker.swift */; };
 		9B9F0FFE28D872560093458D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F0FFD28D872560093458D /* SettingsView.swift */; };
 		9B9F0FFF28D872560093458D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F0FFD28D872560093458D /* SettingsView.swift */; };
-		9B9F100028D872800093458D /* CounterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E114283C09BE009178A2 /* CounterTopView.swift */; };
-		9BA3E2CA28CE6E2900C2E75C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2C928CE6E2900C2E75C /* WidgetKit.framework */; };
-		9BA3E2CC28CE6E2900C2E75C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2CB28CE6E2900C2E75C /* SwiftUI.framework */; };
-		9BA3E2CF28CE6E2900C2E75C /* ChronosWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2CE28CE6E2900C2E75C /* ChronosWidget.swift */; };
-		9BA3E2D428CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */; };
 		9BA3E2D528CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */; };
-		9BA3E2D828CE6E2A00C2E75C /* ChronosWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9BA3E2C728CE6E2900C2E75C /* ChronosWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9BA3E2DD28CE703B00C2E75C /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
-		9BA3E2DE28CE703B00C2E75C /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E111283C0849009178A2 /* DaysView.swift */; };
-		9BA3E2E028CE704C00C2E75C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
-		9BA3E2E128CE704C00C2E75C /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
-		9BA3E2E228CE704F00C2E75C /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
-		9BA3E2E328CE708100C2E75C /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
-		9BA3E2E428CE71CA00C2E75C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
 		9BA5F43C28F46EDB0015F429 /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5F43B28F46EDB0015F429 /* AppIconView.swift */; };
 		9BA5F43D28F46EDB0015F429 /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5F43B28F46EDB0015F429 /* AppIconView.swift */; };
 		9BB93DDE28E21D720010CC4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
@@ -85,30 +72,18 @@
 		9BBA6795284A26BD00BF688C /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
 		9BBF01D8292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */; };
 		9BBF01D9292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */; };
-		9BBF01DA292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */; };
-		9BBF01DB292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */; };
 		9BDC827928C510310032A49E /* CreateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateHeaderView.swift */; };
 		9BDC827A28C510310032A49E /* CreateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827828C510310032A49E /* CreateHeaderView.swift */; };
 		9BDC827C28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9BDC827D28C515330032A49E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
-		9BDDDB6D29097BBA00912066 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDDDB6B29097B9A00912066 /* WidgetViews.swift */; };
-		9BDDDB6E29097BBB00912066 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDDDB6B29097B9A00912066 /* WidgetViews.swift */; };
-		9BF3935D28D489510060DFC0 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF3935C28D489510060DFC0 /* Intents.framework */; };
-		9BF3936028D489510060DFC0 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3935F28D489510060DFC0 /* IntentHandler.swift */; };
-		9BF3937528D489510060DFC0 /* CounterIntentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9BF3937C28D48A180060DFC0 /* ChronosWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */; };
-		9BF3937D28D48F2C0060DFC0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
-		9BF3937E28D48F2C0060DFC0 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
-		9BF3937F28D490CD0060DFC0 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
-		9BF3938028D491000060DFC0 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
 		9BFC81EE28377E8100219B51 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81ED28377E8100219B51 /* Tests_iOS.swift */; };
 		9BFC81F028377E8100219B51 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81EF28377E8100219B51 /* Tests_iOSLaunchTests.swift */; };
 		9BFC81FA28377E8100219B51 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81F928377E8100219B51 /* Tests_macOS.swift */; };
 		9BFC81FC28377E8100219B51 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81FB28377E8100219B51 /* Tests_macOSLaunchTests.swift */; };
 		9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
 		9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
-		9BFC81FF28377E8100219B51 /* ChronosCountdownApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */; };
-		9BFC820028377E8100219B51 /* ChronosCountdownApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */; };
+		9BFC81FF28377E8100219B51 /* ChronosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* ChronosApp.swift */; };
+		9BFC820028377E8100219B51 /* ChronosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D428377E7F00219B51 /* ChronosApp.swift */; };
 		9BFC820128377E8100219B51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* MainView.swift */; };
 		9BFC820228377E8100219B51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D528377E7F00219B51 /* MainView.swift */; };
 		9BFC820528377E8100219B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
@@ -125,35 +100,15 @@
 		9BFCC22D28D8DD3C00FC2CED /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
 		9BFCC22E28D8DD3C00FC2CED /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
 		9BFCC22F28D8DD3F00FC2CED /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
-		9BFCC23228D8DD5500FC2CED /* Chronos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */; };
-		9BFCC23328D8DD5500FC2CED /* ChronosWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2CE28CE6E2900C2E75C /* ChronosWidget.swift */; };
-		9BFCC23428D8DD5500FC2CED /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC827B28C515330032A49E /* Functions.swift */; };
-		9BFCC23528D8DD5500FC2CED /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C973283A88B40019395E /* DataController.swift */; };
-		9BFCC23628D8DD5500FC2CED /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E111283C0849009178A2 /* DaysView.swift */; };
-		9BFCC23728D8DD5500FC2CED /* CounterTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73E114283C09BE009178A2 /* CounterTopView.swift */; };
-		9BFCC23828D8DD5500FC2CED /* ChronosWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */; };
-		9BFCC23928D8DD5500FC2CED /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBA6793284A26BD00BF688C /* CounterCardView.swift */; };
-		9BFCC23A28D8DD5500FC2CED /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B87C977283A93E40019395E /* Counter.swift */; };
-		9BFCC23C28D8DD5500FC2CED /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2CB28CE6E2900C2E75C /* SwiftUI.framework */; };
-		9BFCC23D28D8DD5500FC2CED /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA3E2C928CE6E2900C2E75C /* WidgetKit.framework */; };
-		9BFCC23F28D8DD5500FC2CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFC81D728377E8100219B51 /* Assets.xcassets */; };
-		9BFCC24628D8DDCE00FC2CED /* ChronosWidgetExtension watch.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9BFCC24428D8DD5500FC2CED /* ChronosWidgetExtension watch.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9BA3E2D628CE6E2A00C2E75C /* PBXContainerItemProxy */ = {
+		9B70AB202BE9077F007FAFBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9BFC81CD28377E7E00219B51 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9BA3E2C628CE6E2900C2E75C;
-			remoteInfo = ChronosWidgetExtension;
-		};
-		9BF3937328D489510060DFC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9BFC81CD28377E7E00219B51 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9BF3935A28D489510060DFC0;
-			remoteInfo = CounterIntentExtension;
+			remoteGlobalIDString = 9B70AB112BE9077D007FAFBC;
+			remoteInfo = WidgetsExtension;
 		};
 		9BFC81EA28377E8100219B51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -169,13 +124,6 @@
 			remoteGlobalIDString = 9BFC81E128377E8100219B51;
 			remoteInfo = "Chronos Countdown (macOS)";
 		};
-		9BFCC24728D8DDCE00FC2CED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9BFC81CD28377E7E00219B51 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9BFCC23028D8DD5500FC2CED;
-			remoteInfo = "ChronosWidgetExtension watch";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -185,8 +133,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9BA3E2D828CE6E2A00C2E75C /* ChronosWidgetExtension.appex in Embed Foundation Extensions */,
-				9BF3937528D489510060DFC0 /* CounterIntentExtension.appex in Embed Foundation Extensions */,
+				9B70AB222BE9077F007FAFBC /* WidgetsExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +144,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9BFCC24628D8DDCE00FC2CED /* ChronosWidgetExtension watch.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,12 +154,23 @@
 		9B16B3B028CE0275002B7DE2 /* Chronos Countdown (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chronos Countdown (iOS).entitlements"; sourceTree = "<group>"; };
 		9B206CC728F191E500C50624 /* SymbolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsView.swift; sourceTree = "<group>"; };
 		9B3F30402937575B0097E0CB /* StoryPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPatternView.swift; sourceTree = "<group>"; };
+		9B4C1D1D2BE938CD008B863A /* SwiftDataPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataPreview.swift; sourceTree = "<group>"; };
+		9B4DBA2E2BE62CE6007AC629 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
+		9B4DBA312BE64B78007AC629 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		9B5E5AEA28C15370002E8056 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		9B5E5AED28C15583002E8056 /* BackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicker.swift; sourceTree = "<group>"; };
 		9B5E5AF028C1627F002E8056 /* CircleElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleElementView.swift; sourceTree = "<group>"; };
 		9B658486291A6DE700C48B29 /* SymbolsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsList.swift; sourceTree = "<group>"; };
 		9B65BF4B2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Chronos-Countdown--iOS--Info.plist"; sourceTree = "<group>"; };
 		9B65BF4D2919563600B3F2CB /* ShareToIG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareToIG.swift; sourceTree = "<group>"; };
+		9B70AB122BE9077D007FAFBC /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B70AB162BE9077D007FAFBC /* WidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBundle.swift; sourceTree = "<group>"; };
+		9B70AB182BE9077D007FAFBC /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
+		9B70AB1A2BE9077D007FAFBC /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		9B70AB1C2BE9077F007FAFBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B70AB1E2BE9077F007FAFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B70AB1F2BE9077F007FAFBC /* Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widgets.entitlements; sourceTree = "<group>"; };
+		9B70AB262BE90CDC007FAFBC /* ScrollOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffset.swift; sourceTree = "<group>"; };
 		9B73E111283C0849009178A2 /* DaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
 		9B73E114283C09BE009178A2 /* CounterTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTopView.swift; sourceTree = "<group>"; };
 		9B848B172BCD79E400059460 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -226,7 +183,6 @@
 		9B9F0FFB28D86F0E0093458D /* CounterIntentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CounterIntentExtension.entitlements; sourceTree = "<group>"; };
 		9B9F0FFC28D86F2F0093458D /* ChronosWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChronosWidgetExtension.entitlements; sourceTree = "<group>"; };
 		9B9F0FFD28D872560093458D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		9BA3E2C728CE6E2900C2E75C /* ChronosWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ChronosWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BA3E2C928CE6E2900C2E75C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		9BA3E2CB28CE6E2900C2E75C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9BA3E2CE28CE6E2900C2E75C /* ChronosWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosWidget.swift; sourceTree = "<group>"; };
@@ -238,13 +194,12 @@
 		9BDC827828C510310032A49E /* CreateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHeaderView.swift; sourceTree = "<group>"; };
 		9BDC827B28C515330032A49E /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		9BDDDB6B29097B9A00912066 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
-		9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CounterIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BF3935C28D489510060DFC0 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		9BF3935F28D489510060DFC0 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		9BF3936128D489510060DFC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BF3936728D489510060DFC0 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		9BFC81D328377E7F00219B51 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
-		9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosCountdownApp.swift; sourceTree = "<group>"; };
+		9BFC81D428377E7F00219B51 /* ChronosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronosApp.swift; sourceTree = "<group>"; };
 		9BFC81D528377E7F00219B51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9BFC81D728377E8100219B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BFC81DC28377E8100219B51 /* Chronos Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chronos Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,25 +216,15 @@
 		9BFCC21B28D8DCC900FC2CED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9BFCC21D28D8DCCA00FC2CED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BFCC22028D8DCCA00FC2CED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9BFCC24428D8DD5500FC2CED /* ChronosWidgetExtension watch.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ChronosWidgetExtension watch.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BFCC24528D8DD5500FC2CED /* ChronosWidgetExtension copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ChronosWidgetExtension copy-Info.plist"; path = "/Users/alessandroalberti/ChronosCountdown/ChronosWidgetExtension copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9BA3E2C428CE6E2900C2E75C /* Frameworks */ = {
+		9B70AB0F2BE9077D007FAFBC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA3E2CC28CE6E2900C2E75C /* SwiftUI.framework in Frameworks */,
-				9BA3E2CA28CE6E2900C2E75C /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9BF3935828D489510060DFC0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9BF3935D28D489510060DFC0 /* Intents.framework in Frameworks */,
+				9B70AB142BE9077D007FAFBC /* SwiftUI.framework in Frameworks */,
+				9B70AB132BE9077D007FAFBC /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,15 +263,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9BFCC23B28D8DD5500FC2CED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9BFCC23C28D8DD5500FC2CED /* SwiftUI.framework in Frameworks */,
-				9BFCC23D28D8DD5500FC2CED /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -343,8 +279,18 @@
 			isa = PBXGroup;
 			children = (
 				9BBF01D7292BB2EA00EF2D45 /* InsetGroupedStyle.swift */,
+				9B70AB262BE90CDC007FAFBC /* ScrollOffset.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		9B4DBA302BE63F43007AC629 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9B8FEF8E2BE4F7440043EA19 /* MainViewModel.swift */,
+				9B4DBA312BE64B78007AC629 /* CreateViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		9B5E5AE928C15327002E8056 /* Card */ = {
@@ -366,6 +312,19 @@
 			path = ShareStory;
 			sourceTree = "<group>";
 		};
+		9B70AB152BE9077D007FAFBC /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				9B70AB162BE9077D007FAFBC /* WidgetsBundle.swift */,
+				9B70AB182BE9077D007FAFBC /* Widgets.swift */,
+				9B70AB1A2BE9077D007FAFBC /* AppIntent.swift */,
+				9B70AB1C2BE9077F007FAFBC /* Assets.xcassets */,
+				9B70AB1E2BE9077F007FAFBC /* Info.plist */,
+				9B70AB1F2BE9077F007FAFBC /* Widgets.entitlements */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
 		9B794AAD28C3C18D003F2DA8 /* CreateViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +342,7 @@
 			children = (
 				9B848B172BCD79E400059460 /* Preview Assets.xcassets */,
 				9B848B1C2BCD801800059460 /* Sample Countdowns.swift */,
+				9B4C1D1D2BE938CD008B863A /* SwiftDataPreview.swift */,
 			);
 			path = "Preview Data";
 			sourceTree = "<group>";
@@ -398,7 +358,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9BA3E2CD28CE6E2900C2E75C /* ChronosWidget */ = {
+		9BA3E2CD28CE6E2900C2E75C /* Widgets (OLD) */ = {
 			isa = PBXGroup;
 			children = (
 				9B9F0FFC28D86F2F0093458D /* ChronosWidgetExtension.entitlements */,
@@ -407,7 +367,7 @@
 				9BA3E2D028CE6E2900C2E75C /* ChronosWidget.intentdefinition */,
 				9BA3E2D328CE6E2A00C2E75C /* Info.plist */,
 			);
-			path = ChronosWidget;
+			path = "Widgets (OLD)";
 			sourceTree = "<group>";
 		};
 		9BA5F43A28F46EC40015F429 /* Settings */ = {
@@ -434,13 +394,15 @@
 			children = (
 				9B16B3B028CE0275002B7DE2 /* Chronos Countdown (iOS).entitlements */,
 				9BFC81D728377E8100219B51 /* Assets.xcassets */,
-				9BFC81D428377E7F00219B51 /* ChronosCountdownApp.swift */,
-				9BDC827B28C515330032A49E /* Functions.swift */,
+				9BFC81D428377E7F00219B51 /* ChronosApp.swift */,
 				9BFC821528377EFF00219B51 /* Views */,
+				9B4DBA302BE63F43007AC629 /* ViewModels */,
 				9BFC821628377F2100219B51 /* Model */,
+				9BDC827B28C515330032A49E /* Functions.swift */,
 				9B848B162BCD798E00059460 /* Preview Data */,
 				9BFC81D228377E7F00219B51 /* Chronos.xcdatamodeld */,
-				9BA3E2CD28CE6E2900C2E75C /* ChronosWidget */,
+				9B70AB152BE9077D007FAFBC /* Widgets */,
+				9BA3E2CD28CE6E2900C2E75C /* Widgets (OLD) */,
 				9BF3935E28D489510060DFC0 /* CounterIntentExtension */,
 				9BFCC21828D8DCC900FC2CED /* Chronos Watch App */,
 				9BFC81E328377E8100219B51 /* macOS */,
@@ -448,7 +410,6 @@
 				9BFC81F828377E8100219B51 /* Tests macOS */,
 				9BA3E2C828CE6E2900C2E75C /* Frameworks */,
 				9BFC81DD28377E8100219B51 /* Products */,
-				9BFCC24528D8DD5500FC2CED /* ChronosWidgetExtension copy-Info.plist */,
 				9B65BF4B2919551300B3F2CB /* Chronos-Countdown--iOS--Info.plist */,
 			);
 			sourceTree = "<group>";
@@ -460,10 +421,8 @@
 				9BFC81E228377E8100219B51 /* Chronos Countdown.app */,
 				9BFC81E928377E8100219B51 /* Tests iOS.xctest */,
 				9BFC81F528377E8100219B51 /* Tests macOS.xctest */,
-				9BA3E2C728CE6E2900C2E75C /* ChronosWidgetExtension.appex */,
-				9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */,
 				9BFCC21428D8DCC900FC2CED /* Chronos Watch App.app */,
-				9BFCC24428D8DD5500FC2CED /* ChronosWidgetExtension watch.appex */,
+				9B70AB122BE9077D007FAFBC /* WidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -498,9 +457,8 @@
 			isa = PBXGroup;
 			children = (
 				9BFC81D528377E7F00219B51 /* MainView.swift */,
-				9B8FEF8E2BE4F7440043EA19 /* MainViewModel.swift */,
-				9BA5F43A28F46EC40015F429 /* Settings */,
 				9B794AAD28C3C18D003F2DA8 /* CreateViews */,
+				9BA5F43A28F46EC40015F429 /* Settings */,
 				9B5E5AE928C15327002E8056 /* Card */,
 				9B39D9132BE37FCB00404040 /* ViewModifiers */,
 				9B65BF4F291957AC00B3F2CB /* ShareStory */,
@@ -515,6 +473,7 @@
 				9B8F9B1528F1D0F700C506E0 /* Symbol.swift */,
 				9B658486291A6DE700C48B29 /* SymbolsList.swift */,
 				9B87C973283A88B40019395E /* DataController.swift */,
+				9B4DBA2E2BE62CE6007AC629 /* ColorHex.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -541,38 +500,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9BA3E2C628CE6E2900C2E75C /* ChronosWidgetExtension */ = {
+		9B70AB112BE9077D007FAFBC /* WidgetsExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9BA3E2DC28CE6E2A00C2E75C /* Build configuration list for PBXNativeTarget "ChronosWidgetExtension" */;
+			buildConfigurationList = 9B70AB232BE9077F007FAFBC /* Build configuration list for PBXNativeTarget "WidgetsExtension" */;
 			buildPhases = (
-				9BA3E2C328CE6E2900C2E75C /* Sources */,
-				9BA3E2C428CE6E2900C2E75C /* Frameworks */,
-				9BA3E2C528CE6E2900C2E75C /* Resources */,
+				9B70AB0E2BE9077D007FAFBC /* Sources */,
+				9B70AB0F2BE9077D007FAFBC /* Frameworks */,
+				9B70AB102BE9077D007FAFBC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ChronosWidgetExtension;
-			productName = ChronosWidgetExtension;
-			productReference = 9BA3E2C728CE6E2900C2E75C /* ChronosWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		9BF3935A28D489510060DFC0 /* CounterIntentExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9BF3937928D489510060DFC0 /* Build configuration list for PBXNativeTarget "CounterIntentExtension" */;
-			buildPhases = (
-				9BF3935728D489510060DFC0 /* Sources */,
-				9BF3935828D489510060DFC0 /* Frameworks */,
-				9BF3935928D489510060DFC0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CounterIntentExtension;
-			productName = CounterIntentExtension;
-			productReference = 9BF3935B28D489510060DFC0 /* CounterIntentExtension.appex */;
+			name = WidgetsExtension;
+			productName = WidgetsExtension;
+			productReference = 9B70AB122BE9077D007FAFBC /* WidgetsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		9BFC81DB28377E8100219B51 /* Chronos (iOS) */ = {
@@ -587,8 +529,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				9BA3E2D728CE6E2A00C2E75C /* PBXTargetDependency */,
-				9BF3937428D489510060DFC0 /* PBXTargetDependency */,
+				9B70AB212BE9077F007FAFBC /* PBXTargetDependency */,
 			);
 			name = "Chronos (iOS)";
 			productName = "Chronos Countdown (iOS)";
@@ -660,29 +601,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				9BFCC24828D8DDCE00FC2CED /* PBXTargetDependency */,
 			);
 			name = "Chronos Watch App";
 			productName = "Chronos Watch App";
 			productReference = 9BFCC21428D8DCC900FC2CED /* Chronos Watch App.app */;
 			productType = "com.apple.product-type.application";
-		};
-		9BFCC23028D8DD5500FC2CED /* ChronosWidgetExtension watch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9BFCC24128D8DD5500FC2CED /* Build configuration list for PBXNativeTarget "ChronosWidgetExtension watch" */;
-			buildPhases = (
-				9BFCC23128D8DD5500FC2CED /* Sources */,
-				9BFCC23B28D8DD5500FC2CED /* Frameworks */,
-				9BFCC23E28D8DD5500FC2CED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ChronosWidgetExtension watch";
-			productName = ChronosWidgetExtension;
-			productReference = 9BFCC24428D8DD5500FC2CED /* ChronosWidgetExtension watch.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -691,14 +614,11 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					9BA3E2C628CE6E2900C2E75C = {
-						CreatedOnToolsVersion = 14.0;
-					};
-					9BF3935A28D489510060DFC0 = {
-						CreatedOnToolsVersion = 14.0;
+					9B70AB112BE9077D007FAFBC = {
+						CreatedOnToolsVersion = 15.2;
 					};
 					9BFC81DB28377E8100219B51 = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -735,28 +655,18 @@
 				9BFC81E128377E8100219B51 /* Chronos (macOS) */,
 				9BFC81E828377E8100219B51 /* Tests iOS */,
 				9BFC81F428377E8100219B51 /* Tests macOS */,
-				9BA3E2C628CE6E2900C2E75C /* ChronosWidgetExtension */,
-				9BF3935A28D489510060DFC0 /* CounterIntentExtension */,
 				9BFCC21328D8DCC900FC2CED /* Chronos Watch App */,
-				9BFCC23028D8DD5500FC2CED /* ChronosWidgetExtension watch */,
+				9B70AB112BE9077D007FAFBC /* WidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9BA3E2C528CE6E2900C2E75C /* Resources */ = {
+		9B70AB102BE9077D007FAFBC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B848B1A2BCD79F400059460 /* Preview Assets.xcassets in Resources */,
-				9BA3E2E428CE71CA00C2E75C /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9BF3935928D489510060DFC0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				9B70AB1D2BE9077F007FAFBC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,58 +714,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9BFCC23E28D8DD5500FC2CED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9BFCC23F28D8DD5500FC2CED /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9BA3E2C328CE6E2900C2E75C /* Sources */ = {
+		9B70AB0E2BE9077D007FAFBC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA3E2E228CE704F00C2E75C /* Chronos.xcdatamodeld in Sources */,
-				9B848B212BCD801800059460 /* Sample Countdowns.swift in Sources */,
-				9B658493291A71E700C48B29 /* SymbolPicker.swift in Sources */,
-				9BA3E2CF28CE6E2900C2E75C /* ChronosWidget.swift in Sources */,
-				9BDDDB6D29097BBA00912066 /* WidgetViews.swift in Sources */,
-				9B65BF522919974200B3F2CB /* Symbol.swift in Sources */,
-				9B9F100028D872800093458D /* CounterTopView.swift in Sources */,
-				9B658491291A71E700C48B29 /* CircleElementView.swift in Sources */,
-				9B658497291A71FE00C48B29 /* SymbolsList.swift in Sources */,
-				9B658492291A71E700C48B29 /* SymbolsView.swift in Sources */,
-				9BA3E2E328CE708100C2E75C /* Functions.swift in Sources */,
-				9BA3E2E028CE704C00C2E75C /* DataController.swift in Sources */,
-				9BA3E2DE28CE703B00C2E75C /* DaysView.swift in Sources */,
-				9BBF01DA292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */,
-				9BA3E2D428CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
-				9BA3E2DD28CE703B00C2E75C /* CounterCardView.swift in Sources */,
-				9BA3E2E128CE704C00C2E75C /* Counter.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9BF3935728D489510060DFC0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9BF3937E28D48F2C0060DFC0 /* Counter.swift in Sources */,
-				9B848B222BCD801800059460 /* Sample Countdowns.swift in Sources */,
-				9B658496291A71E800C48B29 /* SymbolPicker.swift in Sources */,
-				9B658494291A71E800C48B29 /* CircleElementView.swift in Sources */,
-				9BF3936028D489510060DFC0 /* IntentHandler.swift in Sources */,
-				9BF3937F28D490CD0060DFC0 /* Chronos.xcdatamodeld in Sources */,
-				9BF3937D28D48F2C0060DFC0 /* DataController.swift in Sources */,
-				9B658498291A71FF00C48B29 /* SymbolsList.swift in Sources */,
-				9BF3937C28D48A180060DFC0 /* ChronosWidget.intentdefinition in Sources */,
-				9BBF01DB292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */,
-				9BF3938028D491000060DFC0 /* Functions.swift in Sources */,
-				9B65BF532919974300B3F2CB /* Symbol.swift in Sources */,
-				9B658495291A71E800C48B29 /* SymbolsView.swift in Sources */,
+				9B70AB172BE9077D007FAFBC /* WidgetsBundle.swift in Sources */,
+				9B70AB192BE9077D007FAFBC /* Widgets.swift in Sources */,
+				9B70AB1B2BE9077D007FAFBC /* AppIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,17 +738,21 @@
 				9B5E5AEE28C15583002E8056 /* BackgroundPicker.swift in Sources */,
 				9B8FEF8F2BE4F7440043EA19 /* MainViewModel.swift in Sources */,
 				9B9F0FFE28D872560093458D /* SettingsView.swift in Sources */,
-				9BFC81FF28377E8100219B51 /* ChronosCountdownApp.swift in Sources */,
+				9BFC81FF28377E8100219B51 /* ChronosApp.swift in Sources */,
 				9BA3E2D528CE6E2A00C2E75C /* ChronosWidget.intentdefinition in Sources */,
+				9B4DBA2F2BE62CE6007AC629 /* ColorHex.swift in Sources */,
+				9B70AB272BE90CDC007FAFBC /* ScrollOffset.swift in Sources */,
 				9B65BF4E2919563600B3F2CB /* ShareToIG.swift in Sources */,
 				9BA5F43C28F46EDB0015F429 /* AppIconView.swift in Sources */,
 				9B3F30412937575B0097E0CB /* StoryPatternView.swift in Sources */,
 				9B5E5AF128C1627F002E8056 /* CircleElementView.swift in Sources */,
 				9B8F9B1628F1D0F700C506E0 /* Symbol.swift in Sources */,
+				9B4DBA322BE64B78007AC629 /* CreateViewModel.swift in Sources */,
 				9BDC827C28C515330032A49E /* Functions.swift in Sources */,
 				9B73E112283C0849009178A2 /* DaysView.swift in Sources */,
 				9B206CC828F191E500C50624 /* SymbolsView.swift in Sources */,
 				9BFC81FD28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
+				9B4C1D1E2BE938CD008B863A /* SwiftDataPreview.swift in Sources */,
 				9BBF01D8292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */,
 				9B658487291A6DE700C48B29 /* SymbolsList.swift in Sources */,
 				9BBA6794284A26BD00BF688C /* CounterCardView.swift in Sources */,
@@ -898,15 +770,17 @@
 				9BBF01D9292BB2EA00EF2D45 /* InsetGroupedStyle.swift in Sources */,
 				9B9F0FFF28D872560093458D /* SettingsView.swift in Sources */,
 				9B87C979283A93E40019395E /* Counter.swift in Sources */,
+				9B4DBA332BE64B78007AC629 /* CreateViewModel.swift in Sources */,
 				9B8F9B1728F1D0F700C506E0 /* Symbol.swift in Sources */,
 				9B5E5AEC28C15370002E8056 /* CreateView.swift in Sources */,
 				9B87C975283A88B40019395E /* DataController.swift in Sources */,
 				9BDC827D28C515330032A49E /* Functions.swift in Sources */,
 				9B5E5AEF28C15583002E8056 /* BackgroundPicker.swift in Sources */,
 				9BDC827A28C510310032A49E /* CreateHeaderView.swift in Sources */,
-				9BFC820028377E8100219B51 /* ChronosCountdownApp.swift in Sources */,
+				9BFC820028377E8100219B51 /* ChronosApp.swift in Sources */,
 				9B5E5AF228C1627F002E8056 /* CircleElementView.swift in Sources */,
 				9B73E113283C0849009178A2 /* DaysView.swift in Sources */,
+				9B4DBA342BE692A0007AC629 /* ColorHex.swift in Sources */,
 				9BFC81FE28377E8100219B51 /* Chronos.xcdatamodeld in Sources */,
 				9B658488291A6DE700C48B29 /* SymbolsList.swift in Sources */,
 				9B848B1E2BCD801800059460 /* Sample Countdowns.swift in Sources */,
@@ -915,6 +789,7 @@
 				9B9CECE428C1FC05008ADF1E /* SymbolPicker.swift in Sources */,
 				9B73E116283C09BE009178A2 /* CounterTopView.swift in Sources */,
 				9BFC820228377E8100219B51 /* MainView.swift in Sources */,
+				9B70AB282BE90CDC007FAFBC /* ScrollOffset.swift in Sources */,
 				9BA5F43D28F46EDB0015F429 /* AppIconView.swift in Sources */,
 				9B8FEF902BE4F7440043EA19 /* MainViewModel.swift in Sources */,
 			);
@@ -964,36 +839,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9BFCC23128D8DD5500FC2CED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9BFCC23228D8DD5500FC2CED /* Chronos.xcdatamodeld in Sources */,
-				9BFCC23328D8DD5500FC2CED /* ChronosWidget.swift in Sources */,
-				9BDDDB6E29097BBB00912066 /* WidgetViews.swift in Sources */,
-				9BFCC23428D8DD5500FC2CED /* Functions.swift in Sources */,
-				9BFCC23528D8DD5500FC2CED /* DataController.swift in Sources */,
-				9BFCC23628D8DD5500FC2CED /* DaysView.swift in Sources */,
-				9BFCC23728D8DD5500FC2CED /* CounterTopView.swift in Sources */,
-				9BFCC23828D8DD5500FC2CED /* ChronosWidget.intentdefinition in Sources */,
-				9BFCC23928D8DD5500FC2CED /* CounterCardView.swift in Sources */,
-				9B848B242BCD801800059460 /* Sample Countdowns.swift in Sources */,
-				9BFCC23A28D8DD5500FC2CED /* Counter.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9BA3E2D728CE6E2A00C2E75C /* PBXTargetDependency */ = {
+		9B70AB212BE9077F007FAFBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9BA3E2C628CE6E2900C2E75C /* ChronosWidgetExtension */;
-			targetProxy = 9BA3E2D628CE6E2A00C2E75C /* PBXContainerItemProxy */;
-		};
-		9BF3937428D489510060DFC0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9BF3935A28D489510060DFC0 /* CounterIntentExtension */;
-			targetProxy = 9BF3937328D489510060DFC0 /* PBXContainerItemProxy */;
+			target = 9B70AB112BE9077D007FAFBC /* WidgetsExtension */;
+			targetProxy = 9B70AB202BE9077F007FAFBC /* PBXContainerItemProxy */;
 		};
 		9BFC81EB28377E8100219B51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1005,137 +857,93 @@
 			target = 9BFC81E128377E8100219B51 /* Chronos (macOS) */;
 			targetProxy = 9BFC81F628377E8100219B51 /* PBXContainerItemProxy */;
 		};
-		9BFCC24828D8DDCE00FC2CED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9BFCC23028D8DD5500FC2CED /* ChronosWidgetExtension watch */;
-			targetProxy = 9BFCC24728D8DDCE00FC2CED /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		9BA3E2DA28CE6E2A00C2E75C /* Debug */ = {
+		9B70AB242BE9077F007FAFBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = ChronosWidget/ChronosWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6MWN6EWBL2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ChronosWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ChronosWidget;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown.ChronosWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alessandroalberti.chronos.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = iphoneos;
+				SDKROOT = auto;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		9BA3E2DB28CE6E2A00C2E75C /* Release */ = {
+		9B70AB252BE9077F007FAFBC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = ChronosWidget/ChronosWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6MWN6EWBL2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ChronosWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ChronosWidget;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown.ChronosWidget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9BF3937A28D489510060DFC0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = CounterIntentExtension/CounterIntentExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6MWN6EWBL2;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CounterIntentExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CounterIntentExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
 				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown.CounterIntentExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alessandroalberti.chronos.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = auto;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		9BF3937B28D489510060DFC0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = CounterIntentExtension/CounterIntentExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6MWN6EWBL2;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CounterIntentExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CounterIntentExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown.CounterIntentExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1271,13 +1079,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alessandroalberti.chronos;
 				PRODUCT_NAME = "Chronos Countdown";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1307,13 +1115,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alessandroalberti.chronos;
 				PRODUCT_NAME = "Chronos Countdown";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1343,9 +1151,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alessandroalberti.chronos;
 				PRODUCT_NAME = "Chronos Countdown";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1373,9 +1181,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Chronos-Countdown";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alessandroalberti.chronos;
 				PRODUCT_NAME = "Chronos Countdown";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1391,7 +1199,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6MWN6EWBL2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Tests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1411,7 +1219,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6MWN6EWBL2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Alessandro.Alberti.Tests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1484,14 +1292,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alessandro.Alberti.Chronos.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alessandroalberti.chronos.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -1515,7 +1323,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alessandro.Alberti.Chronos.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alessandroalberti.chronos.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1523,94 +1331,18 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
-		9BFCC24228D8DD5500FC2CED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = ChronosWidget/ChronosWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6MWN6EWBL2;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ChronosWidgetExtension copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ChronosWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alessandro.Alberti.Chronos.watchkitapp.ChronosWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		9BFCC24328D8DD5500FC2CED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = ChronosWidget/ChronosWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6MWN6EWBL2;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ChronosWidgetExtension copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ChronosWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alessandro.Alberti.Chronos.watchkitapp.ChronosWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9BA3E2DC28CE6E2A00C2E75C /* Build configuration list for PBXNativeTarget "ChronosWidgetExtension" */ = {
+		9B70AB232BE9077F007FAFBC /* Build configuration list for PBXNativeTarget "WidgetsExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9BA3E2DA28CE6E2A00C2E75C /* Debug */,
-				9BA3E2DB28CE6E2A00C2E75C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9BF3937928D489510060DFC0 /* Build configuration list for PBXNativeTarget "CounterIntentExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9BF3937A28D489510060DFC0 /* Debug */,
-				9BF3937B28D489510060DFC0 /* Release */,
+				9B70AB242BE9077F007FAFBC /* Debug */,
+				9B70AB252BE9077F007FAFBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1665,15 +1397,6 @@
 			buildConfigurations = (
 				9BFCC22528D8DCCA00FC2CED /* Debug */,
 				9BFCC22628D8DCCA00FC2CED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9BFCC24128D8DD5500FC2CED /* Build configuration list for PBXNativeTarget "ChronosWidgetExtension watch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9BFCC24228D8DD5500FC2CED /* Debug */,
-				9BFCC24328D8DD5500FC2CED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

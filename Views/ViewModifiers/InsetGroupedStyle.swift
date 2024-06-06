@@ -23,9 +23,9 @@ struct InsetGrouped: ViewModifier {
             content
                 .padding(.all, padding)
                 .frame(maxWidth: .infinity)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
                 .background{
-                    RoundedRectangle(cornerRadius: 15)
+                    RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(Color(uiColor: UIColor.secondarySystemGroupedBackground))
                 }
                 

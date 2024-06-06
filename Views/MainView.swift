@@ -6,144 +6,139 @@
 //
 
 import SwiftUI
-import CoreData
+import SwiftData
 
-/// This `View` is the **entry-point** of the App and displays a list of all the ``DataController/counters``,
-/// with options to add, delete and edit them.
 struct MainView: View {
-    @EnvironmentObject var dataController: DataController
-    ///This state controls the size of the ``CounterCardView``
-    @State var isAspectSmall = true
-    @State var showSettings = false
-    var counterHeight: CGFloat = 160
-    var counterWidth: CGFloat = 340
+    @State private var viewModel = MainViewModel()
+    @Query private var counters: [Counter]
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: isAspectSmall ? counterHeight : counterWidth))],spacing: 15) {
+                LazyVGrid(columns: viewModel.gridColumns, spacing: 15) {
                     
-                    ForEach(dataController.counters){ counter in
-                        //MARK: Counter
-                        Button(action: {
-                            let generator = UIImpactFeedbackGenerator(style: .medium)
-                            generator.impactOccurred()
-                            
-                            showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))
-                        }) {
-                            CounterCardView(counter: counter, isSmall: isAspectSmall)
+                    ForEach(counters){ counter in
+                        //MARK: CounterCard
+                        Button(action: { viewModel.onCardTap(counter) }) {
+                            CounterCardView(counter: counter, isSmall: viewModel.isAspectSmall)
                                 .clipShape(.rect(cornerRadius: 30))
-                                .hoverEffect()
-                                .frame(width: isAspectSmall ? counterHeight : counterWidth, height: counterHeight)
                                 .contentShape(.contextMenuPreview, .rect(cornerRadius: 30))
-                            //MARK: contextMenu
-                                .contextMenu{
-                                    
-                                    #if os(iOS)
-                                    //Share
-                                    Button(
-                                        "Share story",
-                                        systemImage: "camera.circle.fill",
-                                        action: {
-                                        shareToStory(counter: counter, pattern: true)}
-                                    )
-                                    #endif
-                                    
-                                    //Delete
-                                    Button(
-                                        "Delete",
-                                        systemImage: "trash",
-                                        role: .destructive,
-                                        action: {
-                                        withAnimation{
-                                            dataController.delete(counter)
-                                        }
-                                    })
-                            }
+                                .frame(width: viewModel.cardWidth, height: viewModel.cardHeight)
+                                .hoverEffect()
+                                .contextMenu {
+                                    contextMenu(for: counter)
+                                }
                         }
                         .buttonStyle(.plain)
                         .shadow(
                             color: counter.color.opacity(0.3),
                             radius: 10,
-                            y: 5)
+                            y: 5
+                        )
                     }
                 }
                 .padding([.top, .leading, .trailing])
             }
             //Placeholder
-            .overlay{
-                if dataController.counters.isEmpty{
+            .overlay {
+                if counters.isEmpty{
                     Image("Placeholder")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 150)
                 }
             }
+            //MARK: Toolbar
             .navigationBarTitle("Countdowns")
-            //MARK: navigationBarItems
             .toolbar {
-                //MARK: Settings button
+                // Settings button
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button{
-                        showSettings = true
-                    } label: {
-                        Label("Settings", systemImage: "gear")
-                    }
-                    //For better tappable area
+                    Button(
+                        "Settings",
+                        systemImage: "gear",
+                        action: viewModel.onSettingsTap
+                    )
+                    ///For better tappable area
                     .contentShape(Rectangle())
                 }
                 
-                //MARK: Change size button
+                // Change size button
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button{
-                        withAnimation{
-                            isAspectSmall.toggle()
-                        }
-                    } label: {
-                        Label("Change card size", systemImage: isAspectSmall ? "rectangle.grid.2x2" : "rectangle.grid.1x2")
-                    }
-                    //For better tappable area
+                    Button(
+                        "Change card size",
+                        systemImage: viewModel.changeSizeButtonImage,
+                        action: viewModel.onChangeSizeTap
+                    )
                     .contentShape(Rectangle())
                 }
-                //MARK: Add button
+                
+                // Add button
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button{
-                        showCreateView()
-                    } label: {
-                        Label("Add new countdown", systemImage: "plus")
-                    }
-                    //For better tappable area
+                    Button(
+                        "Add new countdown",
+                        systemImage: "plus",
+                        action: viewModel.onAddTap
+                    )
                     .contentShape(Rectangle())
                 }
             }
         }
+        .accentColor(.primary)
         //To avoid side list on iPad
         .navigationViewStyle(StackNavigationViewStyle())
-        //MARK: SettingsView
-        .sheet(isPresented: $showSettings){
+        
+        //MARK: Sheets
+        .sheet(isPresented: $viewModel.showSettings){
             SettingsView()
-            // datacontroller.add counter
         }
-        //MARK: CreateView
-        .sheet(isPresented: $isCreateViewActive){
-            CreateView(showSheet: $isCreateViewActive, editingIndex: $editingIndex)
+        .sheet(isPresented: $viewModel.showCreateView){
+            CreateView(
+                startingFrom: viewModel.editingCounter?.copy() ?? Counter(),
+                isPresented: $viewModel.showCreateView
+            ){ counter in
+                viewModel.save(counter: counter, context: modelContext)
+            }
         }
     }
     
-    @State var isCreateViewActive = false
-    @State var editingIndex: Int? = nil
     
-    func showCreateView(counterIndex: Int? = nil){
-        self.editingIndex = counterIndex
-        self.isCreateViewActive = true
+    
+    //MARK: contextMenu
+    @ViewBuilder
+    func contextMenu(for counter: Counter) -> some View {
+        #if os(iOS)
+        //Share
+        Button(
+            "Share story",
+            systemImage: "camera.circle.fill",
+            action: {
+                viewModel.onShareTap(counter)
+            }
+        )
+        #endif
+        
+        //Delete
+        Button(
+            "Delete",
+            systemImage: "trash",
+            role: .destructive,
+            action: {
+                viewModel.onDeleteTap(counter, context: modelContext)
+            }
+        )
     }
-
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font: viewModel.navTitleFont]
+    }
+    
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .environmentObject(DataController())
+            .modelContainer(for: Counter.self)
     }
 }

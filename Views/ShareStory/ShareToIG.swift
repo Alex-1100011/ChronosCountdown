@@ -38,8 +38,8 @@ import SwiftUI
                 
             } else {
                 //MARK: Color background
-                let topColor = String((counter.color + 0.3)!)
-                let bottomColor = String((counter.color - 0.25)!)
+                let topColor: String = ((counter.color + 0.3)!).hex ?? ""
+                let bottomColor: String = ((counter.color - 0.25)!).hex ?? ""
                 
                 pasteboardItems["com.instagram.sharedSticker.backgroundTopColor"] = "#\(topColor)"
                 pasteboardItems["com.instagram.sharedSticker.backgroundBottomColor"] = "#\(bottomColor)"
@@ -93,8 +93,8 @@ struct Instagram_Previews: PreviewProvider {
         }
         
         VStack{
-            Text(String(topColor))
-            Text(String(bottomColor))
+            Text(topColor.hex ?? "")
+            Text(bottomColor.hex ?? "")
         }
     }
 }

@@ -6,18 +6,107 @@
 //
 
 import Foundation
-import CoreData
+import SwiftData
 import SwiftUI
 
-struct Counter: Identifiable{
-    ///The name of the event
+#if os(macOS)
+typealias SystemImage = NSImage
+#else
+typealias SystemImage = UIImage
+#endif
+
+@Model
+class Counter: Identifiable {
+    
     var name: String
-    ///The date of the event
     var date: Date
-    var color: Color
     var symbolName: String
-    var image: UIImage?
     var id: UUID
+    
+    private var colorHex: String?
+    private var imageData: Data?
+    
+    convenience init() {
+        self.init(name: "", date: Date(), symbolName: "balloon.2", colorHex: "027AFF")
+    }
+    
+    init(name: String, date: Date, symbolName: String, colorHex: String?, imageData: Data? = nil, id: UUID = UUID()) {
+        self.name = name
+        self.date = date
+        self.symbolName = symbolName
+        self.colorHex = colorHex
+        self.imageData = imageData
+        self.id = id
+    }
+    
+    /// Returns a copy of itself
+    ///
+    /// Can be used to avoid editing the same reference of a ``Counter``
+    func copy() -> Counter {
+        Counter(
+            name: name,
+            date: date,
+            symbolName: symbolName,
+            colorHex: colorHex,
+            imageData: imageData,
+            id: id
+        )
+    }
+    
+    /// Sets all of its properties from the provided ``Counter``
+    func copy(from counter: Counter){
+        self.name = counter.name
+        self.date = counter.date
+        self.symbolName = counter.symbolName
+        self.colorHex = counter.colorHex
+        self.imageData = counter.imageData
+    }
+    
+    //TODO: remove
+    private var todayDate: Date = Date()
+    
+}
+
+extension Counter {
+    
+    var color: Color {
+        get {
+            guard let colorHex else { return .blue }
+            return Color(hex: colorHex)
+        }
+        set(newColor) {
+            colorHex = newColor.hex
+        }
+    }
+    
+    var image: SystemImage? {
+        get {
+            guard let imageData else {
+                return nil
+            }
+            #if os(macOS)
+            return NSImage(data: imageData)
+            #else
+            return UIImage(data: imageData)
+            #endif
+        }
+        set(newImage) {
+            #if os(macOS)
+            imageData = newImage?.tiffRepresentation
+            #else
+            imageData = newImage?.jpegData(compressionQuality: 0.5)
+            #endif
+        }
+    }
+    
+
+    
+    
+    
+    
+    
+
+    
     
     ///This variable stores the reference today's Date for counting down to the ``date`` variable
     ///
@@ -31,7 +120,7 @@ struct Counter: Identifiable{
             self.todayDate = Calendar.current.date(from: todayComponents)!
         }
     }
-    private var todayDate: Date
+    
     
     ///Returns true if the event is on the current day
     var isToday: Bool{
@@ -85,45 +174,47 @@ struct Counter: Identifiable{
     ///Instantiates a counter with default values
     ///
     ///Used when creating new counters in the ``CreateView``
-    init(days: Double = 0, referenceDate: Date = Date()){
-        self.name = ""
-        self.date = Date() + (days * 24 * 60 * 60)
-        self.color = Color(hex: "027AFF")
-        self.symbolName = "balloon.2"
-        self.image = nil
-        self.id = UUID()
-        self.todayDate = Date()
-        self.referenceDate = referenceDate
-        
-    }
-    
-    init(name: String, date: Date, color: Color, symbolName: String, image: UIImage? = nil, referenceDate: Date = Date()) {
-        self.name = name
-        self.date = date
-        self.color = color
-        self.symbolName = symbolName
-        self.image = image
-        self.id = UUID()
-        self.todayDate = Date()
-        self.referenceDate = referenceDate
-    }
-    
-    ///instantiate a new ``Counter`` from a CoreData's ``CounterDataEntity``
-    init(from entity: CounterDataEntity){
-        name = entity.name ?? ""
-        date = entity.date ?? Date()
-        color = Color(hex: entity.color ?? "027AFF")
-        symbolName = entity.symbolName ?? ""
-        id = entity.id!
-        if let imageData = entity.image {
-            image = UIImage(data: imageData)
-        }
-        self.todayDate = Date()
-        self.referenceDate = Date()
-        
-    }
+//    init(days: Double = 0, referenceDate: Date = Date()){
+//        self.name = ""
+//        self.date = Date() + (days * 24 * 60 * 60)
+//        self.color = Color(hex: "027AFF")
+//        self.symbolName = "balloon.2"
+//        self.image = nil
+//        self.id = UUID()
+//        self.todayDate = Date()
+//        self.referenceDate = referenceDate
+//        
+//    }
+//    
+//    init(name: String, date: Date, color: Color, symbolName: String, image: UIImage? = nil, referenceDate: Date = Date()) {
+//        self.name = name
+//        self.date = date
+//        self.color = color
+//        self.symbolName = symbolName
+//        self.image = image
+//        self.id = UUID()
+//        self.todayDate = Date()
+//        self.referenceDate = referenceDate
+//    }
+//    
+//    ///instantiate a new ``Counter`` from a CoreData's ``CounterDataEntity``
+//    init(from entity: CounterDataEntity){
+//        name = entity.name ?? ""
+//        date = entity.date ?? Date()
+//        color = Color(hex: entity.color ?? "027AFF")
+//        symbolName = entity.symbolName ?? ""
+//        id = entity.id!
+//        if let imageData = entity.image {
+//            image = UIImage(data: imageData)
+//        }
+//        self.todayDate = Date()
+//        self.referenceDate = Date()
+//        
+//    }
 
 }
+
+
 
 ///A struct containing all the components of the ``Counter``
 struct CounterComponents: Equatable{
