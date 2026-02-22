@@ -86,7 +86,7 @@ struct CounterTimelineEntry: TimelineEntry {
 //MARK: Views
 struct ChronosWidgetEntryView : View {
     var entry: Provider.Entry
-    @Environment (\.widgetFamily) var family
+    @Environment(\.widgetFamily) var family
     @ScaledMetric var padding: CGFloat = 14
     
     var body: some View {
@@ -94,20 +94,28 @@ struct ChronosWidgetEntryView : View {
         switch family {
         //MARK: Small
         case .systemSmall:
-            CounterCardView(counter: entry.counter, isSmall: true, padding: padding)
-            
+            Spacer()
+                .containerBackground(for: .widget) {
+                    CounterCardView(counter: entry.counter, isSmall: true, padding: padding)
+                }
         //MARK: Medium
         case .systemMedium:
-            CounterCardView(counter: entry.counter, padding: padding)
-            
+            Spacer()
+                .containerBackground(for: .widget) {
+                    CounterCardView(counter: entry.counter, padding: padding)
+                }
         //MARK: Large
         case .systemLarge:
-            CounterCardView(counter: entry.counter)
-            
+            Spacer()
+                .containerBackground(for: .widget) {
+                    CounterCardView(counter: entry.counter)
+                }
         //MARK: XL
         case .systemExtraLarge:
-            CounterCardView(counter: entry.counter)
-            
+            Spacer()
+                .containerBackground(for: .widget) {
+                    CounterCardView(counter: entry.counter)
+                }
         //MARK: circular
         case .accessoryCircular:
             CircularWidget(counter: entry.counter)

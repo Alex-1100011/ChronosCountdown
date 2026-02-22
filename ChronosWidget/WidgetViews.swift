@@ -20,49 +20,44 @@ struct RectangularWidget: View {
     }
     
     var body: some View {
-        ZStack {
-            
-            VStack(alignment: .leading, spacing: 0) {
-                HStack{
-                    Image(systemName: counter.symbolName)
-                        .font(.system(size: 15))
-                    Text(counter.name)
-                }
-                .symbolVariant(.fill)
-                .fontWeight(.semibold)
+        CounterTopView(counter: counter, type: .showWeeks, daysSize: size.h1, subtitleSize: size.h2)
+        
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .containerBackground(for: .widget) {
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack{
+                        Image(systemName: counter.symbolName)
+                            .font(.system(size: 15))
+                        Text(counter.name)
+                    }
+                    .symbolVariant(.fill)
+                    .fontWeight(.semibold)
 #if os(watchOS)
-                .foregroundColor(counter.color)
-                .widgetAccentable()
-                .padding(.bottom, 2)
+                    .foregroundColor(counter.color)
+                    .widgetAccentable()
+                    .padding(.bottom, 2)
 #endif
-                
-                
-                CounterTopView(counter: counter, type: .showWeeks, daysSize: size.h1, subtitleSize: size.h2)
-                
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
                 
             }
-        }
-        
     }
 }
 
 struct CircularWidget: View{
     var counter: Counter
     var body: some View{
-        ZStack {
+        VStack(spacing: -2) {
+            //Days
+            Text("\(counter.getCounterComponents(type: .showOnlyDays).days)")
+                .font(Font.system(.title, design: .rounded))
+            //Symbol
+            Image(systemName: counter.symbolName)
+                .symbolVariant(.fill)
+                .foregroundColor(counter.color)
+                .widgetAccentable()
+        }
+        .containerBackground(for: .widget) {
             AccessoryWidgetBackground()
-        
-            VStack(spacing: -2) {
-                //Days
-                Text("\(counter.getCounterComponents(type: .showOnlyDays).days)")
-                    .font(Font.system(.title, design: .rounded))
-                //Symbol
-                Image(systemName: counter.symbolName)
-                    .symbolVariant(.fill)
-                    .foregroundColor(counter.color)
-                    .widgetAccentable()
-            }
         }
     }
 }
