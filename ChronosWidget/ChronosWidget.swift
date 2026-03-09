@@ -86,7 +86,7 @@ struct CounterTimelineEntry: TimelineEntry {
 //MARK: Views
 struct ChronosWidgetEntryView : View {
     var entry: Provider.Entry
-    @Environment(\.widgetFamily) var family
+    @Environment (\.widgetFamily) var family
     @ScaledMetric var padding: CGFloat = 14
     
     var body: some View {
@@ -94,28 +94,24 @@ struct ChronosWidgetEntryView : View {
         switch family {
         //MARK: Small
         case .systemSmall:
-            Spacer()
-                .containerBackground(for: .widget) {
-                    CounterCardView(counter: entry.counter, isSmall: true, padding: padding)
-                }
+            CounterCardView(counter: entry.counter, isSmall: true, padding: padding)
+                .widgetBackground(Color.black)
+            
         //MARK: Medium
         case .systemMedium:
-            Spacer()
-                .containerBackground(for: .widget) {
-                    CounterCardView(counter: entry.counter, padding: padding)
-                }
+            CounterCardView(counter: entry.counter, padding: padding)
+                .widgetBackground(Color.black)
+            
         //MARK: Large
         case .systemLarge:
-            Spacer()
-                .containerBackground(for: .widget) {
-                    CounterCardView(counter: entry.counter)
-                }
+            CounterCardView(counter: entry.counter)
+                .widgetBackground(Color.black)
+            
         //MARK: XL
         case .systemExtraLarge:
-            Spacer()
-                .containerBackground(for: .widget) {
-                    CounterCardView(counter: entry.counter)
-                }
+            CounterCardView(counter: entry.counter)
+                .widgetBackground(Color.black)
+            
         //MARK: circular
         case .accessoryCircular:
             CircularWidget(counter: entry.counter)
@@ -164,6 +160,7 @@ struct ChronosWidget: Widget {
         IntentConfiguration(kind: kind, intent: SelectCounterIntent.self, provider: Provider()) { entry in
             ChronosWidgetEntryView(entry: entry)
         }
+        .contentMarginsDisabled()
         .configurationDisplayName("Single Countdown")
         .description("Displays a single countdown.")
 #if os (watchOS)
@@ -200,5 +197,17 @@ struct ChronosWidget_Previews: PreviewProvider {
         ChronosWidgetEntryView(entry: CounterTimelineEntry(date: Date(),counter: counter))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
             .previewDisplayName("accessoryRectangular")
+    }
+}
+
+extension View {
+    func widgetBackground(_ backgroundView: some View) -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                backgroundView
+            }
+        } else {
+            return background(backgroundView)
+        }
     }
 }

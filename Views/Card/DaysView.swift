@@ -36,6 +36,7 @@ struct DaysView: View {
             Text(isToday ? "Today" : "\(days)")
                 .font(Font.system(size: textSize.h1, weight: .semibold, design: .rounded))
                 .frame(height: textSize.h1)
+                .minimumScaleFactor(isToday ? 0.5 : 1)
     
             //The subtitle
             if !isToday {
@@ -60,6 +61,7 @@ struct DaysView_Previews: PreviewProvider {
         }
         .padding()
         .background(Color.blue)
+        .clipShape(.rect(cornerRadius: 30))
         .previewLayout(.sizeThatFits)
     }
 }

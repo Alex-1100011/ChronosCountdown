@@ -89,7 +89,7 @@ struct Counter: Identifiable{
         self.name = ""
         self.date = Date() + (days * 24 * 60 * 60)
         self.color = Color(hex: "027AFF")
-        self.symbolName = symbols[0].symbolName
+        self.symbolName = "balloon.2"
         self.image = nil
         self.id = UUID()
         self.todayDate = Date()

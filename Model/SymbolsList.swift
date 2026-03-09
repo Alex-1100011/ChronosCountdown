@@ -280,7 +280,7 @@ var symbols: [Symbol] = [
 ]
 
 
-
+/*
 struct SymbolsList_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
@@ -306,7 +306,7 @@ struct SymbolsList_Previews: PreviewProvider {
         }
     }
 }
-
+*/
 
 
 

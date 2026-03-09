@@ -39,6 +39,7 @@ struct CounterCardView: View {
         VStack(alignment: .leading) {
             //MARK: TopView
             CounterTopView(counter: counter, type: isSmall ? .showOnlyDays : .showWeeks)
+                .foregroundColor(.blue)
             //To extend horizontally the card
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -107,55 +108,34 @@ struct CounterCardView: View {
 }
 
 //MARK: Previews
+#if DEBUG
 struct CounterCardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             
-            CounterCardView(counter: Counter(
-                name: "Trip to SF",
-                date:
-                    Calendar.current.date(
-                        byAdding: .day,
-                        value: 24,
-                        to: Date()
-                    ) ?? Date(),
-                color: .orange,
-                symbolName: "airplane"),
-                            isSmall: true
+            CounterCardView(
+                counter: sampleCounters[0],
+                isSmall: true
             )
+            .frame(width: 150)
             .previewDisplayName("Small")
-//            .environment(\.isLuminanceReduced, true)
             
-            CounterCardView(counter: Counter(
-                name: "Train",
-                date:
-                    Calendar.current.date(
-                        byAdding: .day,
-                        value: 24,
-                        to: Date()
-                    ) ?? Date(),
-                color: .green,
-                symbolName: "tram")
+            CounterCardView(
+                counter: sampleCounters[1]
             )
             .previewDisplayName("Large")
             
-            CounterCardView(counter: Counter(
-                name: "Trip to Italy",
-                date:
-                    Calendar.current.date(
-                        byAdding: .day,
-                        value: 180,
-                        to: Date()
-                    ) ?? Date(),
-                color: .green,
-                symbolName: "tram",
-                image: UIImage(named: "sperlonga")
-                )
+            CounterCardView(
+                counter: sampleCounters[2]
             )
             .previewDisplayName("Image")
             
         }
-        .padding()
+        
         .previewLayout(.sizeThatFits)
+        .frame(height: 150)
+        .clipShape(RoundedRectangle(cornerRadius: 30))
+        .padding()
     }
 }
+#endif

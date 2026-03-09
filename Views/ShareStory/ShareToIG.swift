@@ -16,9 +16,10 @@ import SwiftUI
     let stickerRenderer = ImageRenderer(content: StickerView(counter: counter))
     stickerRenderer.scale = 3.0
     
+    let appID = "803800638304495"
     
 
-    if let storiesUrl = URL(string: "instagram-stories://share") {
+    if let storiesUrl = URL(string: "instagram-stories://share?source_application=\(appID)") {
         
         if UIApplication.shared.canOpenURL(storiesUrl) {
             guard let stickerImage = stickerRenderer.uiImage?.pngData() else { return }

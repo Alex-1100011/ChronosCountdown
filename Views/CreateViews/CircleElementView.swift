@@ -60,7 +60,8 @@ struct CircleElementView<S: ShapeStyle>: View {
                     Circle()
                         .stroke(lineWidth: circleSize/15)
                         .frame(width: selectionRingSize, height: selectionRingSize)
-                        .foregroundColor(Color(UIColor.tertiaryLabel))
+                        .foregroundStyle(.tint)
+                        .opacity(0.5)
                         //To eliminate the extra frame size due to the ring
                         .padding(-10)
                 }

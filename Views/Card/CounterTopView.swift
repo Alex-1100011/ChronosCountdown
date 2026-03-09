@@ -18,13 +18,13 @@ struct CounterTopView: View {
     }
     
     var showWeeks: Bool {
-        !counter.isToday && type == .showWeeks && components.weeks != 0
+        components.weeks != 0
     }
     var showMonths: Bool {
-        !counter.isToday && type != .showOnlyDays && components.months != 0
+        components.months != 0
     }
     var showYears: Bool {
-        !counter.isToday && type == .showYears && components.years != 0
+        components.years != 0
     }
     ///The font size of the ``DaysView/days`` text
     @ScaledMetric var daysSize: CGFloat = 50
@@ -38,13 +38,9 @@ struct CounterTopView: View {
             
             let days = abs(components.days)
             
-            if counter.isToday || days != 0 {
-                DaysView(days, days == 1 ? "DAY" : "DAYS", isToday: counter.isToday, leadingAlignment: type == .showOnlyDays)
-            }
-            
-            if showWeeks {
-                let weeks = abs(components.weeks)
-                DaysView(weeks, weeks == 1 ? "WEEK" : "WEEKS")
+            if showYears {
+                let years = abs(components.years)
+                DaysView(years, years == 1 ? "YEAR" : "YEARS")
 
             }
             
@@ -54,10 +50,14 @@ struct CounterTopView: View {
 
             }
             
-            if type == .showYears {
-                let years = abs(components.years)
-                DaysView(years, years == 1 ? "YEAR" : "YEARS")
+            if showWeeks {
+                let weeks = abs(components.weeks)
+                DaysView(weeks, weeks == 1 ? "WEEK" : "WEEKS")
 
+            }
+            
+            if counter.isToday || days != 0 {
+                DaysView(days, days == 1 ? "DAY" : "DAYS", isToday: counter.isToday, leadingAlignment: type == .showOnlyDays)
             }
         }
         .environment(\.daysElementSize, (daysSize,subtitleSize))
@@ -105,6 +105,7 @@ struct CounterTopView_Previews: PreviewProvider {
         }
         .padding()
         .background(Color.red)
+        .clipShape(.rect(cornerRadius: 30))
         .previewLayout(.sizeThatFits)
     }
 }

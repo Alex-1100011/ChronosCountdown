@@ -46,5 +46,7 @@ struct AppIconView: View {
 struct AppIconView_Previews: PreviewProvider {
     static var previews: some View {
         AppIconView(name: "Black")
+            .padding()
+            .previewLayout(.sizeThatFits)
     }
 }

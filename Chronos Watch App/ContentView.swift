@@ -12,7 +12,7 @@ struct ContentView: View {
         
         List{
             //Counters
-            ForEach(testCounters) { counter in
+            ForEach(sampleCounters) { counter in
                 CounterCardView(counter: counter)
                     .listRowInsets(EdgeInsets())
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -40,6 +40,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environment(\.isLuminanceReduced, true)
+//            .environment(\.isLuminanceReduced, true)
     }
 }

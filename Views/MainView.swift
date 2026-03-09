@@ -15,8 +15,8 @@ struct MainView: View {
     ///This state controls the size of the ``CounterCardView``
     @State var isAspectSmall = true
     @State var showSettings = false
-    @ScaledMetric var counterHeight = 180
-    @ScaledMetric var counterWidth = 360
+    var counterHeight: CGFloat = 160
+    var counterWidth: CGFloat = 340
     
     var body: some View {
         NavigationView {
@@ -32,34 +32,36 @@ struct MainView: View {
                             showCreateView(counterIndex: dataController.getCounterIndex(counter: counter))
                         }) {
                             CounterCardView(counter: counter, isSmall: isAspectSmall)
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .clipShape(.rect(cornerRadius: 30))
                                 .hoverEffect()
+                                .frame(width: isAspectSmall ? counterHeight : counterWidth, height: counterHeight)
+                                .contentShape(.contextMenuPreview, .rect(cornerRadius: 30))
                             //MARK: contextMenu
                                 .contextMenu{
                                     
                                     #if os(iOS)
                                     //Share
-                                    Button(action: {
-                                        shareToStory(counter: counter, pattern: true)
-                                    }){
-                                        Text("Share story")
-                                        Image(systemName: "camera.circle.fill")
-                                    }
+                                    Button(
+                                        "Share story",
+                                        systemImage: "camera.circle.fill",
+                                        action: {
+                                        shareToStory(counter: counter, pattern: true)}
+                                    )
                                     #endif
                                     
                                     //Delete
-                                    Button(role: .destructive, action: {
+                                    Button(
+                                        "Delete",
+                                        systemImage: "trash",
+                                        role: .destructive,
+                                        action: {
                                         withAnimation{
                                             dataController.delete(counter)
                                         }
-                                    }){
-                                        Text("Delete")
-                                        Image(systemName: "trash")
-                                    }
+                                    })
                             }
                         }
                         .buttonStyle(.plain)
-                        .frame(width: isAspectSmall ? counterHeight : counterWidth, height: counterHeight)
                         .shadow(
                             color: counter.color.opacity(0.3),
                             radius: 10,

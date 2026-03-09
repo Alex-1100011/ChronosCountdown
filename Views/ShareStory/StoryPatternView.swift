@@ -14,7 +14,7 @@ struct StoryPatternView: View {
         ZStack {
             Rectangle()
                 .foregroundStyle(
-                    Gradient(colors: [(counter.color + 0.3)!, (counter.color - 0.25)!])
+                    Gradient(colors: [(counter.color + 0.3) ?? .gray, (counter.color - 0.25) ?? .black])
                 )
             
             Grid{
@@ -37,19 +37,12 @@ struct StoryPatternView: View {
         .frame(width: 900, height: 1600)
     }
 }
-
+#if DEBUG
 struct IgStoryView_Previews: PreviewProvider {
     static var previews: some View {
+        StoryPatternView(counter: Counter(name: "Hello", date: Date(), color: sampleColors[3], symbolName: symbols[9].symbolName))
         
-        
-        StoryPatternView(counter: Counter(name: "Hello", date: Date(), color: testColours[3], symbolName: symbols[9].symbolName))
-        
-        let bgRenderer = ImageRenderer(content: StoryPatternView(counter: Counter()))
-//        bgRenderer.scale = 3.0
-        Image(uiImage: bgRenderer.uiImage!)
-            .previewLayout(.sizeThatFits)
-        
-        StoryPatternView(counter: Counter())
+        StoryPatternView(counter: sampleCounters[1])
             .clipShape(RoundedRectangle(cornerRadius: 30))
             .scaleEffect(0.3)
         
@@ -57,3 +50,4 @@ struct IgStoryView_Previews: PreviewProvider {
         
     }
 }
+#endif
